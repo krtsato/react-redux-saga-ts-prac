@@ -2,15 +2,19 @@ FROM node:12.14.0-alpine3.11
 
 WORKDIR /react-redux-ts-prac
 
-# The command "create-react-app" is not executed to avoid making a black box.
+# npm install notes
+## The command "create-react-app" is not executed to avoid making a black box.
 
-# npm i -D
 ## Babel as a transpiler, TypeScript as a type definer
 ## because of Jest dependence
+## needless of ts-loader, @types/jest and ts-jest
 
 ## Babel
 ### @babel/cli @babel/core @babel/preset-typescript (TypeScript from https://bit.ly/35pIWJk)
 ### babel-loader @babel/core @babel/preset-env (Webpack from https://bit.ly/2ZVzEUr)
+
+## TypeScript
+### typescript @types/react @types/react-dom source-map-loader webpack webpack-cli webpack-dev-server (React & Webpack from https://bit.ly/39xoYjc)
 
 ## ESLint
 ### eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks (React rules from https://bit.ly/37E4nrV)
@@ -27,19 +31,33 @@ WORKDIR /react-redux-ts-prac
 ### jest babel-jest @babel/preset-env @babel/preset-react react-test-renderer (React from https://bit.ly/2txISKh)
 ### jest babel-jest (Redux from  https://bit.ly/2uiUDVy)
 
-## Test for axios & Redux
-# axios-mock-adapter (from https://bit.ly/2uaZesH)
-# redux-saga-test-plan (from https://bit.ly/37ybVMH)
+## Test of axios, Redux and E2E system
+### axios-mock-adapter (Mock Test from https://bit.ly/2uaZesH)
+### redux-saga-test-plan (Integration Test from https://bit.ly/37ybVMH)
+### cypress (E2E Test from https://bit.ly/2FlIRvK)
 
 ## Storybook
-### react-test-render require-context.macro babel-plugin-macros (SnapShot from https://bit.ly/2FmyJCU)
-### @storybook/react @storybook/addon-{actions,a11y,knobs,info,links,storyshots,viewport} react-docgen-typescript-loader
-### @types/{node,react-test-renderer}
+### babel-plugin-macros @storybook/addon-storyshots react-test-render require-context.macro @types/react-test-renderer (SnapShots from https://bit.ly/2FmyJCU)
+### @storybook/react (React from https://bit.ly/36AJgGw)
+### @storybook/addon-{a11y,actions,knobs,info,links,storyshots,viewport} @types/node (Addons from https://bit.ly/39DJwGW, https://bit.ly/37Eu1wK)
+### babel-loader react-docgen-typescript-loader @storybook/addon-info (TypeScript from https://bit.ly/37BmY7P)
+
+## Material UI
+### eslint-plugin-material-ui (Material UI Rules from https://bit.ly/2SUakws, https://bit.ly/2tqOdDj)
+### @material-ui/core @material-ui/icons (SVG icons & other styles from https://bit.ly/2tuKp45)
+### @types/material-ui (TypeScript from https://bit.ly/2MVUiOR)
 
 RUN set -ox pipefail \
+  && apt-get update \
+  && apt-get install -y --no-install-recommends \
+  jq \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/* \
   && npm init -y \
   && npm i \
   axios \
+  @material-ui/core \
+  @material-ui/icons \
   react \
   redux \
   redux-saga \
@@ -54,22 +72,29 @@ RUN set -ox pipefail \
   @babel/core \
   babel-jest \
   babel-loader \
+  babel-plugin-macros \
   @babel/preset-env \
   @babel/preset-react \
   @babel/preset-typescript \
+  cypress \
   eslint \
   eslint-config-airbnb \
   eslint-config-prettier \
   eslint-plugin-import \
   eslint-plugin-jsx-a11y \
   eslint-plugin-jest \
+  eslint-plugin-material-ui \
   eslint-plugin-prettier \
   eslint-plugin-react \
   eslint-plugin-react-hooks \
   jest \
+  react-docgen-typescript-loader \
   react-test-renderer \
   redux-saga-test-plan \
+  require-context.macro \
   source-map-loader \
+  @storybook/react \
+  @storybook/addon-{a11y,actions,knobs,info,links,storyshots,viewport} \
   stylelint \
   stylelint-order \
   stylelint-prettier \
@@ -78,25 +103,14 @@ RUN set -ox pipefail \
   typescript \
   @typescript-eslint/eslint-plugin \
   @typescript-eslint/parser \
-  @types/{react,react-dom,react-router,react-router-dom,react-redux,node,jest} \
+  @types/{material-ui,node,react,react-dom,react-router,react-router-dom,react-redux,react-test-renderer} \
   webpack \
   webpack-cli \
   webpack-dev-server
 
-###### sample
-# yarn add semantic-ui-react semantic-ui-css
-# yarn add @storybook/react (@types/storybook__react) react-docgen-typescript-loader
-# yarn add -D @storybook/addon-a11y (@types/storybook__addon-a11y) @storybook/addon-actions (@types/storybook__addon-actions) @storybook/addon-info (@types/storybook__addon-info) @storybook/addon-knobs (@types/storybook__addon-knobs) @storybook/addon-links (@types/storybook__addon-links) (@storybook/addon-viewport @types/storybook__addon-viewport)
-# yarn add -D redux-saga-test-plan axios-mock-adapter
-# yarn add -D @storybook/addon-storyshots @types/storybook__addon-storyshots react-test-renderer require-context.macro babel-plugin-macros
-# yarn add -D cypress
-#####
-
-##### Default
-# ENV NODE_ENV production
-# COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
-# RUN npm install --production --silent && mv node_modules ../
-# COPY . .
-# EXPOSE 3000
-# CMD npm start
-#####
+ENV NODE_ENV production
+COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+RUN npm install --production --silent && mv node_modules ../
+COPY . .
+EXPOSE 3000
+CMD ["npm", "run", "build"]
