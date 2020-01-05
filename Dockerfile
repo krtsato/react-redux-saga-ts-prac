@@ -1,6 +1,6 @@
 FROM node:12.14.0-alpine3.11
 
-WORKDIR /react-redux-ts-prac
+WORKDIR /docker-root
 
 # npm install notes
 ## The command "create-react-app" is not executed to avoid making a black box.
@@ -48,11 +48,10 @@ WORKDIR /react-redux-ts-prac
 ### @types/material-ui (TypeScript from https://bit.ly/2MVUiOR)
 
 RUN set -ox pipefail \
-  && apt-get update \
-  && apt-get install -y --no-install-recommends \
-  jq \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* \
+  && apk update \
+  && apk add --no-cache \
+  jq vim zsh \
+  && rm -rf /var/cache/apk/* \
   && npm init -y \
   && npm i \
   axios \
@@ -108,9 +107,8 @@ RUN set -ox pipefail \
   webpack-cli \
   webpack-dev-server
 
-ENV NODE_ENV production
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
-RUN npm install --production --silent && mv node_modules ../
-COPY . .
-EXPOSE 3000
+# RUN npm install --production --silent && mv node_modules ../
+# COPY . .
+# EXPOSE 3000
+
 CMD ["npm", "run", "build"]
