@@ -1,6 +1,7 @@
-FROM node:12.14.0-alpine3.11
+FROM node:13.5.0-alpine3.11
 
-WORKDIR /docker-root
+WORKDIR /container
+COPY package.json package-lock.json ./
 
 # npm install notes
 ## The command "create-react-app" is not executed to avoid making a black box.
@@ -47,12 +48,19 @@ WORKDIR /docker-root
 ### @material-ui/core @material-ui/icons (SVG icons & other styles from https://bit.ly/2tuKp45)
 ### @types/material-ui (TypeScript from https://bit.ly/2MVUiOR)
 
+## Install peer dependencies myself
+### npm WARN eslint-config-airbnb@18.0.1 requires a peer of eslint-plugin-react-hooks@^1.7.0 but none is installed.
+
+## Skip optional dependency
+### npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.11
+### wanted {"os":"darwin","arch":"any"} / current: {"os":"linux","arch":"x64"}
+
 RUN set -ox pipefail \
   && apk update \
   && apk add --no-cache \
-  jq vim zsh \
+  vim zsh \
   && rm -rf /var/cache/apk/* \
-  && npm init -y \
+  && npm config set also=dev progress=false save-exact=true \
   && npm i \
   axios \
   @material-ui/core \
@@ -65,6 +73,8 @@ RUN set -ox pipefail \
   react-router \
   react-router-dom \
   connected-react-router \
+  webpack \
+  webpack-cli \
   && npm i -D \
   axios-mock-adapter \
   @babel/cli \
@@ -85,15 +95,22 @@ RUN set -ox pipefail \
   eslint-plugin-material-ui \
   eslint-plugin-prettier \
   eslint-plugin-react \
-  eslint-plugin-react-hooks \
+  eslint-plugin-react-hooks@^1.7.0 \
   jest \
+  prettier \
   react-docgen-typescript-loader \
   react-test-renderer \
   redux-saga-test-plan \
   require-context.macro \
   source-map-loader \
   @storybook/react \
-  @storybook/addon-{a11y,actions,knobs,info,links,storyshots,viewport} \
+  @storybook/addon-a11y \
+  @storybook/addon-actions \
+  @storybook/addon-knobs \
+  @storybook/addon-info \
+  @storybook/addon-links \
+  @storybook/addon-storyshots \
+  @storybook/addon-viewport \
   stylelint \
   stylelint-order \
   stylelint-prettier \
@@ -102,13 +119,15 @@ RUN set -ox pipefail \
   typescript \
   @typescript-eslint/eslint-plugin \
   @typescript-eslint/parser \
-  @types/{material-ui,node,react,react-dom,react-router,react-router-dom,react-redux,react-test-renderer} \
-  webpack \
-  webpack-cli \
-  webpack-dev-server
-
-# RUN npm install --production --silent && mv node_modules ../
-# COPY . .
-# EXPOSE 3000
-
-CMD ["npm", "run", "build"]
+  @types/material-ui \
+  @types/node \
+  @types/react \
+  @types/react-dom \
+  @types/react-router \
+  @types/react-router-dom \
+  @types/react-redux \
+  @types/react-test-renderer \
+  webpack-dev-server \
+  && npm audit fix \
+  && npm update \
+  && npm dedupe
