@@ -12,3 +12,4 @@ services:
       - .:/container
     command: /bin/zsh -c ./npm-install.sh
     container_name: rrstp-ctr
+    tty: true
