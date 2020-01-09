@@ -52,75 +52,84 @@
 ### npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.11
 ### wanted {"os":"darwin","arch":"any"} / current: {"os":"linux","arch":"x64"}
 
-$ npm i \
-  axios \
-  @material-ui/core \
-  @material-ui/icons \
-  react \
-  redux \
-  redux-saga \
-  react-dom \
-  react-redux \
-  react-router \
-  react-router-dom \
-  connected-react-router \
-  webpack \
-  webpack-cli
+save() {
+  npm i \
+    axios \
+    @material-ui/core \
+    @material-ui/icons \
+    react \
+    redux \
+    redux-saga \
+    react-dom \
+    react-redux \
+    react-router \
+    react-router-dom \
+    connected-react-router \
+    webpack \
+    webpack-cli
+}
 
-$ npm i -D \
-  axios-mock-adapter \
-  @babel/cli \
-  @babel/core \
-  babel-jest \
-  babel-loader \
-  babel-plugin-macros \
-  @babel/preset-env \
-  @babel/preset-react \
-  @babel/preset-typescript \
-  cypress \
-  eslint \
-  eslint-config-airbnb \
-  eslint-config-prettier \
-  eslint-plugin-import \
-  eslint-plugin-jsx-a11y \
-  eslint-plugin-jest \
-  eslint-plugin-material-ui \
-  eslint-plugin-prettier \
-  eslint-plugin-react \
-  eslint-plugin-react-hooks@^1.7.0 \
-  jest \
-  prettier \
-  react-docgen-typescript-loader \
-  react-test-renderer \
-  redux-saga-test-plan \
-  require-context.macro \
-  source-map-loader \
-  @storybook/react \
-  @storybook/addon-a11y \
-  @storybook/addon-actions \
-  @storybook/addon-knobs \
-  @storybook/addon-info \
-  @storybook/addon-links \
-  @storybook/addon-storyshots \
-  @storybook/addon-viewport \
-  stylelint \
-  stylelint-order \
-  stylelint-prettier \
-  stylelint-config-prettier \
-  stylelint-config-standard \
-  typescript \
-  @typescript-eslint/eslint-plugin \
-  @typescript-eslint/parser \
-  @types/material-ui \
-  @types/node \
-  @types/react \
-  @types/react-dom \
-  @types/react-router \
-  @types/react-router-dom \
-  @types/react-redux \
-  @types/react-test-renderer \
-  webpack-dev-server
+save_dev() {
+  npm i -D \
+    axios-mock-adapter \
+    @babel/cli \
+    @babel/core \
+    babel-jest \
+    babel-loader \
+    babel-plugin-macros \
+    @babel/preset-env \
+    @babel/preset-react \
+    @babel/preset-typescript \
+    cypress \
+    eslint \
+    eslint-config-airbnb \
+    eslint-config-prettier \
+    eslint-plugin-import \
+    eslint-plugin-jsx-a11y \
+    eslint-plugin-jest \
+    eslint-plugin-material-ui \
+    eslint-plugin-prettier \
+    eslint-plugin-react \
+    eslint-plugin-react-hooks@^1.7.0 \
+    jest \
+    prettier \
+    react-docgen-typescript-loader \
+    react-test-renderer \
+    redux-saga-test-plan \
+    require-context.macro \
+    source-map-loader \
+    @storybook/react \
+    @storybook/addon-a11y \
+    @storybook/addon-actions \
+    @storybook/addon-knobs \
+    @storybook/addon-info \
+    @storybook/addon-links \
+    @storybook/addon-storyshots \
+    @storybook/addon-viewport \
+    stylelint \
+    stylelint-order \
+    stylelint-prettier \
+    stylelint-config-prettier \
+    stylelint-config-standard \
+    typescript \
+    @typescript-eslint/eslint-plugin \
+    @typescript-eslint/parser \
+    @types/material-ui \
+    @types/node \
+    @types/react \
+    @types/react-dom \
+    @types/react-router \
+    @types/react-router-dom \
+    @types/react-redux \
+    @types/react-test-renderer \
+    webpack-dev-server
+}
 
-$ npm audit fix
-$ npm update
-$ npm dedupe
+echo "\n========== Start npm install --save ==========\n" &&
+  save &&
+  echo "\n========== Start npm install --save-dev ==========\n" &&
+  save_dev &&
+  echo "\n========== Start npm audit fix ==========\n" &&
+  npm audit fix &&
+  echo "\n========== Start dedupe ==========\n" &&
+  npm dedupe

@@ -4,9 +4,11 @@ services:
   frontend:
     build:
       context: .
-      dockerfile:
+      dockerfile: Dockerfile
     image: rrstp-img:latest
     ports:
       -  8080:8080
-    volumes: 
-    command: sh -c "cd front-container && npm start"
+    volumes:
+      - .:/container
+    command: /bin/zsh -c ./npm-install.sh
+    container_name: rrstp-ctr
