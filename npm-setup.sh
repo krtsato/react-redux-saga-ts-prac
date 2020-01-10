@@ -64,9 +64,7 @@ save() {
     react-redux \
     react-router \
     react-router-dom \
-    connected-react-router \
-    webpack \
-    webpack-cli
+    connected-react-router
 }
 
 save_dev() {
@@ -122,6 +120,8 @@ save_dev() {
     @types/react-router-dom \
     @types/react-redux \
     @types/react-test-renderer \
+    webpack \
+    webpack-cli \
     webpack-dev-server
 }
 
@@ -132,4 +132,6 @@ echo "\n========== Start npm install --save ==========\n" &&
   echo "\n========== Start npm audit fix ==========\n" &&
   npm audit fix &&
   echo "\n========== Start dedupe ==========\n" &&
-  npm dedupe
+  npm dedupe &&
+  echo "\n========== Start npm server ==========\n" &&
+  zsh
