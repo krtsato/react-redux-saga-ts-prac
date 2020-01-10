@@ -51,12 +51,19 @@
 └── package.json
 ```
 
+### Webpack
+
+- エントリポイントとなるファイルを作成
+  - dist/index.html
+  - src/index.js
+- webpack.config.js を書く
+
 ### Docker
 
 - Dockerfile
   - CMD は分離性のため docker-compose.yml に書かない
 - docker-compose.yml
-  - 起動 : `docker-compose up --build -d` 
+  - 起動 : `docker-compose up --build -d`  
     - 環境が固まらないうちは image を再ビルド
   - 確認 : `docker exec -it コンテナ名 zsh`  
   - 停止 : `docker container stop コンテナ名`
@@ -69,7 +76,3 @@ docker container stop コンテナ名 &&
 docker ps -aq | xargs docker rm &&
 docker images -aq | xargs docker rmi
 ```
-
-### Webpack
-
-- hoge
