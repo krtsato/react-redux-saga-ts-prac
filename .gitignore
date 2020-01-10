@@ -1,2 +1,3 @@
 .DS_Store
+.markdownlint.yml
 node_modules
