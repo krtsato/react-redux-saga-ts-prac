@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     image: rrstp-img:latest
     ports:
-      -  8080:8080
+      -  8000:8000
     volumes:
       - .:/container
     container_name: rrstp-ctr

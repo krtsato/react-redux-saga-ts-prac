@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+# This script runs at the Dockerfile entry point
+
 # npm install notes
 ## The command "create-react-app" is not executed to avoid making a black box.
 
@@ -125,13 +127,15 @@ save_dev() {
     webpack-dev-server
 }
 
-echo "\n========== Start npm install --save ==========\n" &&
-  save &&
-  echo "\n========== Start npm install --save-dev ==========\n" &&
-  save_dev &&
-  echo "\n========== Start npm audit fix ==========\n" &&
-  npm audit fix &&
-  echo "\n========== Start dedupe ==========\n" &&
-  npm dedupe &&
-  echo "\n========== Start npm server ==========\n" &&
-  zsh
+if [ ! -d "node_modules" ]; then
+  echo "\n========== Start npm install --save ==========\n" &&
+    save &&
+    echo "\n========== Start npm install --save-dev ==========\n" &&
+    save_dev &&
+    echo "\n========== Start npm audit fix ==========\n" &&
+    npm audit fix &&
+    echo "\n========== Start dedupe ==========\n" &&
+    npm dedupe
+fi
+
+zsh

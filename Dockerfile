@@ -2,7 +2,7 @@ FROM node:13.5.0-alpine3.11
 
 WORKDIR /container
 
-COPY npm-setup.sh .npmrc ./
+COPY npm-setup.sh webpack-setup.sh .npmrc ./
 
 RUN set -ox pipefail \
   && apk update \

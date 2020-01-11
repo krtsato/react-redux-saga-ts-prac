@@ -39,7 +39,7 @@
 
 ```zsh
 .
-├── dist/
+├── public/
 ├── src/
 ├── .git
 ├── .gitignore
@@ -54,9 +54,19 @@
 ### Webpack
 
 - エントリポイントとなるファイルを作成
-  - dist/index.html
+  - public/index.html
   - src/index.js
 - webpack.config.js を書く
+  - webpack-dev-server の設定
+  - HMR の設定？ (今後対応)
+  - React の設定
+  - Babel の設定
+  - TypeScript の設定
+  - Lint/Format の設定
+  - Material UI の設定
+  - Jest の設定
+  - StroyBook の設定
+  - Cypress の設定
 
 ### Docker
 
@@ -68,11 +78,28 @@
   - 確認 : `docker exec -it コンテナ名 zsh`  
   - 停止 : `docker container stop コンテナ名`
   - 削除 : `docker container rm コンテナ名`
-  - 一括停止 & 削除は以下のコマンド
-    - 環境が固まったらこの辺は丁寧にやる
+  - 一括停止 & 削除 : `docker-compose down --rmi all`
+
+### 実行手順
+
+コンテナを立ち上げる
 
 ```zsh
-docker container stop コンテナ名 &&
-docker ps -aq | xargs docker rm &&
-docker images -aq | xargs docker rmi
+docker-compose up --build -d サービス名 && docker logs -f サービス名
+```
+
+コンテナ内で webpack の設定ファイルを生成する
+
+```zsh
+docker-compose exec サービス名 zsh
+
+# webpack 設定ファイルを複数作成
+webpack-setup.sh
+```
+
+コードを書く
+
+```zsh
+# webpack-dev-server を起動
+npm run build-dev
 ```
