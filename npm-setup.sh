@@ -84,6 +84,7 @@ save_dev() {
     eslint \
     eslint-config-airbnb \
     eslint-config-prettier \
+    eslint-import-resolver-webpack \
     eslint-plugin-import \
     eslint-plugin-jsx-a11y \
     eslint-plugin-jest \

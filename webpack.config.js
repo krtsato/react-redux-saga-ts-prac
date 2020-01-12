@@ -3,14 +3,44 @@ const env = process.env.NODE_ENV || 'development';
 
 module.exports = {
   mode: env,
-  entry: './src/index.js',
+  entry: './src/index.jsx',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public')
   },
 
-  // This is a minimum setting. Add config below.
+  // This is a minimum setting. Add more config below.
 
+  // Babel
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ["@babel/preset-env", {
+                "targets": [">5% in JP", "not ie < 11", "not op_mini all"]
+              }],
+              "@babel/preset-react"
+            ]
+          }
+        }
+      }
+    ]
+  },
+
+  // import sentences
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src/components')
+    },
+    extensions: ['.tsx', '.ts', '.jsx', '.js']
+  },
+
+  // webpack-dev-server
   devServer: {
     compress: true,
     contentBase: path.resolve(__dirname, 'public'),

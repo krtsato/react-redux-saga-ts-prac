@@ -55,12 +55,21 @@
 
 - エントリポイントとなるファイルを作成
   - public/index.html
-  - src/index.js
+  - src/index.jsx
 - webpack.config.js を書く
   - webpack-dev-server の設定
   - HMR の設定？ (今後対応)
   - React の設定
+    - src/components/app.jsx を作成
+    - index.jsx で import app.jsx
+    - webpack.config.js の resolve
+      - alias
+      - extensions
   - Babel の設定
+    - webpack.config.js の module
+      - babel-loader
+      - @babel/preset-env
+      - @babel/preset-react
   - TypeScript の設定
   - Lint/Format の設定
   - Material UI の設定
