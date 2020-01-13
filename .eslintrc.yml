@@ -12,11 +12,11 @@ extends:
   - plugin:import/warnings
   - plugin:import/typescript
   - plugin:jsx-a11y/recommended
-  - plugin:react/recommended
-  - plugin:@typescript-eslint/eslint-recommended
-  - plugin:@typescript-eslint/recommended
   - plugin:prettier/recommended
+  - plugin:react/recommended
+  - plugin:@typescript-eslint/recommended
   - prettier/react
+  - prettier/@typescript-eslint
 
 globals:
   Atomics: readonly
@@ -26,7 +26,7 @@ globals:
   document: readonly
   $: readonly
 
-parser: '@typescript-eslint/parser'
+parser: "@typescript-eslint/parser"
 
 parserOptions:
   ecmaFeatures:
@@ -39,8 +39,9 @@ plugins:
   - import
   - jsx-a11y
   - react
+  - prettier
   - react-hooks
-  - '@typescript-eslint'
+  - "@typescript-eslint"
 
 settings:
   import/resolver: webpack
@@ -51,7 +52,7 @@ rules:
   linebreak-style:
     - error
     - unix
-  
+
   # Overwrite default and airbnb rules
   no-undef: error
   no-unused-expressions: off
@@ -60,8 +61,6 @@ rules:
     - error
     - allow:
       - user_id
-      - showcase_id
-      - crystal_id
 
   jsx-a11y/no-autofocus: off
   jsx-a11y/no-onchange: off
@@ -72,6 +71,13 @@ rules:
   import/prefer-default-export: off
 
   # Add react rules
+  react/jsx-filename-extension: 
+    - error
+    - extensions:
+      - .tsx
+      - .ts
+      - .js
+
   react/forbid-prop-types: off
   react/jsx-boolean-value: off
   react/require-default-props: off

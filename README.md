@@ -79,7 +79,14 @@
       - path の略記のため resolve.extensions を追加
       - tsconfig.json に同様の alias を追加
   - Lint/Format の設定
-    - settings に同様の alias を追加
+    - 警告 `Module.createRequireFromPath() is deprecated`
+      - 現時点で Lint には影響していないため保留
+      - npm run コマンドに  exit 0 を付与
+    - settings に import/resolver: webpack を追加
+    - React の設定を追加
+    - TypeScript の設定を追加
+    - Prettier の設定を追加
+    - VSCode の設定を追加
   - Material UI の設定
   - Jest の設定
   - StroyBook の設定

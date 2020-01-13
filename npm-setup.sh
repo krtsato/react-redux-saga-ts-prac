@@ -142,4 +142,4 @@ fi
 
 echo "You can exit this process with CTRL-C
 and enter a container by 'docker-compose exec <service> zsh'\n" &&
-  zshs
+  zsh
