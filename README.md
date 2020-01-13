@@ -71,7 +71,15 @@
       - @babel/preset-env
       - @babel/preset-react
   - TypeScript の設定
+    - tsconfig.json を作成
+    - webpack.config.js を編集
+      - module.rule の test に拡張子を追加
+      - "@babel/preset-typescript"
+      - path の可読性のため resolve.alias を追加
+      - path の略記のため resolve.extensions を追加
+      - tsconfig.json に同様の alias を追加
   - Lint/Format の設定
+    - settings に同様の alias を追加
   - Material UI の設定
   - Jest の設定
   - StroyBook の設定
@@ -94,7 +102,7 @@
 コンテナを立ち上げる
 
 ```zsh
-docker-compose up --build -d サービス名 && docker logs -f サービス名
+docker-compose up --build -d サービス名 && docker logs -f コンテナ名
 ```
 
 コンテナ内で webpack の設定ファイルを生成する

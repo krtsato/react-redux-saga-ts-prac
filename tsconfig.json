@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    // JavaScript ファイルも対象
+    "allowJs": true,
+    // CommonJS モジュールと ES モジュールの相互運用が可能
+    "baseUrl": "./src/",
+    "paths": {
+      "@/*": [
+        "components/*"
+      ]
+    },
+    "esModuleInterop": true,
+    // 疎結合化のためすべてのファイルを単一のモジュールとして評価
+    "isolatedModules": true,
+    // jsx ファイルが React だと認識
+    "jsx": "react",
+    // 出力するモジュールは ECMAScript の 最新版に準拠
+    "module": "esnext",
+    // モジュール解決は Node.js 方式を採用
+    "moduleResolution": "node",
+    // TypeScript でなく Babel でコンパイル
+    "noEmit": true,
+    // Webpack devtool で使用
+    "sourceMap": true,
+    // 厳格な設定を有効化 strictNullChecks, noImplicitAny など
+    "strict": true,
+    // ECMAScript の 最新版を参照する
+    "target": "esnext",
+  },
+  "exclude": [
+    "node_modules",
+    "public"
+  ]
+}
