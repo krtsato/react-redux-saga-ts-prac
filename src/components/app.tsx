@@ -1,4 +1,5 @@
 import React from "react"
+import Button from "@material-ui/core/Button"
 
 interface HelloProps {
   compiler: string
@@ -6,7 +7,7 @@ interface HelloProps {
 }
 
 export const App = (helloProps: HelloProps): JSX.Element => (
-  <h1>
+  <Button variant="contained" color="primary">
     Hello from {helloProps.compiler} and {helloProps.framework}!
-  </h1>
+  </Button>
 )
