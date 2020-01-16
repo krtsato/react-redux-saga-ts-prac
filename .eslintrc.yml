@@ -11,6 +11,7 @@ extends:
   - plugin:import/errors
   - plugin:import/warnings
   - plugin:import/typescript
+  - plugin:jest/recommended
   - plugin:jsx-a11y/recommended
   - plugin:prettier/recommended
   - plugin:react/recommended

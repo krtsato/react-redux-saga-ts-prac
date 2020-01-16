@@ -89,6 +89,24 @@
     - VSCode の設定を追加
   - Material UI の設定
   - Jest の設定
+    - config ファイル作成 `npm test -- --init`
+    - tsconfig の 設定を追加 `include:{"jest/**/*"}`
+    - まだエラーが出ている
+      - 以下の２つ
+
+```zsh
+1. SyntaxError: /container/jest/example/example.test.tsx: Unexpected token (7:18)
+
+       5 | test("innerHTMLに含まれているか確認", () => {
+       6 |   const div = document.createElement("div")
+    >  7 |   ReactDOM.render(<App compiler="TypeScript" framework="React" />, div)
+
+===
+2. Parsing error: "parserOptions.project" has been set for @typescript-eslint/parser.
+The file does not match your project config: jest.config.js.
+The file must be included in at least one of the projects provided.
+```
+
   - StroyBook の設定
   - Cypress の設定
 

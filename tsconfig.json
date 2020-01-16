@@ -2,13 +2,14 @@
   "compilerOptions": {
     // JavaScript ファイルも対象
     "allowJs": true,
-    // CommonJS モジュールと ES モジュールの相互運用が可能
+    // エイリアスを設定
     "baseUrl": "./src/",
     "paths": {
       "@/*": [
         "components/*"
       ]
     },
+    // CommonJS モジュールと ES モジュールの相互運用が可能
     "esModuleInterop": true,
     // 疎結合化のためすべてのファイルを単一のモジュールとして評価
     "isolatedModules": true,
@@ -27,6 +28,10 @@
     // ECMAScript の 最新版を参照する
     "target": "esnext",
   },
+  "include": [
+    "src/**/*",
+    "jest/**/*"
+  ],
   "exclude": [
     "node_modules",
     "public"
