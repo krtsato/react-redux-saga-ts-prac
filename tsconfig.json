@@ -3,7 +3,7 @@
     // JavaScript ファイルも対象
     "allowJs": true,
     // エイリアスを設定
-    "baseUrl": "./src/",
+    "baseUrl": "src",
     "paths": {
       "@/*": [
         "components/*"

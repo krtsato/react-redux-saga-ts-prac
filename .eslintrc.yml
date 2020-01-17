@@ -68,6 +68,12 @@ rules:
   jsx-a11y/media-has-caption: off
 
   # Add import rules
+  import/extensions:
+    - error
+    - tsx: ignorePackages
+      ts: ignorePackages 
+      js: ignorePackages
+
   import/no-unresolved: off
   import/prefer-default-export: off
 

@@ -18,21 +18,7 @@ module.exports = {
       {
         test: /\.(tsx|ts|js)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: [
-              [
-                "@babel/preset-env",
-                {
-                  targets: [">5% in JP", "not ie < 11", "not op_mini all"]
-                }
-              ],
-              "@babel/preset-react",
-              "@babel/preset-typescript"
-            ]
-          }
-        }
+        use: ["babel-loader", "source-map-loader"]
       }
     ]
   },
@@ -53,5 +39,5 @@ module.exports = {
     port: 8000,
     watchContentBase: true
   },
-  devtool: "inline-source-map"
+  devtool: "eval-source-map"
 }
