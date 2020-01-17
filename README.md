@@ -35,6 +35,8 @@
   - webpack のセットアップ
   - サーバの起動まで行う
   - chmod +x ./npm-setup.sh
+- npm-setup.sh を書く？ (今後対応)
+  - コマンド１つで各 config ファイルを作成
 - 以下のディレクトリを掘る
 
 ```zsh
@@ -42,6 +44,7 @@
 ├── jest/
 ├── public/
 ├── src/
+├── .dockerignore
 ├── .git
 ├── .gitignore
 ├── .npmrc
@@ -49,6 +52,7 @@
 ├── README.md
 ├── docker-compose.yml
 ├── npm-setup.sh
+├── webpack-setup.sh
 └── package.json
 ```
 
@@ -97,6 +101,7 @@
     - tsconfig の設定を追加 `include:{"jest/**/*"}`
     - eslintrc の設定を追加 `import/extensions`
     - config ファイル作成 `npm test -- --init`
+    - ./jest/\*\*/* に ./src/components/\*\*/* と同じ構成でテストコードを書く
   - StroyBook の設定
   - Cypress の設定
 

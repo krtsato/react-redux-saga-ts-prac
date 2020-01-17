@@ -1,5 +1,4 @@
 const path = require("path")
-
 const env = process.env.NODE_ENV || "development"
 
 module.exports = {
@@ -9,8 +8,6 @@ module.exports = {
     filename: "bundle.js",
     path: path.resolve(__dirname, "public")
   },
-
-  // This is a minimum setting. Add more config below.
 
   // Babel
   module: {
@@ -31,7 +28,7 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"]
   },
 
-  // webpack-dev-server
+  // developmen
   devServer: {
     compress: true,
     contentBase: path.resolve(__dirname, "public"),

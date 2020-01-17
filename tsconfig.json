@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     // JavaScript ファイルも対象
-    "allowJs": true,
+    "allowJs": true, 
     // エイリアスを設定
     "baseUrl": "src",
     "paths": {
