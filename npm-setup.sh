@@ -140,6 +140,5 @@ if [ ! -d "node_modules" ]; then
     echo "\n========== Finish npm-setup.sh ==========\n"
 fi
 
-echo "You can exit this process with CTRL-C
-and enter a container by 'docker-compose exec <service> zsh'\n" &&
-  zsh
+echo "If config files have not been created,
+you can execute 'webpack-setup.sh'."
