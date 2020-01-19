@@ -99,10 +99,20 @@
   - Material UI の設定
   - Jest の設定
     - tsconfig の設定を追加 `include:{"jest/**/*"}`
-    - eslintrc の設定を追加 `import/extensions`
+    - ESLint の設定を追加 `import/extensions`
     - config ファイル作成 `npm test -- --init`
-    - ./jest/\*\*/* に ./src/components/\*\*/* と同じ構成でテストコードを書く
+    - __./jest/\*\*/* に ./src/components/\*\*/* と同じ構成でテストコードを書く__
+    - ./src/components/\*\*/* にテストコードを書く (今後対応)
   - StroyBook の設定
+    - React の設定を追加 `npx -p @storybook/cli sb init --type react`
+    - TypeScript with Babel の設定を .storybook/main.js に追加
+    - 下記以外の addon を.storybook/main.js に追加
+      - @storybook/addon-info -> @storybook/addon-info (今後変更)
+      - @storybook/addon-snapshots
+      - これらはテストコードから直接参照する
+    - ESLint の設定を追加 `import/no-extraneous-dependencies`
+    - ./src/components/\*\*/* にテストコードを書く
+      - example.tsx -> example.stories.tsx -> index.tsx の流れ
   - Cypress の設定
 
 ### Docker

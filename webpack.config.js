@@ -28,7 +28,7 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"]
   },
 
-  // developmen
+  // development
   devServer: {
     compress: true,
     contentBase: path.resolve(__dirname, "public"),

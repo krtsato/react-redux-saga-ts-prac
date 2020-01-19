@@ -39,7 +39,7 @@
 ## Storybook
 ### babel-plugin-macros @storybook/addon-storyshots react-test-render require-context.macro @types/react-test-renderer (SnapShots from https://bit.ly/2FmyJCU)
 ### @storybook/react (React from https://bit.ly/36AJgGw)
-### @storybook/addon-{a11y,actions,knobs,info,links,storyshots,viewport} @types/node (Addons from https://bit.ly/39DJwGW, https://bit.ly/37Eu1wK)
+### @storybook/addons @storybook/addon-{a11y,actions,knobs,info,links,storyshots,viewport} @types/node (Addons from https://bit.ly/39DJwGW, https://bit.ly/37Eu1wK)
 ### babel-loader react-docgen-typescript-loader @storybook/addon-info (TypeScript from https://bit.ly/37BmY7P)
 
 ## Material UI
@@ -99,7 +99,7 @@ save_dev() {
     redux-saga-test-plan \
     require-context.macro \
     source-map-loader \
-    @storybook/react \
+    @storybook/addons \
     @storybook/addon-a11y \
     @storybook/addon-actions \
     @storybook/addon-knobs \
@@ -107,6 +107,7 @@ save_dev() {
     @storybook/addon-links \
     @storybook/addon-storyshots \
     @storybook/addon-viewport \
+    @storybook/react \
     stylelint \
     stylelint-order \
     stylelint-prettier \
@@ -141,4 +142,4 @@ if [ ! -d "node_modules" ]; then
 fi
 
 echo "If config files have not been created,
-you can execute 'webpack-setup.sh'."
+you can execute 'webpack-setup.sh'." && zsh

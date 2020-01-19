@@ -29,10 +29,10 @@
     "target": "esnext",
   },
   "include": [
-    "src/**/*",
-    "jest/**/*"
+    "src/**/*"
   ],
   "exclude": [
+    ".storybook",
     "node_modules",
     "public"
   ]
