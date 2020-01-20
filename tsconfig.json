@@ -32,7 +32,6 @@
     "src/**/*"
   ],
   "exclude": [
-    ".storybook",
     "node_modules",
     "public"
   ]

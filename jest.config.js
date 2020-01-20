@@ -27,7 +27,10 @@ module.exports = {
   testPathIgnorePatterns: ["/node_modules/"],
 
   // A map from regular expressions to paths to transformers
-  transform: {"^.+\\.[t|j]sx?$": "babel-jest"},
+  transform: {
+    "^.+\\.[t|j]sx?$": "babel-jest",
+    "^.+\\.mdx$": "@storybook/addon-docs/jest-transform-mdx"
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: ["/node_modules/"]

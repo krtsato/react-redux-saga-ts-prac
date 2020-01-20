@@ -39,8 +39,8 @@
 ## Storybook
 ### babel-plugin-macros @storybook/addon-storyshots react-test-render require-context.macro @types/react-test-renderer (SnapShots from https://bit.ly/2FmyJCU)
 ### @storybook/react (React from https://bit.ly/36AJgGw)
-### @storybook/addons @storybook/addon-{a11y,actions,knobs,info,links,storyshots,viewport} @types/node (Addons from https://bit.ly/39DJwGW, https://bit.ly/37Eu1wK)
-### babel-loader react-docgen-typescript-loader @storybook/addon-info (TypeScript from https://bit.ly/37BmY7P)
+### @storybook/addons @storybook/addon-{a11y,actions,docs,knobs,links,storyshots,viewport} @types/node (Addons from https://bit.ly/39DJwGW, https://bit.ly/37Eu1wK)
+### babel-loader react-docgen-typescript-loader @̶s̶t̶o̶r̶y̶b̶o̶o̶k̶/̶a̶d̶d̶o̶n̶-̶i̶n̶f̶o̶ -> @storybook/addon-docs react react-is (TypeScript from https://bit.ly/37BmY7P https://bit.ly/2RIJllF)
 
 ## Material UI
 ### eslint-plugin-material-ui (Material UI Rules from https://bit.ly/2SUakws, https://bit.ly/2tqOdDj)
@@ -95,6 +95,7 @@ save_dev() {
     jest \
     prettier \
     react-docgen-typescript-loader \
+    react-is \
     react-test-renderer \
     redux-saga-test-plan \
     require-context.macro \
@@ -102,8 +103,8 @@ save_dev() {
     @storybook/addons \
     @storybook/addon-a11y \
     @storybook/addon-actions \
+    @storybook/addon-docs \
     @storybook/addon-knobs \
-    @storybook/addon-info \
     @storybook/addon-links \
     @storybook/addon-storyshots \
     @storybook/addon-viewport \

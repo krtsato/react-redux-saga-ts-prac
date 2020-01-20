@@ -12,7 +12,9 @@
     "sb": "start-storybook -p 8001",
     "sb:build": "build-storybook",
     "test": "jest",
-    "ts": "tsc"
+    "ts": "tsc",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@material-ui/core": "4.8.3",
@@ -28,7 +30,6 @@
     "redux-saga": "1.1.3"
   },
   "devDependencies": {
-    "acorn": "^7.0.0",
     "@babel/cli": "7.8.3",
     "@babel/core": "7.8.3",
     "@babel/preset-env": "7.8.3",
@@ -36,7 +37,7 @@
     "@babel/preset-typescript": "7.8.3",
     "@storybook/addon-a11y": "5.3.6",
     "@storybook/addon-actions": "5.3.6",
-    "@storybook/addon-info": "5.3.6",
+    "@storybook/addon-docs": "5.3.6",
     "@storybook/addon-knobs": "5.3.6",
     "@storybook/addon-links": "5.3.6",
     "@storybook/addon-storyshots": "5.3.6",
@@ -72,6 +73,7 @@
     "jest": "24.9.0",
     "prettier": "1.19.1",
     "react-docgen-typescript-loader": "3.6.0",
+    "react-is": "16.12.0",
     "react-test-renderer": "16.12.0",
     "redux-saga-test-plan": "4.0.0-rc.3",
     "require-context.macro": "1.2.2",

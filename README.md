@@ -104,15 +104,17 @@
     - __./jest/\*\*/* に ./src/components/\*\*/* と同じ構成でテストコードを書く__
     - ./src/components/\*\*/* にテストコードを書く (今後対応)
   - StroyBook の設定
-    - React の設定を追加 `npx -p @storybook/cli sb init --type react`
+    - React の設定を追加 `npx -p @storybook/cli sb init -f --type react`
     - TypeScript with Babel の設定を .storybook/main.js に追加
-    - 下記以外の addon を.storybook/main.js に追加
-      - @storybook/addon-info -> @storybook/addon-info (今後変更)
-      - @storybook/addon-snapshots
-      - これらはテストコードから直接参照する
+    - addon を.storybook/main.js に追加
+      - @storybook/addon-snapshots はここでは追加しない (後述)
+    - addon-docs の設定を ./storybook/preview.js に追加
     - ESLint の設定を追加 `import/no-extraneous-dependencies`
+    - jest.config.js の transform に mdx の設定を追加
     - ./src/components/\*\*/* にテストコードを書く
-      - example.tsx -> example.stories.tsx -> index.tsx の流れ
+    - Snapshots の設定を追加
+      - src/storyshots.test.js を作成
+      - require-context.macro は不要? (今後対応)
   - Cypress の設定
 
 ### Docker
