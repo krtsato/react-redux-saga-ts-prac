@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import {App} from "@/app"
+import {App} from "./app"
 
 test("innerHTMLに含まれているか確認", () => {
   const div = document.createElement("div")

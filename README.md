@@ -41,7 +41,6 @@
 
 ```zsh
 .
-├── jest/
 ├── public/
 ├── src/
 ├── .dockerignore
@@ -101,8 +100,7 @@
     - tsconfig の設定を追加 `include:{"jest/**/*"}`
     - ESLint の設定を追加 `import/extensions`
     - config ファイル作成 `npm test -- --init`
-    - __./jest/\*\*/* に ./src/components/\*\*/* と同じ構成でテストコードを書く__
-    - ./src/components/\*\*/* にテストコードを書く (今後対応)
+    - ./src/components/\*\*/* にテストコードを書く
   - StroyBook の設定
     - React の設定を追加 `npx -p @storybook/cli sb init -f --type react`
     - TypeScript with Babel の設定を .storybook/main.js に追加

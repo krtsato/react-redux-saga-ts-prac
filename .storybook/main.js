@@ -2,7 +2,7 @@ const path = require("path")
 const createCompiler = require("@storybook/addon-docs/mdx-compiler-plugin")
 
 module.exports = {
-  stories: ["../src/**/*.stories.(tsx|ts|mdx)"],
+  stories: ["../src/**/*.stories.(ts?x|js|mdx)"],
   addons: [
     "@storybook/addon-a11y/register",
     "@storybook/addon-actions/register",
@@ -14,7 +14,7 @@ module.exports = {
   webpackFinal: async config => {
     // Storybook addon-docs
     config.module.rules.push({
-      test: /\.stories\.(ts|tsx)$/,
+      test: /\.stories\.(tsx|ts|js)$/,
       enforce: "pre",
       exclude: /node_modules/,
       use: ["babel-loader", "@storybook/source-loader", "react-docgen-typescript-loader"]
