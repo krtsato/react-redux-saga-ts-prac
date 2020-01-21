@@ -112,8 +112,18 @@
     - ./src/components/\*\*/* にテストコードを書く
     - Snapshots の設定を追加
       - src/storyshots.test.js を作成
-      - require-context.macro は不要? (今後対応)
-  - Cypress の設定
+      - npm-setup.sh を元に戻して再 Docker ビルド実験
+      - 以下のエラーを解消する
+
+```zsh
+console.error node_modules/react-test-renderer/cjs/react-test-renderer.development.js:131
+  Warning: Functions are not valid as a React child. This may happen if you return a Component instead of <Component /> from render. Or maybe you meant to call this function rather than return it.
+    in div (created by Task)
+    in div (created by Task)
+    in Task
+```
+
+- Cypress の設定
 
 ### Docker
 

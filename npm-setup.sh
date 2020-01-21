@@ -37,7 +37,7 @@
 ### cypress (E2E Test from https://bit.ly/2FlIRvK)
 
 ## Storybook
-### babel-plugin-macros @storybook/addon-storyshots react-test-render require-context.macro @types/react-test-renderer (SnapShots from https://bit.ly/2FmyJCU)
+### babel-plugin-macros @storybook/addon-storyshots react-test-render r̶e̶q̶u̶i̶r̶e̶-̶c̶o̶n̶t̶e̶x̶t̶.̶m̶a̶c̶r̶o̶ @types/react-test-renderer (SnapShots from https://bit.ly/2FmyJCU)
 ### @storybook/react (React from https://bit.ly/36AJgGw)
 ### @storybook/addons @storybook/addon-{a11y,actions,docs,knobs,links,storyshots,viewport} @types/node (Addons from https://bit.ly/39DJwGW, https://bit.ly/37Eu1wK)
 ### babel-loader react-docgen-typescript-loader @̶s̶t̶o̶r̶y̶b̶o̶o̶k̶/̶a̶d̶d̶o̶n̶-̶i̶n̶f̶o̶ -> @storybook/addon-docs react react-is (TypeScript from https://bit.ly/37BmY7P https://bit.ly/2RIJllF)
@@ -49,10 +49,18 @@
 
 ## Install peer dependencies myself
 ### npm WARN eslint-config-airbnb@18.0.1 requires a peer of eslint-plugin-react-hooks@^1.7.0 but none is installed.
+### npm WARN @egoist/vue-to-react@1.1.0 requires a peer of vue@^2.6.10 but none is installed.
+### npm WARN acorn-jsx@5.1.0 requires a peer of acorn@^7.0.0 but none is installed.
 
 ## Skip optional dependency
 ### npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.11
 ### wanted {"os":"darwin","arch":"any"} / current: {"os":"linux","arch":"x64"}
+
+## Skip manual install temporaly Because of issue. Auto setup brings these packages.
+### @storybook/react
+### @storybook/addons
+### @storybook/addon-actions
+### @storybook/addon-links
 
 save() {
   npm i \
@@ -71,6 +79,7 @@ save() {
 
 save_dev() {
   npm i -D \
+    acorn@^7.0.0 \
     axios-mock-adapter \
     @babel/cli \
     @babel/core \
@@ -98,17 +107,12 @@ save_dev() {
     react-is \
     react-test-renderer \
     redux-saga-test-plan \
-    require-context.macro \
     source-map-loader \
-    @storybook/addons \
     @storybook/addon-a11y \
-    @storybook/addon-actions \
     @storybook/addon-docs \
     @storybook/addon-knobs \
-    @storybook/addon-links \
     @storybook/addon-storyshots \
     @storybook/addon-viewport \
-    @storybook/react \
     stylelint \
     stylelint-order \
     stylelint-prettier \
@@ -125,6 +129,7 @@ save_dev() {
     @types/react-router-dom \
     @types/react-redux \
     @types/react-test-renderer \
+    vue@^2.6.10 \
     webpack \
     webpack-cli \
     webpack-dev-server

@@ -13,8 +13,8 @@
     "esModuleInterop": true,
     // 疎結合化のためすべてのファイルを単一のモジュールとして評価
     "isolatedModules": true,
-    // jsx ファイルが React だと認識
-    "jsx": "react",
+    // .tsx ファイルから JSX の形式を保ったまま .jsx ファイルを出力
+    "jsx": "preserve",
     // 出力するモジュールは ECMAScript の 最新版に準拠
     "module": "esnext",
     // モジュール解決は Node.js 方式を採用
