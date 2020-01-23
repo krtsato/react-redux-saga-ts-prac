@@ -25,7 +25,7 @@ export const Task = (taskProps: TaskProps): JSX.Element => {
     e.stopPropagation()
   }
 
-  const starIcon = (): JSX.Element | null => {
+  const StarIcon = (): JSX.Element | null => {
     if (state === "TASK_ARCHIVED") {
       return (
         <div onClick={onPinTask(id)} onKeyDown={onPinTask(id)} role="button" tabIndex={0}>
@@ -60,7 +60,7 @@ export const Task = (taskProps: TaskProps): JSX.Element => {
       </div>
 
       <div className="actions" onClick={onClickStop} onKeyDown={onKeyDownStop} role="button" tabIndex={0}>
-        {starIcon}
+        <StarIcon />
       </div>
     </div>
   )

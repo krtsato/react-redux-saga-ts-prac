@@ -31,6 +31,7 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers
   transform: {
+    "^.+\\.stories\\.[tj]sx?$": "@storybook/addon-storyshots/injectFileName",
     "^.+\\.[tj]sx?$": "babel-jest",
     "^.+\\.mdx$": "@storybook/addon-docs/jest-transform-mdx"
   },

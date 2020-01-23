@@ -56,12 +56,6 @@
 ### npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.11
 ### wanted {"os":"darwin","arch":"any"} / current: {"os":"linux","arch":"x64"}
 
-## Skip manual install temporaly Because of issue. Auto setup brings these packages.
-### @storybook/react
-### @storybook/addons
-### @storybook/addon-actions
-### @storybook/addon-links
-
 save() {
   npm i \
     axios \
@@ -108,11 +102,15 @@ save_dev() {
     react-test-renderer \
     redux-saga-test-plan \
     source-map-loader \
+    @storybook/addons \
     @storybook/addon-a11y \
+    @storybook/addon-actions \
     @storybook/addon-docs \
     @storybook/addon-knobs \
+    @storybook/addon-links \
     @storybook/addon-storyshots \
     @storybook/addon-viewport \
+    @storybook/react \
     stylelint \
     stylelint-order \
     stylelint-prettier \
