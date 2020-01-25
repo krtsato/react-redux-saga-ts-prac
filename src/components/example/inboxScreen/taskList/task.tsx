@@ -1,5 +1,5 @@
 import React from "react"
-import {StarIcon} from "@/example/taskList/task/starIcon"
+import {StarIcon} from "@/example/inboxScreen/taskList/task/starIcon"
 
 export interface ActionsProps {
   onArchiveTask(id: string): void

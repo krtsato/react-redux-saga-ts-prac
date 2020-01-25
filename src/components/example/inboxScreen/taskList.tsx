@@ -1,6 +1,8 @@
 import React from "react"
-import {Task, ActionsProps, TaskProps} from "@/example/taskList/task"
-import {LoadingRow} from "@/example/taskList/loadingRow"
+import {connect} from "react-redux"
+import {archiveTask, pinTask} from "@/example/lib/redux"
+import {Task, ActionsProps, TaskProps} from "@/example/inboxScreen/taskList/task"
+import {LoadingRow} from "@/example/inboxScreen/taskList/loadingRow"
 
 interface TaskListProps {
   loading: boolean
@@ -47,3 +49,13 @@ export const TaskList = (taskListProps: TaskListProps, actionsProps: ActionsProp
     </div>
   )
 }
+
+export default connect(
+  (tasks: Array<TaskProps>) => ({
+    tasks: tasks.filter(t => t.state === "TASK_INBOX" || t.state === "TASK_PINNED")
+  }),
+  dispatch => ({
+    onArchiveTask: (id: string): {type: string; id: string} => dispatch(archiveTask(id)),
+    onPinTask: (id: string): {type: string; id: string} => dispatch(pinTask(id))
+  })
+)(TaskList)

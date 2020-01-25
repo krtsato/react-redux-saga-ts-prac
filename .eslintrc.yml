@@ -81,8 +81,13 @@ rules:
   react/jsx-props-no-spreading: off
   react-hooks/exhaustive-deps: warn
   react-hooks/rules-of-hooks: error
-
+  
   # switching on a trial now
   ## no-param-reassign: off
   ## react/require-default-props: off
   ## react/prop-types: off
+
+overrides:
+  - files: "*.js"
+    rules:
+      "@typescript-eslint/explicit-function-return-type": off
