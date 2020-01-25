@@ -34,7 +34,6 @@
 ## Test of axios, Redux and E2E system
 ### axios-mock-adapter (Mock Test from https://bit.ly/2uaZesH)
 ### redux-saga-test-plan (Integration Test from https://bit.ly/37ybVMH)
-### cypress (E2E Test from https://bit.ly/2FlIRvK)
 
 ## Storybook
 ### babel-plugin-macros @storybook/addon-storyshots react-test-render r̶e̶q̶u̶i̶r̶e̶-̶c̶o̶n̶t̶e̶x̶t̶.̶m̶a̶c̶r̶o̶ @types/react-test-renderer (SnapShots from https://bit.ly/2FmyJCU)
@@ -83,7 +82,6 @@ save_dev() {
     @babel/preset-env \
     @babel/preset-react \
     @babel/preset-typescript \
-    cypress \
     eslint \
     eslint-config-airbnb \
     eslint-config-prettier \

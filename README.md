@@ -86,34 +86,57 @@
       - path の可読性のため resolve.alias を追加
       - path の略記のため resolve.extensions を追加
       - tsconfig.json に同様の alias を追加
-  - Lint/Format の設定
-    - 警告 `Module.createRequireFromPath() is deprecated`
-      - 現時点で Lint には影響していないため保留
-      - npm run コマンドに  exit 0 を付与
-    - settings に import/resolver: webpack を追加
-    - React の設定を追加
-    - TypeScript の設定を追加
-    - Prettier の設定を追加
-    - VSCode の設定を追加
-  - Material UI の設定
-  - Jest の設定
-    - tsconfig の設定を追加 `include:{"jest/**/*"}`
-    - ESLint の設定を追加 `import/extensions`
-    - config ファイル作成 `npm test -- --init`
-    - ./src/components/\*\*/* にテストコードを書く
-  - StroyBook の設定
-    - React の設定を追加 `npx -p @storybook/cli sb init -f --type react`
-    - TypeScript with Babel の設定を .storybook/main.js に追加
-    - addon を.storybook/main.js に追加
-      - @storybook/addon-snapshots はここでは追加しない (後述)
-    - addon-docs の設定を ./storybook/preview.js に追加
-    - ESLint の設定を追加 `import/no-extraneous-dependencies`
-    - jest.config.js の transform に mdx の設定を追加
-    - ./src/components/\*\*/* にテストコードを書く
-    - Snapshots の設定を追加
-      - src/components/snapshots.test.js を作成
-      - 親子関係は components/snapshots.test.js > components/\*\*/snapshot/snap.js
-  - Cypress の設定
+
+### Lint/Format
+
+- 警告 `Module.createRequireFromPath() is deprecated`
+  - 現時点で Lint には影響していないため保留
+  - npm run コマンドに  exit 0 を付与
+- eslint の settings に import/resolver: webpack を追加
+- React の設定を追加
+- TypeScript の設定を追加
+- Prettier の設定を追加
+- VSCode の設定を追加
+
+### Jest
+
+- tsconfig の設定を追加 `include:{"jest/**/*"}`
+- ESLint の設定を追加 `import/extensions`
+- config ファイル作成 `npm test -- --init`
+- ./src/components/\*\*/* にテストコードを書く
+
+### StroyBook の設定
+  
+- TypeScript with Babel の設定を .storybook/main.js に追加
+- addon を.storybook/main.js に追加
+- @storybook/addon-snapshots はここでは追加しない (後述)
+- addon-docs の設定を ./storybook/preview.js に追加
+- ESLint の設定を追加 `import/no-extraneous-dependencies`
+- jest.config.js の transform に mdx の設定を追加
+  - ./src/components/\*\*/* にテストコードを書く
+  - Snapshots の設定を追加
+    - src/components/snapshots.test.js を作成
+    - 親子関係は components/snapshots.test.js > components/\*\*/snapshot/snap.js
+
+### Cypress の設定
+
+バックエンドが構築できたら対応
+以下の monorepo 構成で管理できる？ (今後実験)
+
+```zsh
+.
+├── backend/
+│    ├── Dockerfile
+│    └── ...
+├── frontend/
+│    ├── Dockerfile
+│    └── ...
+├── e2e/
+│    ├── Dockerfile
+│    └── ...
+├── docker-compose.yml
+└── .git
+```
 
 ### Docker
 

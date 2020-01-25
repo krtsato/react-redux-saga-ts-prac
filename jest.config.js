@@ -13,7 +13,7 @@ module.exports = {
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/src/components/$1",
+    "^@/(.*)$": "<rootDir>/components/$1",
     "react-syntax-highlighter/dist/esm/(.*)": "react-syntax-highlighter/dist/cjs/$1" // Because of Issue https://bit.ly/2tCD6Ye
   },
 
