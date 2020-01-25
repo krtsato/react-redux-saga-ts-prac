@@ -43,7 +43,8 @@ module.exports = {
       use: ["babel-loader", "source-map-loader"]
     })
 
-    config.resolve.extensions.push(".ts", ".tsx")
+    config.resolve.alias = {"@": path.resolve(__dirname, "../src/components")}
+    config.resolve.extensions.push(".tsx", ".ts")
     config.devServer = {host: "0.0.0.0", port: 8001}
     return config
   }

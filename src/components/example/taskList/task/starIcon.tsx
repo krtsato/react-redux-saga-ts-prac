@@ -6,8 +6,8 @@ interface StarIconProps {
   onPinTask(id: string): void
 }
 
-export const StarIcon = (props: StarIconProps): JSX.Element | null => {
-  const {id, state, onPinTask} = props
+export const StarIcon = (starIconProps: StarIconProps): JSX.Element | null => {
+  const {id, state, onPinTask} = starIconProps
   const onEventPin = (): void => {
     onPinTask(id)
   }
