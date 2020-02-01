@@ -1,4 +1,4 @@
-import React from "react"
+import React, {FC} from "react"
 
 interface StarIconProps {
   id: string
@@ -6,7 +6,7 @@ interface StarIconProps {
   onPinTask(id: string): void
 }
 
-export const StarIcon = (starIconProps: StarIconProps): JSX.Element | null => {
+export const StarIcon: FC<StarIconProps> = starIconProps => {
   const {id, state, onPinTask} = starIconProps
   const onEventPin = (): void => {
     onPinTask(id)

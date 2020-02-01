@@ -1,7 +1,7 @@
-import React from "react"
+import React, {FC} from "react"
 import {connect} from "react-redux"
 import {archiveTask, pinTask} from "@/example/lib/redux"
-import {Task, ActionsProps, TaskProps} from "@/example/inboxScreen/taskList/task"
+import {Task, TaskProps} from "@/example/inboxScreen/taskList/task"
 import {LoadingRow} from "@/example/inboxScreen/taskList/loadingRow"
 
 interface TaskListProps {
@@ -9,7 +9,7 @@ interface TaskListProps {
   tasks: TaskProps[]
 }
 
-export const TaskList = (taskListProps: TaskListProps, actionsProps: ActionsProps): JSX.Element => {
+export const TaskList: FC<TaskListProps> = taskListProps => {
   const {loading, tasks} = taskListProps
   const tasksInOrder = [
     ...tasks.filter(t => t.state === "TASK_PINNED"),
@@ -19,12 +19,12 @@ export const TaskList = (taskListProps: TaskListProps, actionsProps: ActionsProp
   if (loading) {
     return (
       <div className="list-items">
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
+        <LoadingRow />
+        <LoadingRow />
+        <LoadingRow />
+        <LoadingRow />
+        <LoadingRow />
+        <LoadingRow />
       </div>
     )
   }
@@ -44,7 +44,7 @@ export const TaskList = (taskListProps: TaskListProps, actionsProps: ActionsProp
   return (
     <div className="list-items">
       {tasksInOrder.map(task => (
-        <Task key={task.id} {...task} {...actionsProps} />
+        <Task key={task.id} {...task} />
       ))}
     </div>
   )

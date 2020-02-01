@@ -6,7 +6,7 @@ interface HelloProps {
   framework: string
 }
 
-export const App = (helloProps: HelloProps): JSX.Element => (
+export const App: React.FC<HelloProps> = helloProps => (
   <Button variant="contained" color="primary">
     Hello from {helloProps.compiler} and {helloProps.framework}!
   </Button>
@@ -14,11 +14,9 @@ export const App = (helloProps: HelloProps): JSX.Element => (
 
 /* ===================================
 For storybook example
-export const App = (): JSX.Element => {
-  return (
-    <Provider store={store}>
-      <InboxScreen error={null} />
-    </Provider>
-  )
-}
+export const App: React.FC<HelloProps> = () => (
+  <Provider store={store}>
+    <InboxScreen error={null} />
+  </Provider>
+)
 ==================================== */

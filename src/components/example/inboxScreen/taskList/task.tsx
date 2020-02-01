@@ -1,21 +1,17 @@
-import React from "react"
+import React, {FC} from "react"
 import {StarIcon} from "@/example/inboxScreen/taskList/task/starIcon"
-
-export interface ActionsProps {
-  onArchiveTask(id: string): void
-  onPinTask(id: string): void
-}
 
 export interface TaskProps {
   id: string
   title: string
   state: string
   updatedAt: Date | null
+  onArchiveTask(id: string): void
+  onPinTask(id: string): void
 }
 
-export const Task = (taskProps: TaskProps, actionsProps: ActionsProps): JSX.Element => {
-  const {id, title, state} = taskProps
-  const {onArchiveTask, onPinTask} = actionsProps
+export const Task: FC<TaskProps> = taskProps => {
+  const {id, title, state, onArchiveTask, onPinTask} = taskProps
 
   const onEventArchive = (): void => {
     onArchiveTask(id)

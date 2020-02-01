@@ -6,7 +6,7 @@ interface InboxScreenProps {
   error: string | null
 }
 
-export const InboxScreen = (inboxScreenProps: InboxScreenProps): JSX.Element => {
+export const InboxScreen: React.FC<InboxScreenProps> = inboxScreenProps => {
   const {error} = inboxScreenProps
   if (error) {
     return (

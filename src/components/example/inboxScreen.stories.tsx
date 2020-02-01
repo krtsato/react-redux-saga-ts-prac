@@ -1,4 +1,4 @@
-import React from "react"
+import React, {FC} from "react"
 import {action} from "@storybook/addon-actions"
 import {Provider} from "react-redux"
 import {InboxScreen} from "./inboxScreen"
@@ -16,6 +16,6 @@ export default {
   decorators: [(story: Function): JSX.Element => <Provider store={store}>{story()}</Provider>]
 }
 
-export const Default = (): JSX.Element => <InboxScreen error={null} />
+export const Default: FC = () => <InboxScreen error={null} />
 
-export const Error = (): JSX.Element => <InboxScreen error="Something" />
+export const Error: FC = () => <InboxScreen error="Something" />

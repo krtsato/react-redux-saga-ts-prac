@@ -1,6 +1,6 @@
-import React from "react"
+import React, {FC} from "react"
 import {TaskList} from "./taskList"
-import {taskData, actionsData} from "@/example/inboxScreen/taskList/task.stories"
+import {taskData} from "@/example/inboxScreen/taskList/task.stories"
 
 export default {
   component: TaskList,
@@ -20,17 +20,13 @@ export const defaultTasksData = [
 
 export const withPinnedTasksData = [
   ...defaultTasksData.slice(0, 5),
-  {id: "6", title: "Task 6 (pinned)", state: "TASK_PINNED", updatedAt: null}
+  {...taskData, id: "6", title: "Task 6 (pinned)", state: "TASK_PINNED", updatedAt: null}
 ]
 
-export const Default = (): JSX.Element => (
-  <TaskList loading={false} tasks={defaultTasksData} {...actionsData} />
-)
+export const Default: FC = () => <TaskList loading={false} tasks={defaultTasksData} />
 
-export const WithPinnedTasks = (): JSX.Element => (
-  <TaskList loading={false} tasks={withPinnedTasksData} {...actionsData} />
-)
+export const WithPinnedTasks: FC = () => <TaskList loading={false} tasks={withPinnedTasksData} />
 
-export const Loading = (): JSX.Element => <TaskList loading tasks={[]} {...actionsData} />
+export const Loading: FC = () => <TaskList loading tasks={[]} />
 
-export const Empty = (): JSX.Element => <TaskList loading={false} tasks={[]} {...actionsData} />
+export const Empty: FC = () => <TaskList loading={false} tasks={[]} />
