@@ -21,7 +21,7 @@ export const Task = (taskProps: TaskProps, actionsProps: ActionsProps): JSX.Elem
     onArchiveTask(id)
   }
 
-  const onEventStop = (e: React.MouseEvent | React.KeyboardEvent): void => {
+  const onEventStop = (e: React.SyntheticEvent): void => {
     e.stopPropagation()
   }
 

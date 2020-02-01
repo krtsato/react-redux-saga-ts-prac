@@ -6,7 +6,7 @@ import {LoadingRow} from "@/example/inboxScreen/taskList/loadingRow"
 
 interface TaskListProps {
   loading: boolean
-  tasks: Array<TaskProps>
+  tasks: TaskProps[]
 }
 
 export const TaskList = (taskListProps: TaskListProps, actionsProps: ActionsProps): JSX.Element => {
