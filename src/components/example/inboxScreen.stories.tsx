@@ -1,8 +1,8 @@
 import React, {FC} from "react"
 import {action} from "@storybook/addon-actions"
 import {Provider} from "react-redux"
+import {defaultTasksData} from "@comp/example/inboxScreen/taskList.stories"
 import {InboxScreen} from "./inboxScreen"
-import {defaultTasksData} from "@/example/inboxScreen/taskList.stories"
 
 const store = {
   getState: (): object => ({tasks: defaultTasksData}),

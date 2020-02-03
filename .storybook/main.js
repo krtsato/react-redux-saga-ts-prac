@@ -2,7 +2,7 @@ const path = require("path")
 const createCompiler = require("@storybook/addon-docs/mdx-compiler-plugin")
 
 module.exports = {
-  stories: ["../src/**/*.stories.(ts?(x)|js|mdx)"],
+  stories: ["../src/components/**/*.stories.(ts?(x)|js|mdx)"],
   addons: [
     "@storybook/addon-a11y/register",
     "@storybook/addon-actions/register",
@@ -43,7 +43,10 @@ module.exports = {
       use: ["babel-loader", "source-map-loader"]
     })
 
-    config.resolve.alias = {"@": path.resolve(__dirname, "../src/components")}
+    config.resolve.alias = {
+      "@comp": path.resolve(__dirname, "../src/components"),
+      "@cont": path.resolve(__dirname, "../src/containers")
+    },
     config.resolve.extensions.push(".tsx", ".ts")
     config.devServer = {host: "0.0.0.0", port: 8001}
     return config

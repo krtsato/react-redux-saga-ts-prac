@@ -36,14 +36,14 @@
 ### redux-saga-test-plan (Integration Test from https://bit.ly/37ybVMH)
 
 ## Storybook
-### babel-plugin-macros @storybook/addon-storyshots react-test-render r̶e̶q̶u̶i̶r̶e̶-̶c̶o̶n̶t̶e̶x̶t̶.̶m̶a̶c̶r̶o̶ @types/react-test-renderer (SnapShots from https://bit.ly/2FmyJCU)
+### b̶a̶b̶e̶l̶-̶p̶l̶u̶g̶i̶n̶-̶m̶a̶c̶r̶o̶s̶ @storybook/addon-storyshots react-test-render r̶e̶q̶u̶i̶r̶e̶-̶c̶o̶n̶t̶e̶x̶t̶.̶m̶a̶c̶r̶o̶ @types/react-test-renderer (SnapShots from https://bit.ly/2FmyJCU)
 ### @storybook/react (React from https://bit.ly/36AJgGw)
 ### @storybook/addons @storybook/addon-{a11y,actions,docs,knobs,links,storyshots,viewport} @types/node (Addons from https://bit.ly/39DJwGW, https://bit.ly/37Eu1wK)
 ### babel-loader react-docgen-typescript-loader @̶s̶t̶o̶r̶y̶b̶o̶o̶k̶/̶a̶d̶d̶o̶n̶-̶i̶n̶f̶o̶ -> @storybook/addon-docs react react-is (TypeScript from https://bit.ly/37BmY7P https://bit.ly/2RIJllF)
 
 ## Material UI
 ### eslint-plugin-material-ui (Material UI Rules from https://bit.ly/2SUakws, https://bit.ly/2tqOdDj)
-### @material-ui/core @material-ui/icons (SVG icons & other styles from https://bit.ly/2tuKp45)
+### @material-ui/core babel-plugin-import (Material UI from https://bit.ly/2tuKp45, https://bit.ly/2RTKFDa)
 ### @types/material-ui (TypeScript from https://bit.ly/2MVUiOR)
 
 ## Install peer dependencies myself
@@ -59,7 +59,6 @@ save() {
   npm i \
     axios \
     @material-ui/core \
-    @material-ui/icons \
     react \
     redux \
     redux-saga \
@@ -78,7 +77,7 @@ save_dev() {
     @babel/core \
     babel-jest \
     babel-loader \
-    babel-plugin-macros \
+    babel-plugin-import \
     @babel/preset-env \
     @babel/preset-react \
     @babel/preset-typescript \

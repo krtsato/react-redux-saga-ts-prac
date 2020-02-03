@@ -10,6 +10,6 @@ services:
       - 8000:8000 # webpack-dev-server
       - 8001:8001 # storybook
     volumes:
-      - .:/container
-    container_name: rrstp-ctr
+      - .:/proj-cont
+    container_name: rrstp-cont
     tty: true

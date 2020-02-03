@@ -1,5 +1,6 @@
 # react-redux-saga-ts-prac
 
+ボイラープレートの草案．  
 作業工程を記録した自分用のメモ．  
 以下の環境で Web アプリを作成する．
 
@@ -42,7 +43,9 @@
 ```zsh
 .
 ├── public/
-├── src/
+├── src
+│     ├── containers/
+│     └── components/
 ├── .dockerignore
 ├── .git
 ├── .gitignore
@@ -59,13 +62,13 @@
 
 - エントリポイントとなるファイルを作成
   - public/index.html
-  - src/index.jsx
+  - src/index.tsx
 - webpack.config.js を書く
   - webpack-dev-server の設定
   - HMR の設定？ (今後対応)
   - React の設定
-    - src/components/app.jsx を作成
-    - index.jsx で import app.jsx
+    - src/containers/app.tsx および src/components/app.tsx を作成
+    - index.tsx で containers/app.jsx を import
     - webpack.config.js の resolve
       - alias
       - extensions
@@ -100,10 +103,10 @@
 
 ### Jest
 
-- tsconfig の設定を追加 `include:{"jest/**/*"}`
+- tsconfig の設定を追加 `jest.config.js`
 - ESLint の設定を追加 `import/extensions`
 - config ファイル作成 `npm test -- --init`
-- ./src/components/\*\*/* にテストコードを書く
+- ./src/containers/\*\*/* にテストコードを書く
 
 ### StroyBook の設定
   

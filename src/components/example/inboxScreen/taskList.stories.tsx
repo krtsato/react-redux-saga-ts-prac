@@ -1,6 +1,6 @@
 import React, {FC} from "react"
+import {taskData} from "@comp/example/inboxScreen/taskList/task.stories"
 import {TaskList} from "./taskList"
-import {taskData} from "@/example/inboxScreen/taskList/task.stories"
 
 export default {
   component: TaskList,

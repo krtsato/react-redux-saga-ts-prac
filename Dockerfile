@@ -1,6 +1,6 @@
 FROM node:13.5.0-alpine3.11
 
-WORKDIR /container
+WORKDIR /proj-cont
 
 COPY npm-setup.sh webpack-setup.sh .npmrc ./
 

@@ -5,9 +5,8 @@
     // エイリアスを設定
     "baseUrl": "src",
     "paths": {
-      "@/*": [
-        "components/*"
-      ]
+      "@comp/*": ["components/*"],
+      "@cont/*": ["containers/*"] 
     },
     // CommonJS モジュールと ES モジュールの相互運用が可能
     "esModuleInterop": true,
