@@ -43,7 +43,7 @@
 
 ## Material UI
 ### eslint-plugin-material-ui (Material UI Rules from https://bit.ly/2SUakws, https://bit.ly/2tqOdDj)
-### @material-ui/core babel-plugin-import (Material UI from https://bit.ly/2tuKp45, https://bit.ly/2RTKFDa)
+### @material-ui/core @material-ui/icons  babel-plugin-import (Material UI from https://bit.ly/2tuKp45, https://bit.ly/2RTKFDa)
 ### @types/material-ui (TypeScript from https://bit.ly/2MVUiOR)
 
 ## Install peer dependencies myself
@@ -59,6 +59,7 @@ save() {
   npm i \
     axios \
     @material-ui/core \
+    @material-ui/icons \
     react \
     redux \
     redux-saga \

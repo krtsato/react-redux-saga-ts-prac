@@ -5,6 +5,7 @@
     // エイリアスを設定
     "baseUrl": "src",
     "paths": {
+      "@comm/*": ["commons/*"],
       "@comp/*": ["components/*"],
       "@cont/*": ["containers/*"] 
     },

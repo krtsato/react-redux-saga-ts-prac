@@ -1,5 +1,5 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import {AppCont} from "@cont/app"
+import {App} from "@comm/app"
 
-ReactDOM.render(<AppCont />, document.getElementById("root"))
+ReactDOM.render(<App />, document.getElementById("root"))

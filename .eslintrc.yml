@@ -79,13 +79,13 @@ rules:
       - .ts
       - .js
   react/jsx-props-no-spreading: off
+  react/prop-types: off
   react-hooks/exhaustive-deps: warn
   react-hooks/rules-of-hooks: error
   
   # switching on a trial now
   ## no-param-reassign: off
   ## react/require-default-props: off
-  ## react/prop-types: off
 
 overrides:
   - files: "*.js"
