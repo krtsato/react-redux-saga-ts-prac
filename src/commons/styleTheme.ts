@@ -1,7 +1,16 @@
 import {createMuiTheme} from "@material-ui/core/styles"
 
 export const styleTheme = createMuiTheme({
-  // default parameters
+  breakpoints: {
+    keys: ["xs", "sm", "md", "lg", "xl"],
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920
+    }
+  },
   palette: {
     common: {
       black: "#000",
@@ -9,15 +18,15 @@ export const styleTheme = createMuiTheme({
     },
     type: "light",
     primary: {
-      light: "#7986cb",
-      main: "#3f51b5",
-      dark: "#303f9f",
-      contrastText: "#fff"
+      light: "#b2fef7",
+      main: "#80cbc4",
+      dark: "#4f9a94",
+      contrastText: "#000"
     },
     secondary: {
-      light: "#ff4081",
-      main: "#f50057",
-      dark: "#c51162",
+      light: "#b1dffe",
+      main: "#80adcb",
+      dark: "#507e9a",
       contrastText: "#fff"
     },
     error: {
@@ -45,33 +54,41 @@ export const styleTheme = createMuiTheme({
       contrastText: "rgba(0, 0, 0, 0.87)"
     },
     grey: {
-      50: "#fafafa",
-      100: "#f5f5f5",
-      200: "#eeeeee",
-      300: "#e0e0e0",
-      400: "#bdbdbd",
-      500: "#9e9e9e",
-      600: "#757575",
-      700: "#616161",
-      800: "#424242",
-      900: "#212121",
-      A100: "#d5d5d5",
-      A200: "#aaaaaa",
-      A400: "#303030",
-      A700: "#616161"
+      50: "#f7f7f7",
+      100: "#ebebeb",
+      200: "#dedede",
+      300: "#d1d1d1",
+      400: "#c7c7c7",
+      500: "#bdbdbd",
+      600: "#b7b7b7",
+      700: "#aeaeae",
+      800: "#a6a6a6",
+      900: "#989898",
+      A100: "#cfd8dc",
+      A200: "#b0bec5",
+      A400: "#78909c",
+      A700: "#455a64"
     },
     contrastThreshold: 3,
     tonalOffset: 0.2
   },
 
-  // reference of the following parameters  https://bit.ly/2OrHrF4
   mixins: {
+    // reference of the following parameters  https://bit.ly/2OrHrF4
     // variant="dense" in Toolbar props can only apply to desktop devices.
     toolbar: {
       minHeight: 42
     }
   },
   props: {
+    MuiButton: {
+      disableElevation: true,
+      color: "primary",
+      variant: "contained"
+    },
+    MuiCard: {
+      variant: "outlined"
+    },
     MuiCheckbox: {
       color: "primary"
     },
@@ -91,10 +108,12 @@ export const styleTheme = createMuiTheme({
       variant: "outlined"
     }
   },
+  spacing: 8,
   typography: {
     button: {
       textTransform: "none"
     },
-    fontSize: 12
+    fontSize: 12,
+    htmlFontSize: 10
   }
 })

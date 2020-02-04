@@ -1,5 +1,5 @@
 import React, {FC} from "react"
-import {Button, Card, CardActions, CardContent, CssBaseline, Typography} from "@material-ui/core"
+import {Button, Card, CardActions, CardContent, Typography} from "@material-ui/core"
 import HistoryRounded from "@material-ui/icons/HistoryRounded"
 import {useStyles} from "./hoge.style"
 
@@ -13,22 +13,17 @@ export const HogeComp: FC<HogeProps> = ({timeLeft, reset}) => {
 
   return (
     <>
-      <CssBaseline />
       <div className="container">
         <header>
           <h1>タイマー</h1>
         </header>
-        <Card>
+        <Card className={classes.root}>
           <CardContent>
             <Typography>Time</Typography>
             <Typography>{timeLeft}</Typography>
           </CardContent>
           <CardActions>
-            <Button
-              variant="contained"
-              className={classes.button}
-              startIcon={<HistoryRounded />}
-              onClick={reset}>
+            <Button className={classes.button} startIcon={<HistoryRounded />} onClick={reset}>
               Reset
             </Button>
           </CardActions>
