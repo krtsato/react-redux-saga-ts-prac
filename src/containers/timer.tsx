@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from "react"
-import {HogeComp} from "@comp/hoge"
+import {TimerComp} from "@comp/timer"
 
 const useTimer = (limitSec: number): [number, VoidFunction] => {
   const [timeLeft, setTimeLeft] = useState(limitSec)
@@ -19,8 +19,8 @@ const useTimer = (limitSec: number): [number, VoidFunction] => {
   return [timeLeft, reset]
 }
 
-export const HogeCont: FC = () => {
+export const TimerCont: FC = () => {
   const LIMIT = 60
   const [timeLeft, reset] = useTimer(LIMIT)
-  return <HogeComp timeLeft={timeLeft} reset={reset} />
+  return <TimerComp timeLeft={timeLeft} reset={reset} />
 }

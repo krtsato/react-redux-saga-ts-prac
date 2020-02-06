@@ -1,14 +1,14 @@
 import React, {FC} from "react"
 import {Button, Card, CardActions, CardContent, Typography} from "@material-ui/core"
-import HistoryRounded from "@material-ui/icons/HistoryRounded"
-import {useStyles} from "./hoge.style"
+import HistoryRounded from "@maerial-ui/icons/HistoryRounded"
+import {useStyles} from "./timer.styles"
 
 interface HogeProps {
   timeLeft: number
   reset: VoidFunction
 }
 
-export const HogeComp: FC<HogeProps> = ({timeLeft, reset}) => {
+export const TimerComp: FC<HogeProps> = ({timeLeft, reset}) => {
   const classes = useStyles()
 
   return (
