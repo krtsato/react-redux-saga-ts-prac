@@ -1,11 +1,11 @@
 import React, {FC} from "react"
-import Helmet from "react-helmet"
+import {Helmet} from "react-helmet"
 import {Link} from "react-router-dom"
-import {Container, List} from "semantic-ui-react"
-import {characterData} from "../../characterData"
+import {Container, List} from "@material-ui/core"
+import {charasData} from "@cont/charas/index"
 import "./index.css"
 
-const codes = Object.keys(characterData)
+const abbrevs = Object.keys(charasData)
 export const HomeComp: FC = () => (
   <>
     <Helmet>
@@ -27,11 +27,11 @@ export const HomeComp: FC = () => (
         けた立花は、彼女を部にスカウトしようとするが......。
       </p>
     </Container>
-    <h2>登 場 人 物</h2>
+    <h2>登場人物</h2>
     <List as="ul">
-      {codes.map(code => (
-        <List.Item as="li" key={code}>
-          <Link to={`/characters/${code}`}>{characterData[code].school}</Link>
+      {abbrevs.map(abbrev => (
+        <List.Item as="li" key={abbrev}>
+          <Link to={`/characters/${abbrev}`}>{charasData[abbrev].school}</Link>
         </List.Item>
       ))}
     </List>

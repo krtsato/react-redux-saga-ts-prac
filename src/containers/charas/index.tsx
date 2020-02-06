@@ -9,14 +9,14 @@ interface CharaData {
 }
 
 export interface CharasData {
-  [code: string]: {
+  [abbrev: string]: {
     school: string
     players: CharaData[]
   }
 }
 
 // JSON API から取得したと仮定する
-const charasData: CharasData = {
+export const charasData: CharasData = {
   kitakomachi: {
     school: "北小町高校",
     players: [

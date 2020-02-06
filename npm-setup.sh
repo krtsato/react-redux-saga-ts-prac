@@ -46,6 +46,10 @@
 ### @material-ui/core @material-ui/icons  babel-plugin-import (Material UI from https://bit.ly/2tuKp45, https://bit.ly/2RTKFDa)
 ### @types/material-ui (TypeScript from https://bit.ly/2MVUiOR)
 
+## Overwriting meta tags
+### Using beta package Because of the issue (https://bit.ly/3b9f8ou)
+### react-helmet@6.0.0-beta.2 @types/react-helmet (react-helmet from https://bit.ly/2SkK3pi, https://bit.ly/3bcDOwq)
+
 ## Install peer dependencies myself
 ### npm WARN eslint-config-airbnb@18.0.1 requires a peer of eslint-plugin-react-hooks@^1.7.0 but none is installed.
 ### npm WARN @egoist/vue-to-react@1.1.0 requires a peer of vue@^2.6.10 but none is installed.
@@ -64,6 +68,7 @@ save() {
     redux \
     redux-saga \
     react-dom \
+    react-helmet@6.0.0-beta.2 \
     react-redux \
     react-router \
     react-router-dom \
@@ -121,6 +126,7 @@ save_dev() {
     @types/node \
     @types/react \
     @types/react-dom \
+    @types/react-helmet \
     @types/react-router \
     @types/react-router-dom \
     @types/react-redux \

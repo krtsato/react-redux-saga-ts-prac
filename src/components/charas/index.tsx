@@ -1,40 +1,56 @@
 import React, {FC} from "react"
-// import {CharasData} from "@cont/charas/index"
 
+import {RouteComponentProps, withRouter} from "react-router"
+import {Redirect} from "react-router-dom"
+import {parse} from "query-string"
+import Helmet from "react-helmet"
+import {Button, Divider, Icon} from "semantic-ui-react"
+
+import {characterData} from "../../characterData"
+import Spinner from "../common/Spinner"
+import CharacterList from "./CharacterList"
+
+// 以下 オリジナル
 export const CharasIndexComp: FC = () => <h1>キャラ</h1>
 
-/*
-import {Header, Icon, Item} from "semantic-ui-react"
+// 以下 コピペ
+type CharactersProps = {} & RouteComponentProps<{code: string}>
 
-export interface Character {
-  name: string
-  age: number
-  height?: number
+const Characters: FC<CharactersProps> = ({history, location, match}) => {
+  const codes = Object.keys(characterData)
+  const targetCode = match.params.code
+  const isLoading = parse(location.search).loading === "true"
+
+  return codes.includes(targetCode) ? (
+    <>
+      <Helmet>
+        <title>キャラクター一覧 | はねバド！</title>
+      </Helmet>
+      <header>
+        <h1>はねバド！ キャラクター一覧</h1>
+      </header>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <CharacterList
+          school={characterData[targetCode].school}
+          characters={characterData[targetCode].players}
+        />
+      )}
+      <Divider hidden />
+      <Button
+        basic
+        color="grey"
+        onClick={() => {
+          history.push("/")
+        }}>
+        <Icon name="home" />
+        ホームへ
+      </Button>
+    </>
+  ) : (
+    <Redirect to="/" />
+  )
 }
 
-interface CharacterListProps {
-  school: string
-  characters: Character[]
-}
-
-const CharasIndexComp: FC<CharacterListProps> = ({school = "校名不明", characters}) => (
-  <>
-    <Header as="h2">{school}</Header>
-    <Item.Group>
-      {characters.map((c, i) => (
-        <Item key={i}>
-          <Icon name="user circle" size="huge" />
-          <Item.Content>
-            <Item.Header>{c.name}</Item.Header>
-            <Item.Meta>{c.age}歳</Item.Meta>
-            <Item.Meta>
-              {c.height ? c.height : "???"}
-              cm
-            </Item.Meta>
-          </Item.Content>
-        </Item>
-      ))}
-    </Item.Group>
-  </>
-)
-*/
+export default withRouter(Characters)
