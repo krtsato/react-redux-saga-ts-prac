@@ -2,7 +2,7 @@ import React, {FC} from "react"
 import {Helmet} from "react-helmet"
 import {Link} from "react-router-dom"
 import {Container, List, ListItem, Typography, ListItemText} from "@material-ui/core"
-import {charasData} from "@cont/example/peopleList/charas/index"
+import {charasData} from "@cont/example/peopleListApp/charas/index"
 
 export const HomeComp: FC = () => {
   // JSON API から取得したと仮定する

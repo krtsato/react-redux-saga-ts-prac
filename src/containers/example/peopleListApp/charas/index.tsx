@@ -1,7 +1,7 @@
 import React, {FC, useState, useCallback} from "react"
 import {Redirect, useHistory, useParams} from "react-router-dom"
-import {CharasIndexComp} from "@comp/example/peopleList/charas/index"
-import {CharaData} from "@comp/example/peopleList/charas/index/charasList"
+import {CharasIndexComp} from "@comp/example/peopleListApp/charas/index"
+import {CharaData} from "@comp/example/peopleListApp/charas/index/charasList"
 
 export interface CharasData {
   [abbrev: string]: {

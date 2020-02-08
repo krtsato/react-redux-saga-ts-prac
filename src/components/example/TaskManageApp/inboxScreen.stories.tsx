@@ -1,7 +1,7 @@
 import React, {FC} from "react"
 import {action} from "@storybook/addon-actions"
 import {Provider} from "react-redux"
-import {defaultTasksData} from "@comp/example/TaskManage/inboxScreen/taskList.stories"
+import {defaultTasksData} from "@comp/example/TaskManageApp/inboxScreen/taskList.stories"
 import {InboxScreen} from "./inboxScreen"
 
 const store = {

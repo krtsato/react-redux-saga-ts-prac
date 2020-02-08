@@ -1,5 +1,5 @@
 import React, {FC} from "react"
-import {taskData} from "@comp/example/TaskManage/inboxScreen/taskList/task.stories"
+import {taskData} from "@comp/example/TaskManageApp/inboxScreen/taskList/task.stories"
 import {TaskList} from "./taskList"
 
 export default {

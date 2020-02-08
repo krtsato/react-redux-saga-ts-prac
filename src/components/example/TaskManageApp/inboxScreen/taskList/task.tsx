@@ -1,5 +1,5 @@
 import React, {FC} from "react"
-import {StarIcon} from "@comp/example/TaskManage/inboxScreen/taskList/task/starIcon"
+import {StarIcon} from "@comp/example/TaskManageApp/inboxScreen/taskList/task/starIcon"
 
 export interface TaskProps {
   id: string

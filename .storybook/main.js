@@ -43,12 +43,15 @@ module.exports = {
       use: ["babel-loader", "source-map-loader"]
     })
 
-    ;(config.resolve.alias = {
+    config.resolve.alias = {
+      "@actn": path.resolve(__dirname, "../src/actions"),
       "@comm": path.resolve(__dirname, "../src/commons"),
       "@comp": path.resolve(__dirname, "../src/components"),
-      "@cont": path.resolve(__dirname, "../src/containers")
-    }),
-      config.resolve.extensions.push(".tsx", ".ts")
+      "@cont": path.resolve(__dirname, "../src/containers"),
+      "@rdcr": path.resolve(__dirname, "../src/reducers"),
+    }
+
+    config.resolve.extensions.push(".tsx", ".ts")
     config.devServer = {host: "0.0.0.0", port: 8001}
     return config
   }
