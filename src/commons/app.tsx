@@ -4,7 +4,6 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 import {ThemeProvider} from "@material-ui/core/styles"
 import {HomeComp} from "@comp/home/index"
 import {CharasIndexCont} from "@cont/charas/index"
-
 import {styleTheme} from "./styleTheme"
 
 export const App: FC = () => (
@@ -12,7 +11,7 @@ export const App: FC = () => (
     <ThemeProvider theme={styleTheme}>
       <CssBaseline />
       <Switch>
-        <Route path="/characters/:code">
+        <Route path="/characters/:abbrev">
           <CharasIndexCont />
         </Route>
         <Route exact path="/">

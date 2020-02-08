@@ -1,18 +1,17 @@
-import React, {FC} from "react"
+import React, {FC, useState, useCallback} from "react"
+import {Redirect, useHistory, useParams} from "react-router-dom"
 import {CharasIndexComp} from "@comp/charas/index"
-
-interface CharaData {
-  id: number
-  name: string
-  age: number
-  height?: number
-}
+import {CharaData} from "@comp/charas/index/charasList"
 
 export interface CharasData {
   [abbrev: string]: {
     school: string
     players: CharaData[]
   }
+}
+
+interface CharaAxsDiverProps {
+  target: string | undefined
 }
 
 // JSON API から取得したと仮定する
@@ -63,7 +62,32 @@ export const charasData: CharasData = {
   }
 }
 
-export const CharasIndexCont: FC = () => (
-  // <CharasIndexComp {...charasData} >
-  <CharasIndexComp />
-)
+export const CharasIndexCont: FC = () => {
+  const [isLoading, setIsLoading] = useState(true)
+  const history = useHistory()
+  const {abbrev} = useParams()
+
+  // ホームに戻るボタンで使う
+  const backToHome = useCallback(() => {
+    history.push("/")
+  }, [history])
+
+  // ローディングが終了したと仮定する
+  setTimeout(() => {
+    setIsLoading(false)
+  }, 2000)
+
+  const CharasAxsDivider: FC<CharaAxsDiverProps> = ({target}) => {
+    const abbrevs = Object.keys(charasData)
+    if (typeof target === "undefined" || !abbrevs.includes(target)) return <Redirect to="/" />
+
+    const roster = {
+      school: charasData[target].school,
+      players: charasData[target].players
+    }
+
+    return <CharasIndexComp isLoading={isLoading} roster={roster} backToHome={backToHome} />
+  }
+
+  return <CharasAxsDivider target={abbrev} />
+}

@@ -76,9 +76,7 @@ export const styleTheme = createMuiTheme({
   mixins: {
     // reference of the following parameters  https://bit.ly/2OrHrF4
     // variant="dense" in Toolbar props can only apply to desktop devices.
-    toolbar: {
-      minHeight: 42
-    }
+    toolbar: {minHeight: 42}
   },
   props: {
     MuiButton: {
@@ -86,34 +84,33 @@ export const styleTheme = createMuiTheme({
       color: "primary",
       variant: "contained"
     },
-    MuiCard: {
-      variant: "outlined"
-    },
-    MuiCheckbox: {
-      color: "primary"
-    },
-    MuiList: {
-      dense: true
-    },
-    MuiRadio: {
-      color: "primary"
-    },
-    MuiSwitch: {
-      color: "primary"
-    },
-    MuiTable: {
-      size: "small"
-    },
-    MuiTextField: {
-      variant: "outlined"
-    }
+    MuiCard: {variant: "outlined"},
+    MuiCheckbox: {color: "primary"},
+    MuiList: {dense: true},
+    MuiListItemText: {disableTypography: true},
+    MuiRadio: {color: "primary"},
+    MuiSwitch: {color: "primary"},
+    MuiTable: {size: "small"},
+    MuiTextField: {variant: "outlined"}
   },
   spacing: 8,
   typography: {
+    htmlFontSize: 12,
     button: {
+      fontSize: 14,
       textTransform: "none"
     },
-    fontSize: 12,
-    htmlFontSize: 10
+    body1: {fontSize: 14},
+    body2: {fontSize: 12},
+    caption: {fontSize: 10},
+    h1: {fontSize: 28},
+    h2: {fontSize: 26},
+    h3: {fontSize: 24},
+    h4: {fontSize: 22},
+    h5: {fontSize: 20},
+    h6: {fontSize: 18},
+    subtitle1: {fontSize: 16},
+    subtitle2: {fontSize: 14},
+    overline: {fontSize: 10}
   }
 })

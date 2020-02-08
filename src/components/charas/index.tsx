@@ -1,56 +1,31 @@
 import React, {FC} from "react"
+import {Helmet} from "react-helmet"
+import {Button, Container, Divider, Typography} from "@material-ui/core"
+import HomeRoundedIcon from "@material-ui/icons/HomeRounded"
+import {Spinner} from "@comm/spinner"
+import {CharaData, CharasList} from "@comp/charas/index/charasList"
 
-import {RouteComponentProps, withRouter} from "react-router"
-import {Redirect} from "react-router-dom"
-import {parse} from "query-string"
-import Helmet from "react-helmet"
-import {Button, Divider, Icon} from "semantic-ui-react"
-
-import {characterData} from "../../characterData"
-import Spinner from "../common/Spinner"
-import CharacterList from "./CharacterList"
-
-// 以下 オリジナル
-export const CharasIndexComp: FC = () => <h1>キャラ</h1>
-
-// 以下 コピペ
-type CharactersProps = {} & RouteComponentProps<{code: string}>
-
-const Characters: FC<CharactersProps> = ({history, location, match}) => {
-  const codes = Object.keys(characterData)
-  const targetCode = match.params.code
-  const isLoading = parse(location.search).loading === "true"
-
-  return codes.includes(targetCode) ? (
-    <>
-      <Helmet>
-        <title>キャラクター一覧 | はねバド！</title>
-      </Helmet>
-      <header>
-        <h1>はねバド！ キャラクター一覧</h1>
-      </header>
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <CharacterList
-          school={characterData[targetCode].school}
-          characters={characterData[targetCode].players}
-        />
-      )}
-      <Divider hidden />
-      <Button
-        basic
-        color="grey"
-        onClick={() => {
-          history.push("/")
-        }}>
-        <Icon name="home" />
-        ホームへ
-      </Button>
-    </>
-  ) : (
-    <Redirect to="/" />
-  )
+interface CharasIndexCompProps {
+  backToHome: VoidFunction
+  isLoading: boolean
+  roster: {
+    school: string
+    players: CharaData[]
+  }
 }
 
-export default withRouter(Characters)
+export const CharasIndexComp: FC<CharasIndexCompProps> = ({backToHome, isLoading, roster}) => (
+  <>
+    <Helmet>
+      <title>キャラクター一覧 | はねバド！</title>
+    </Helmet>
+    <Container component="header">
+      <Typography variant="h1">はねバド！ キャラクター一覧</Typography>
+    </Container>
+    {isLoading ? <Spinner /> : <CharasList {...roster} />}
+    <Divider variant="middle" />
+    <Button startIcon={<HomeRoundedIcon />} onClick={backToHome}>
+      ホームへ
+    </Button>
+  </>
+)
