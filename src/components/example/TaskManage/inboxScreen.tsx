@@ -1,6 +1,6 @@
 import React from "react"
 import {connect} from "react-redux"
-import {TaskList} from "@comp/example/inboxScreen/taskList"
+import {TaskList} from "@comp/example/TaskManage/inboxScreen/taskList"
 
 interface InboxScreenProps {
   error: string | null

@@ -1,8 +1,8 @@
 import React, {FC} from "react"
 import {connect} from "react-redux"
-import {archiveTask, pinTask} from "@comp/example/lib/redux"
-import {Task, TaskProps} from "@comp/example/inboxScreen/taskList/task"
-import {LoadingRow} from "@comp/example/inboxScreen/taskList/loadingRow"
+import {archiveTask, pinTask} from "@comp/example/TaskManage/lib/redux"
+import {Task, TaskProps} from "@comp/example/TaskManage/inboxScreen/taskList/task"
+import {LoadingRow} from "@comp/example/TaskManage/inboxScreen/taskList/loadingRow"
 
 interface TaskListProps {
   loading: boolean

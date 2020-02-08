@@ -3,7 +3,7 @@ import {Helmet} from "react-helmet"
 import {Button, Container, Divider, Typography} from "@material-ui/core"
 import HomeRoundedIcon from "@material-ui/icons/HomeRounded"
 import {Spinner} from "@comm/spinner"
-import {CharaData, CharasList} from "@comp/charas/index/charasList"
+import {CharaData, CharasList} from "@comp/example/peopleList/charas/index/charasList"
 
 interface CharasIndexCompProps {
   backToHome: VoidFunction

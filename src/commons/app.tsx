@@ -2,8 +2,8 @@ import React, {FC} from "react"
 import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import {ThemeProvider} from "@material-ui/core/styles"
-import {HomeComp} from "@comp/home/index"
-import {CharasIndexCont} from "@cont/charas/index"
+import {HomeComp} from "@comp/example/peopleList/home/index"
+import {CharasIndexCont} from "@cont/example/peopleList/charas/index"
 import {styleTheme} from "./styleTheme"
 
 export const App: FC = () => (
