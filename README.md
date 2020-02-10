@@ -39,13 +39,15 @@
 - npm-setup.sh を書く？ (今後対応)
   - コマンド１つで各 config ファイルを作成
 - 以下のディレクトリを掘る
+  - redux のディレクトリ構成は re-ducks パターン
 
 ```zsh
 .
 ├── public/
 ├── src
 │     ├── containers/
-│     └── components/
+│     ├── components/
+│     └── reducks/
 ├── .dockerignore
 ├── .git
 ├── .gitignore
@@ -67,8 +69,8 @@
   - webpack-dev-server の設定
   - HMR の設定？ (今後対応)
   - React の設定
-    - src/containers/app.tsx および src/components/app.tsx を作成
-    - index.tsx で containers/app.jsx を import
+    - src/containers/app.tsx を作成
+    - index.tsx で containers/app.tsx を import
     - webpack.config.js の resolve
       - alias
       - extensions
