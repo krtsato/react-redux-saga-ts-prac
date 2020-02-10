@@ -4,7 +4,7 @@ export enum CounterActionType {
   INCREMENT = "COUNTER/INCREMENT"
 }
 
-export interface CounterAction {
+export type CounterAction = {
   type: CounterActionType
   amount?: number
 }

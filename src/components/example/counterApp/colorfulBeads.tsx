@@ -1,6 +1,6 @@
 import React, {FC} from "react"
 import {Box, Container} from "@material-ui/core"
-import {useStyles} from "./colofulBeans.styles"
+import {useStyles} from "./colofulBeads.styles"
 
 const colors = [
   "red",

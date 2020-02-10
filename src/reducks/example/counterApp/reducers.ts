@@ -1,7 +1,7 @@
 import {Reducer} from "redux"
-import {CounterAction, CounterActionType} from "@actn/example/counterApp/counterAction"
+import {CounterAction, CounterActionType} from "@redx/example/counterApp/actions"
 
-export interface CounterState {
+export type CounterState = {
   count: number
 }
 

@@ -5,11 +5,10 @@
     // エイリアスを設定
     "baseUrl": "src",
     "paths": {
-      "@actn/*": ["actions/*"],
       "@comm/*": ["commons/*"],
       "@comp/*": ["components/*"],
       "@cont/*": ["containers/*"],
-      "@rdcr/*": ["reducers/*"]
+      "@redx/*": ["reducks/*"]
     },
     // CommonJS モジュールと ES モジュールの相互運用が可能
     "esModuleInterop": true,

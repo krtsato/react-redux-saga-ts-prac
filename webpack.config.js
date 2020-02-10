@@ -23,11 +23,10 @@ module.exports = {
   // import sentences
   resolve: {
     alias: {
-      "@actn": path.resolve(__dirname, "src/actions"),
       "@comm": path.resolve(__dirname, "src/commons"),
       "@comp": path.resolve(__dirname, "src/components"),
       "@cont": path.resolve(__dirname, "src/containers"),
-      "@rdcr": path.resolve(__dirname, "src/reducers")
+      "@redx": path.resolve(__dirname, "src/reducks")
     },
     extensions: [".tsx", ".ts", ".js"]
   },
