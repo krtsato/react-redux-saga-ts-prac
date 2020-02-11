@@ -22,9 +22,9 @@
 ### prettier eslint-config-prettier eslint-plugin-prettier (Prettier from https://bit.ly/2rPSz6q)
 ### @typescript-eslint/parser @typescript-eslint/eslint-plugin (TypeScript Rules from https://bit.ly/2tq4Pey)
 
-## stylelint
-### stylelint-config-standard stylelint-order (stylelint Rules from https://bit.ly/2ZVGjOr, https://bit.ly/35jKapL)
-### stylelint stylelint-prettier stylelint-config-prettier (Prettier from https://bit.ly/2Fm98dy)
+## stylelint -> Material UI in JS modules may be enough.
+### s̶t̶y̶l̶e̶l̶i̶n̶t̶-̶c̶o̶n̶f̶i̶g̶-̶s̶t̶a̶n̶d̶a̶r̶d̶ s̶t̶y̶l̶e̶l̶i̶n̶t̶-̶o̶r̶d̶e̶r̶ (stylelint Rules from https://bit.ly/2ZVGjOr, https://bit.ly/35jKapL)
+### s̶t̶y̶l̶e̶l̶i̶n̶t̶ s̶t̶y̶l̶e̶l̶i̶n̶t̶-̶p̶r̶e̶t̶t̶i̶e̶r̶ s̶t̶y̶l̶e̶l̶i̶n̶t̶-̶c̶o̶n̶f̶i̶g̶-̶p̶r̶e̶t̶t̶i̶e̶r̶ (Prettier from https://bit.ly/2Fm98dy)
 
 ## Jest
 ### @babel/preset-typescript (TypeScript from https://bit.ly/2rSz7WI)s
@@ -114,11 +114,6 @@ save_dev() {
     @storybook/addon-storyshots \
     @storybook/addon-viewport \
     @storybook/react \
-    stylelint \
-    stylelint-order \
-    stylelint-prettier \
-    stylelint-config-prettier \
-    stylelint-config-standard \
     typescript \
     @typescript-eslint/eslint-plugin \
     @typescript-eslint/parser \

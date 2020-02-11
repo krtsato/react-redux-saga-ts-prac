@@ -71,6 +71,10 @@ rules:
   linebreak-style:
     - error
     - unix
+  no-underscore-dangle:
+    - error
+    - {"allow": ["__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"]}
+  "@typescript-eslint/no-unused-vars": off
   react/forbid-prop-types: off
   react/jsx-filename-extension: 
     - error
