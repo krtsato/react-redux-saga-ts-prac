@@ -1,43 +1,50 @@
-/* 注意
- * ・completed -> wasCompleted
- * ・visibilityFilter -> visibility
- * ・setVisibilityFilter -> setVisibility
- */
+import {Dispatch as RawDispatch} from "redux"
 
-import {Store, Dispatch} from "redux"
-
-// Store
-export type TodosStore = Store<Todos, TodosAction>
-
+/* ===== Data Type imported from containers via index.ts =====  */
 // Dispath
-export type TodosDispatch = Dispatch<TodosAction>
+export type Dispatch = RawDispatch<TodosAction>
 
 // State
-export type TodosState = {
+export type State = {
   todos: Todos
-  visibility: Visibility
+  dispFilter: DispFilter
 }
 
-export type Todos = Todo[]
+// unnecessary?
+export type TodosTypes = {
+  State: State
+  Dispach: Dispatch
+}
 
+// Srore ... unnecessary?
+// type TodosStore = Store<Todos, TodosAction>
+
+/* ===== Data Type ===== */
+// todos
+export type Todos = Todo[]
 export type Todo = {
   id: number
   text: string
   wasCompleted: boolean
 }
 
-export type Visibility = "SHOW_ALL" | "SHOW_ACTIVE" | "SHOW_COMPLETED"
+// displayFilter
+export type DispFilter = "SHOW_ALL" | "SHOW_ACTIVE" | "SHOW_COMPLETED"
+export const DispFilterLiteral = {
+  showAll: "SHOW_ALL",
+  showActive: "SHOW_ACTIVE",
+  showCompleted: "SHOW_COMPLETED"
+} as const
 
-// Action
-export type TodosAction = AddTodo | TglTodo
-
-export type VisibilityAction = SetVisibility
-
+/* =====  Action ===== */
 export const ActionTypes = {
   addTodo: "ADD_TODO",
   tglTodo: "TGL_TODO",
-  setVisibilty: "SET_VISIBILITY"
+  setDispFilter: "SET_DISP_FILTER"
 } as const
+
+// todos
+export type TodosAction = AddTodo | TglTodo
 
 type AddTodo = {
   type: typeof ActionTypes.addTodo
@@ -52,7 +59,10 @@ type TglTodo = {
   payload: {id: number}
 }
 
-type SetVisibility = {
-  type: typeof ActionTypes.setVisibilty
-  payload: {visibility: Visibility}
+// displayFilter
+export type DispFilterAction = SetDispFilter
+
+type SetDispFilter = {
+  type: typeof ActionTypes.setDispFilter
+  payload: {dispFilter: DispFilter}
 }

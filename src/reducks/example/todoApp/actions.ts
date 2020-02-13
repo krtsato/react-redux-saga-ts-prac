@@ -1,4 +1,4 @@
-import {TodosAction, VisibilityAction, ActionTypes, Visibility} from "./types"
+import {TodosAction, DispFilterAction, ActionTypes, DispFilter} from "./types"
 
 // Action Creator
 
@@ -12,13 +12,7 @@ export const tglTodo = (id: number): TodosAction => ({
   payload: {id}
 })
 
-export const setVisibility = (visibility: Visibility): VisibilityAction => ({
-  type: ActionTypes.setVisibilty,
-  payload: {visibility}
+export const setDispFilter = (dispFilter: DispFilter): DispFilterAction => ({
+  type: ActionTypes.setDispFilter,
+  payload: {dispFilter}
 })
-
-export default {
-  addTodo,
-  tglTodo,
-  setVisibility
-}

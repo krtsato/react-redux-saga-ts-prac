@@ -1,11 +1,13 @@
 import {createStore, applyMiddleware, combineReducers, compose} from "redux"
-import * as reducers from "@redx/example/todoApp/index" // import all reducers from ducks/index.js
+import {todosReducers} from "@redx/example/todoApp/index"
 
 type WindowWithDevTools = Window & {
   __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: typeof compose
 }
 declare let window: WindowWithDevTools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-const rootReducer = combineReducers(reducers)
+
+const rootReducer = combineReducers(todosReducers)
+export type RootState = ReturnType<typeof rootReducer>
 
 export const configureStore = createStore(rootReducer, composeEnhancers(applyMiddleware()))

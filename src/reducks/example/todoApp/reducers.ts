@@ -1,6 +1,5 @@
 import {combineReducers} from "redux"
-import {Todo, Todos, TodosAction, Visibility, VisibilityAction, ActionTypes} from "./types"
-import {addTodo} from "./actions"
+import {Todo, Todos, TodosAction, DispFilter, DispFilterAction, ActionTypes, DispFilterLiteral} from "./types"
 
 const createTodo = (id: number, text: string): Todo => ({
   id,
@@ -12,40 +11,36 @@ const tglTodo = (todos: Todos, id: number): Todos =>
   todos.map(todo => (todo.id === id ? {...todo, wasCompleted: !todo.wasCompleted} : todo))
 
 // Domain Reducer for todos
-const todos = (state: Todos = [], action: TodosAction): Todos => {
+const todosReducer = (state: Todos = [], action: TodosAction): Todos => {
   switch (action.type) {
     case ActionTypes.addTodo:
       return [...state, createTodo(action.payload.id + 1, action.payload.text)]
     case ActionTypes.tglTodo:
       return tglTodo(state, action.payload.id)
     default: {
-      const _: never = action
+      const _exhaustion: never = action
       return state
     }
   }
 }
 
 // UI Reducer for visibility
-const visibility = (state: Visibility = "SHOW_ALL", action: VisibilityAction): Visibility => {
+const dispFilterReducer = (
+  state: DispFilter = DispFilterLiteral.showAll,
+  action: DispFilterAction
+): DispFilter => {
   switch (action.type) {
-    case ActionTypes.setVisibilty:
-      return action.payload.visibility
+    case ActionTypes.setDispFilter:
+      return action.payload.dispFilter
     default: {
+      // If you add a action, release the following union-check comment
+      // const _exhaustion: never = action
       return state
     }
   }
 }
 
-/* state shape
-todosState {
-  todos: [],
-  visibility: "SHOW_ALL"
-}
-*/
-
-const todosReducer = combineReducers({
-  todos,
-  visibility
+export const todosReducers = combineReducers({
+  todosReducer,
+  dispFilterReducer
 })
-
-export default todosReducer

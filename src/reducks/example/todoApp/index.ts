@@ -1,7 +1,6 @@
-import todosReducers from "./reducers"
+// export {TodosTypes} from "./types"s"
 
-export {default as todosSelectors} from "./selectors"
-export {default as todosOperations} from "./operations"
-export {default as todosTypes} from "./types"
+// export {default as todosSelectors} from "./selectors"
+// export {default as todosOperations} from "./operations"
 
-export default todosReducers
+export {todosReducers} from "./reducers"
