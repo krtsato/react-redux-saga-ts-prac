@@ -1,20 +1,25 @@
 import {actions} from "./actions"
 import {DispFilter, TodosAction, DispFilterAction} from "./types"
 
-const addTodo = (text: string): TodosAction => {
-  return actions.addTodo(text)
+// for Domain Reducer
+// view で クリックしたとき, id は新しいものを生成する必要がある
+// const latestId = state.slice(-1)[0].id // id in the end of todos array
+const addTodoOpe = (id: number, text: string, wasCompleted = false): TodosAction => {
+  return actions.addTodo(id, text, wasCompleted)
 }
 
-const setVisibilityFilter = (dispFilter: DispFilter): DispFilterAction => {
-  return actions.setVisibilityFilter(dispFilter)
+const tglTodoOpe = (id: number): TodosAction => {
+  return actions.tglTodo(id)
 }
 
-const toggleTodo = (id: number): TodosAction => {
-  return actions.toggleTodo(id)
+// for UI Reducer
+const setDispFilterOpe = (dispFilter: DispFilter): DispFilterAction => {
+  return actions.setDispFilter(dispFilter)
 }
 
-export default {
-  addTodo,
-  setVisibilityFilter,
-  toggleTodo
+// Referenced from outside the todo domain
+export const todosOperations = {
+  addTodoOpe,
+  tglTodoOpe,
+  setDispFilterOpe
 }

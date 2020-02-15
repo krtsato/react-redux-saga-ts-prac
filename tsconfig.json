@@ -12,8 +12,8 @@
     },
     // CommonJS モジュールと ES モジュールの相互運用が可能
     "esModuleInterop": true,
-    // 疎結合化のためすべてのファイルを単一のモジュールとして評価
-    "isolatedModules": true,
+    // re-export を使用するためすべてのファイルを単一のモジュールとして評価しない．typescript@3.8.1-rc 時点でこれらは両立できない
+    "isolatedModules": false,
     // .tsx ファイルから JSX の形式を保ったまま .jsx ファイルを出力
     "jsx": "preserve",
     // 出力するモジュールは ECMAScript の 最新版に準拠

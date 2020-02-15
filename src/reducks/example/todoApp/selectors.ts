@@ -1,6 +1,6 @@
 import {Todos, DispFilter, DispFilterLiteral} from "./types"
 
-export const getVisibleTodos = (todos: Todos, dispFilter: DispFilter): Todos => {
+const dispFilterSel = (todos: Todos, dispFilter: DispFilter): Todos => {
   switch (dispFilter) {
     case DispFilterLiteral.showAll:
       return todos
@@ -13,4 +13,9 @@ export const getVisibleTodos = (todos: Todos, dispFilter: DispFilter): Todos => 
       throw new Error(`Unknown filter: ${dispFilter}`)
     }
   }
+}
+
+// Referenced from outside the todo domain
+export const todosSelectors = {
+  dispFilterSel
 }

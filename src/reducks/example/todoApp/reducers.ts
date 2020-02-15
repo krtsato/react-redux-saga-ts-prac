@@ -1,22 +1,16 @@
 import {combineReducers} from "redux"
-import {Todo, Todos, TodosAction, DispFilter, DispFilterAction, ActionTypes, DispFilterLiteral} from "./types"
+import {Todos, TodosAction, DispFilter, DispFilterAction, ActionTypes, DispFilterLiteral} from "./types"
 
-const createTodo = (id: number, text: string): Todo => ({
-  id,
-  text,
-  wasCompleted: false
-})
-
-const tglTodo = (todos: Todos, id: number): Todos =>
+const toggledTodos = (todos: Todos, id: number): Todos =>
   todos.map(todo => (todo.id === id ? {...todo, wasCompleted: !todo.wasCompleted} : todo))
 
 // Domain Reducer for todos
-const todosReducer = (state: Todos = [], action: TodosAction): Todos => {
+const todosRed = (state: Todos = [], action: TodosAction): Todos => {
   switch (action.type) {
     case ActionTypes.addTodo:
-      return [...state, createTodo(action.payload.id + 1, action.payload.text)]
+      return [...state, action.payload]
     case ActionTypes.tglTodo:
-      return tglTodo(state, action.payload.id)
+      return toggledTodos(state, action.payload.id)
     default: {
       const _exhaustion: never = action
       return state
@@ -24,8 +18,8 @@ const todosReducer = (state: Todos = [], action: TodosAction): Todos => {
   }
 }
 
-// UI Reducer for visibility
-const dispFilterReducer = (
+// UI Reducer for display filter
+const dispFilterRed = (
   state: DispFilter = DispFilterLiteral.showAll,
   action: DispFilterAction
 ): DispFilter => {
@@ -40,7 +34,8 @@ const dispFilterReducer = (
   }
 }
 
+// Referenced from outside the todo domain
 export const todosReducers = combineReducers({
-  todosReducer,
-  dispFilterReducer
+  todosRed,
+  dispFilterRed
 })

@@ -1,18 +1,20 @@
 import {TodosAction, DispFilterAction, ActionTypes, DispFilter} from "./types"
 
 // Action Creator
-
-export const addTodo = (id: number, text: string): TodosAction => ({
+const addTodo = (id: number, text: string, wasCompleted: boolean): TodosAction => ({
   type: ActionTypes.addTodo,
-  payload: {id, text}
+  payload: {id, text, wasCompleted}
 })
 
-export const tglTodo = (id: number): TodosAction => ({
+const tglTodo = (id: number): TodosAction => ({
   type: ActionTypes.tglTodo,
   payload: {id}
 })
 
-export const setDispFilter = (dispFilter: DispFilter): DispFilterAction => ({
+const setDispFilter = (dispFilter: DispFilter): DispFilterAction => ({
   type: ActionTypes.setDispFilter,
   payload: {dispFilter}
 })
+
+// Referenced from inside the todo domain
+export const actions = {addTodo, tglTodo, setDispFilter}

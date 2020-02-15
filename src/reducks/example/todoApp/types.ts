@@ -10,12 +10,6 @@ export type State = {
   dispFilter: DispFilter
 }
 
-// unnecessary?
-export type TodosTypes = {
-  State: State
-  Dispach: Dispatch
-}
-
 // Srore ... unnecessary?
 // type TodosStore = Store<Todos, TodosAction>
 
@@ -51,6 +45,7 @@ type AddTodo = {
   payload: {
     id: number
     text: string
+    wasCompleted: boolean
   }
 }
 
@@ -65,4 +60,10 @@ export type DispFilterAction = SetDispFilter
 type SetDispFilter = {
   type: typeof ActionTypes.setDispFilter
   payload: {dispFilter: DispFilter}
+}
+
+// Referenced from containers
+export type TodosTypes = {
+  State: State
+  Dispatch: Dispatch
 }

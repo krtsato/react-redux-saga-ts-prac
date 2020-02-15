@@ -54,6 +54,14 @@
 ### npm WARN eslint-config-airbnb@18.0.1 requires a peer of eslint-plugin-react-hooks@^1.7.0 but none is installed.
 ### npm WARN @egoist/vue-to-react@1.1.0 requires a peer of vue@^2.6.10 but none is installed.
 ### npm WARN acorn-jsx@5.1.0 requires a peer of acorn@^7.0.0 but none is installed.
+### npm WARN connected-react-router@6.7.0 requires a peer of immutable@^3.8.1 || ^4.0.0-rc.1 but none is installed.
+### npm WARN connected-react-router@6.7.0 requires a peer of seamless-immutable@^7.1.3 but none is installed.
+###
+### For recent TypeScript version (Roadmap : https://bit.ly/2vyN6lV)
+### npm WARN tsutils@3.17.1 requires a peer of typescript@>= 3.7.0-beta but none is installed.
+### 
+### For the warning :  Parsing error: '=' expected. (eslint)
+### npm install -D babel-eslint
 
 ## Skip optional dependency
 ### npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.11
@@ -77,10 +85,10 @@ save() {
 
 save_dev() {
   npm i -D \
-    acorn@^7.0.0 \
     axios-mock-adapter \
     @babel/cli \
     @babel/core \
+    babel-eslint \
     babel-jest \
     babel-loader \
     babel-plugin-import \
@@ -97,7 +105,6 @@ save_dev() {
     eslint-plugin-material-ui \
     eslint-plugin-prettier \
     eslint-plugin-react \
-    eslint-plugin-react-hooks@^1.7.0 \
     jest \
     prettier \
     react-docgen-typescript-loader \
@@ -114,7 +121,7 @@ save_dev() {
     @storybook/addon-storyshots \
     @storybook/addon-viewport \
     @storybook/react \
-    typescript \
+    typescript@3.8.1-rc\
     @typescript-eslint/eslint-plugin \
     @typescript-eslint/parser \
     @types/material-ui \
@@ -126,10 +133,19 @@ save_dev() {
     @types/react-router-dom \
     @types/react-redux \
     @types/react-test-renderer \
-    vue@^2.6.10 \
     webpack \
     webpack-cli \
     webpack-dev-server
+}
+
+save_peer() {
+  npm i -D \
+    babel-eslint \
+    acorn@^7.0.0 \
+    eslint-plugin-react-hooks@1.7.0 \
+    immutable@^3.8.1 \
+    seamless-immutable@^7.1.3 \
+    vue@^2.6.10
 }
 
 if [ ! -d "node_modules" ]; then
@@ -137,6 +153,8 @@ if [ ! -d "node_modules" ]; then
     save &&
     echo "\n========== Start npm install --save-dev ==========\n" &&
     save_dev &&
+    echo "\n========== Start npm install peerDependencies --save-dev ==========\n" &&
+    save_peer &&
     echo "\n========== Start npm audit fix ==========\n" &&
     npm audit fix &&
     echo "\n========== Start dedupe ==========\n" &&
