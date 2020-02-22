@@ -121,7 +121,7 @@ save_dev() {
     @storybook/addon-storyshots \
     @storybook/addon-viewport \
     @storybook/react \
-    typescript@3.8.1-rc\
+    typescript \
     @typescript-eslint/eslint-plugin \
     @typescript-eslint/parser \
     @types/material-ui \
@@ -140,7 +140,6 @@ save_dev() {
 
 save_peer() {
   npm i -D \
-    babel-eslint \
     acorn@^7.0.0 \
     eslint-plugin-react-hooks@1.7.0 \
     immutable@^3.8.1 \

@@ -1,4 +1,4 @@
-import React, {FC} from "react"
+import React, {FC, MouseEvent} from "react"
 import {
   List,
   ListItem,
@@ -10,11 +10,11 @@ import {
 } from "@material-ui/core"
 import AssignmentTwoToneIcon from "@material-ui/icons/AssignmentTwoTone"
 import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone"
-import {todosTypes} from "@redx/example/todoApp"
+import {Todos} from "@redx/example/todoApp"
 
 type TodoDisplayProps = {
-  todos: todosTypes.Todos
-  delTodoHdl: (id: number) => void
+  todos: Todos
+  delTodoHdl: (e: MouseEvent<HTMLButtonElement>) => void
 }
 
 export const TodoDisplayComp: FC<TodoDisplayProps> = ({todos, delTodoHdl}) => (
@@ -28,7 +28,8 @@ export const TodoDisplayComp: FC<TodoDisplayProps> = ({todos, delTodoHdl}) => (
         </ListItemAvatar>
         <ListItemText primary="text about todo" />
         <ListItemSecondaryAction>
-          <IconButton aria-label="delete" edge="end" onClick={delTodoHdl(todo.id)}>
+          {/* id をメモ化すべし */}
+          <IconButton id={`${todo.id}`} aria-label="delete" edge="end" onClick={delTodoHdl}>
             <DeleteTwoToneIcon />
           </IconButton>
         </ListItemSecondaryAction>
