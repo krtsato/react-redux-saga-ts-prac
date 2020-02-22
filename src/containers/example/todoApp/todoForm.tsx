@@ -22,30 +22,3 @@ export const TodoFormCont: FC = () => {
 
   return <TodoFormComp inputText={inputText} inputHdl={inputHdl} addTodoHdl={addTodoHdl} />
 }
-
-/*
-  const delTodoHdl = useCallback(
-    (id: number): void => {
-      dispatch(delTodoOpe(id))
-    },
-    [delTodoOpe, dispatch]
-  ) // eslint-disable-line react-hooks/exhaustive-deps
-
-return (
-    <>
-      <h1>TODO</h1>
-      <input type="text" value={inputText} onChange={inputHdl} autoFocus />
-      <button type="button" onClick={addTodoHdl}>
-        ADD
-      </button>
-      <ul>
-        {todoList.map(item => (
-          <TodoListItem key={item.id} onClick={delTodoHdl(item.id)}>
-            {item.text}
-          </TodoListItem>
-        ))}
-      </ul>
-    </>
-  )
-}
-*/
