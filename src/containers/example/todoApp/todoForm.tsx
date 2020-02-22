@@ -1,14 +1,11 @@
 import React, {FC, ChangeEvent, useCallback, useState} from "react"
 import {useDispatch, useSelector} from "react-redux"
 import {todosOperations, todosSelectors} from "@redx/example/todoApp"
-import {TodoFormComp} from "@comp/example/todoApp/todoFormComp"
+import {TodoFormComp} from "@comp/example/todoApp/todoForm"
 
 export const TodoFormCont: FC = () => {
-  const {addTodoOpe} = todosOperations
-  const {latestIdSel} = todosSelectors
-
   const [inputText, setInputText] = useState("")
-  const latestId = useSelector(latestIdSel)
+  const latestId = useSelector(todosSelectors.latestIdSel)
   const dispatch = useDispatch()
 
   // onChange
@@ -19,7 +16,7 @@ export const TodoFormCont: FC = () => {
   // onClick
   const addTodoHdl = useCallback((): void => {
     if (inputText.trim() === "") return
-    dispatch(addTodoOpe(latestId, inputText))
+    dispatch(todosOperations.addTodoOpe(latestId, inputText))
     setInputText("")
   }, [latestId]) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -27,7 +24,6 @@ export const TodoFormCont: FC = () => {
 }
 
 /*
-delete
   const delTodoHdl = useCallback(
     (id: number): void => {
       dispatch(delTodoOpe(id))

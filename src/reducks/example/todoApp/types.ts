@@ -15,7 +15,7 @@ export type TodosState = {
 export const ActionTypes = {
   addTodo: "ADD_TODO",
   tglTodo: "TGL_TODO",
-  delTodo: "DLT_TODO",
+  delTodo: "DEL_TODO",
   setDispFilter: "SET_DISP_FILTER"
 } as const
 

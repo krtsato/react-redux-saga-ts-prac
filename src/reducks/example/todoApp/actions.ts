@@ -13,7 +13,7 @@ const tglTodoAct = (id: number): ManageAction => ({
 })
 
 const delTodoAct = (id: number): ManageAction => ({
-  type: ActionTypes.tglTodo,
+  type: ActionTypes.delTodo,
   payload: {id}
 })
 
