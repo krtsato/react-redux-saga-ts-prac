@@ -1,5 +1,13 @@
+import {RootState} from "@redx/example/store"
 import {Todos, DispFilter, DispFilterLiteral} from "./types"
 
+// ========== Domain Selector ==========
+// todos
+// get todo's id at the end of todos array
+const latestIdSel = (state: RootState): number => state.todos.manage.slice(-1)[0].id
+
+// ========== UI Selector ==========
+// display filter
 const dispFilterSel = (todos: Todos, dispFilter: DispFilter): Todos => {
   switch (dispFilter) {
     case DispFilterLiteral.showAll:
@@ -15,7 +23,8 @@ const dispFilterSel = (todos: Todos, dispFilter: DispFilter): Todos => {
   }
 }
 
-// Referenced from outside the todo domain
+// ========== Referenced from outside the todo domain ==========
 export const todosSelectors = {
+  latestIdSel,
   dispFilterSel
 }

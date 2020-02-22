@@ -16,7 +16,7 @@ types, reducers, selectors, operations を書き換える
     ・todosReducers
 */
 
-export {TodosTypes} from "./types"
+export {TodosDispatch, TodosState} from "./types"
 export {todosSelectors} from "./selectors"
 export {todosOperations} from "./operations"
 export {todosReducers} from "./reducers"

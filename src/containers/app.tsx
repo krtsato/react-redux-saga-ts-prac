@@ -5,7 +5,8 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 import {ThemeProvider} from "@material-ui/core/styles"
 import {counterReducer, initialState} from "@redx/example/counterApp/reducers"
 import {styleTheme} from "@comm/styleTheme"
-import {todoCont} from "@cont/example/todoApp/todoCont"
+import {TodoFormCont} from "@cont/example/todoApp/todoForm"
+import {TodoDisplayCont} from "@cont/example/todoApp/todoDisplay"
 
 export const App: FC = () => {
   const store = createStore(counterReducer, initialState)
@@ -13,7 +14,8 @@ export const App: FC = () => {
     <Provider store={store}>
       <ThemeProvider theme={styleTheme}>
         <CssBaseline />
-        <CounterCont />
+        <TodoFormCont />
+        <TodoDisplayCont />
       </ThemeProvider>
     </Provider>
   )

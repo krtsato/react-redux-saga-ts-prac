@@ -1,11 +1,10 @@
 import {Dispatch as RawDispatch} from "redux"
 
-/* ===== Data Type imported from containers via index.ts =====  */
-// Dispath
-export type Dispatch = RawDispatch<TodosAction>
+// Dispatch
+export type TodosDispatch = RawDispatch<ManageAction | DispFilterAction>
 
 // State
-export type State = {
+export type TodosState = {
   todos: Todos
   dispFilter: DispFilter
 }
@@ -13,8 +12,15 @@ export type State = {
 // Srore ... unnecessary?
 // type TodosStore = Store<Todos, TodosAction>
 
-/* ===== Data Type ===== */
-// todos
+export const ActionTypes = {
+  addTodo: "ADD_TODO",
+  tglTodo: "TGL_TODO",
+  delTodo: "DLT_TODO",
+  setDispFilter: "SET_DISP_FILTER"
+} as const
+
+// ========== Domain Types ==========
+// todos data
 export type Todos = Todo[]
 export type Todo = {
   id: number
@@ -22,23 +28,8 @@ export type Todo = {
   wasCompleted: boolean
 }
 
-// displayFilter
-export type DispFilter = "SHOW_ALL" | "SHOW_ACTIVE" | "SHOW_COMPLETED"
-export const DispFilterLiteral = {
-  showAll: "SHOW_ALL",
-  showActive: "SHOW_ACTIVE",
-  showCompleted: "SHOW_COMPLETED"
-} as const
-
-/* =====  Action ===== */
-export const ActionTypes = {
-  addTodo: "ADD_TODO",
-  tglTodo: "TGL_TODO",
-  setDispFilter: "SET_DISP_FILTER"
-} as const
-
-// todos
-export type TodosAction = AddTodo | TglTodo
+// todos action
+export type ManageAction = AddTodo | TglTodo | DelTodo
 
 type AddTodo = {
   type: typeof ActionTypes.addTodo
@@ -54,16 +45,25 @@ type TglTodo = {
   payload: {id: number}
 }
 
-// displayFilter
+type DelTodo = {
+  type: typeof ActionTypes.delTodo
+  payload: {id: number}
+}
+
+// ========== UI Types ==========
+// display filter data
+export type DispFilter = "SHOW_ALL" | "SHOW_ACTIVE" | "SHOW_COMPLETED"
+
+export const DispFilterLiteral = {
+  showAll: "SHOW_ALL",
+  showActive: "SHOW_ACTIVE",
+  showCompleted: "SHOW_COMPLETED"
+} as const
+
+// display filer action
 export type DispFilterAction = SetDispFilter
 
 type SetDispFilter = {
   type: typeof ActionTypes.setDispFilter
   payload: {dispFilter: DispFilter}
-}
-
-// Referenced from containers
-export type TodosTypes = {
-  State: State
-  Dispatch: Dispatch
 }

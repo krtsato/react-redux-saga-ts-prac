@@ -1,25 +1,24 @@
-import {actions} from "./actions"
-import {DispFilter, TodosAction, DispFilterAction} from "./types"
+import {todosActions} from "./actions"
+import {DispFilter, ManageAction, DispFilterAction} from "./types"
 
-// for Domain Reducer
-// view で クリックしたとき, id は新しいものを生成する必要がある
-// const latestId = state.slice(-1)[0].id // id in the end of todos array
-const addTodoOpe = (id: number, text: string, wasCompleted = false): TodosAction => {
-  return actions.addTodo(id, text, wasCompleted)
-}
+// ========== Domain Reducers ==========
+// todos
+const addTodoOpe = (id: number, text: string, wasCompleted = false): ManageAction =>
+  todosActions.addTodoAct(id, text, wasCompleted)
 
-const tglTodoOpe = (id: number): TodosAction => {
-  return actions.tglTodo(id)
-}
+const tglTodoOpe = (id: number): ManageAction => todosActions.tglTodoAct(id)
 
-// for UI Reducer
-const setDispFilterOpe = (dispFilter: DispFilter): DispFilterAction => {
-  return actions.setDispFilter(dispFilter)
-}
+const delTodoOpe = (id: number): ManageAction => todosActions.delTodoAct(id)
 
-// Referenced from outside the todo domain
+// ========== UI Reducers ==========
+// display filter
+const setDispFilterOpe = (dispFilter: DispFilter): DispFilterAction =>
+  todosActions.setDispFilterAct(dispFilter)
+
+// ========== Referenced from outside the todo domain ==========
 export const todosOperations = {
   addTodoOpe,
   tglTodoOpe,
+  delTodoOpe,
   setDispFilterOpe
 }

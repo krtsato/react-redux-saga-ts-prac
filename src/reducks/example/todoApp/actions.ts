@@ -1,20 +1,28 @@
-import {TodosAction, DispFilterAction, ActionTypes, DispFilter} from "./types"
+import {ManageAction, DispFilterAction, ActionTypes, DispFilter} from "./types"
 
-// Action Creator
-const addTodo = (id: number, text: string, wasCompleted: boolean): TodosAction => ({
+// ========== Domain Actions ==========
+// todos
+const addTodoAct = (id: number, text: string, wasCompleted: boolean): ManageAction => ({
   type: ActionTypes.addTodo,
   payload: {id, text, wasCompleted}
 })
 
-const tglTodo = (id: number): TodosAction => ({
+const tglTodoAct = (id: number): ManageAction => ({
   type: ActionTypes.tglTodo,
   payload: {id}
 })
 
-const setDispFilter = (dispFilter: DispFilter): DispFilterAction => ({
+const delTodoAct = (id: number): ManageAction => ({
+  type: ActionTypes.tglTodo,
+  payload: {id}
+})
+
+// ========== UI Actions ==========
+// display filter
+const setDispFilterAct = (dispFilter: DispFilter): DispFilterAction => ({
   type: ActionTypes.setDispFilter,
   payload: {dispFilter}
 })
 
-// Referenced from inside the todo domain
-export const actions = {addTodo, tglTodo, setDispFilter}
+// ========== Referenced from the operations ==========
+export const todosActions = {addTodoAct, tglTodoAct, delTodoAct, setDispFilterAct}

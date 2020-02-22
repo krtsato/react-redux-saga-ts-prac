@@ -1,6 +1,6 @@
 import React, {FC} from "react"
-import {Button, Card, CardActions, CardContent, Typography} from "@material-ui/core"
-import HistoryRounded from "@maerial-ui/icons/HistoryRounded"
+import {Button, Card, CardActions, CardContent, Container, Typography} from "@material-ui/core"
+import HistoryRounded from "@material-ui/icons/HistoryRounded"
 import {useStyles} from "./timer.styles"
 
 interface HogeProps {
@@ -14,9 +14,9 @@ export const TimerComp: FC<HogeProps> = ({timeLeft, reset}) => {
   return (
     <>
       <div className="container">
-        <header>
-          <h1>タイマー</h1>
-        </header>
+        <Container component="header">
+          <Typography variant="h1">タイマー</Typography>
+        </Container>
         <Card className={classes.root}>
           <CardContent>
             <Typography>Time</Typography>

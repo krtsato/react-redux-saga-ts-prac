@@ -1,16 +1,18 @@
 import {combineReducers} from "redux"
-import {Todos, TodosAction, DispFilter, DispFilterAction, ActionTypes, DispFilterLiteral} from "./types"
+import {Todos, ManageAction, DispFilter, DispFilterAction, ActionTypes, DispFilterLiteral} from "./types"
 
-const toggledTodos = (todos: Todos, id: number): Todos =>
-  todos.map(todo => (todo.id === id ? {...todo, wasCompleted: !todo.wasCompleted} : todo))
-
-// Domain Reducer for todos
-const todosRed = (state: Todos = [], action: TodosAction): Todos => {
+// ========== Domain Reducers ==========
+// todos
+const manageRed = (state: Todos = [], action: ManageAction): Todos => {
   switch (action.type) {
     case ActionTypes.addTodo:
       return [...state, action.payload]
     case ActionTypes.tglTodo:
-      return toggledTodos(state, action.payload.id)
+      return state.map(todo =>
+        todo.id === action.payload.id ? {...todo, wasCompleted: !todo.wasCompleted} : todo
+      )
+    case ActionTypes.delTodo:
+      return state.filter(todo => todo.id !== action.payload.id)
     default: {
       const _exhaustion: never = action
       return state
@@ -18,7 +20,8 @@ const todosRed = (state: Todos = [], action: TodosAction): Todos => {
   }
 }
 
-// UI Reducer for display filter
+// ========== UI Reducers ==========
+// display filter
 const dispFilterRed = (
   state: DispFilter = DispFilterLiteral.showAll,
   action: DispFilterAction
@@ -34,8 +37,8 @@ const dispFilterRed = (
   }
 }
 
-// Referenced from outside the todo domain
+// ========== Referenced from the store ==========
 export const todosReducers = combineReducers({
-  todosRed,
-  dispFilterRed
+  manage: manageRed,
+  dispFilter: dispFilterRed
 })
