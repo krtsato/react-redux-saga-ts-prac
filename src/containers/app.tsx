@@ -1,25 +1,21 @@
 import React, {FC} from "react"
 import {Provider} from "react-redux"
-import {createStore} from "redux"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import {ThemeProvider} from "@material-ui/core/styles"
-import {counterReducer, initialState} from "@redx/example/counterApp/reducers"
+import {configureStore} from "@redx/example/store"
 import {styleTheme} from "@comm/styleTheme"
 import {TodoFormCont} from "@cont/example/todoApp/todoForm"
 import {TodoDisplayCont} from "@cont/example/todoApp/todoDisplay"
 
-export const App: FC = () => {
-  const store = createStore(counterReducer, initialState)
-  return (
-    <Provider store={store}>
-      <ThemeProvider theme={styleTheme}>
-        <CssBaseline />
-        <TodoFormCont />
-        <TodoDisplayCont />
-      </ThemeProvider>
-    </Provider>
-  )
-}
+export const App: FC = () => (
+  <Provider store={configureStore}>
+    <ThemeProvider theme={styleTheme}>
+      <CssBaseline />
+      <TodoFormCont />
+      <TodoDisplayCont />
+    </ThemeProvider>
+  </Provider>
+)
 
 /* ==================================
 For example: peopleListApp

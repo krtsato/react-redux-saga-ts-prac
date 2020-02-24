@@ -1,11 +1,13 @@
-import {TodosState, Todos, DispFilter, DispFilterLiteral} from "@redx/example/todoApp/types"
+import {Todos, DispFilter, DispFilterLiteral} from "@redx/example/todoApp/types"
+import {RootState} from "@redx/example/store"
 
 // ========== Domain Selector ==========
 // todos
-const todoListSel = (state: TodosState): Todos => state.todos
+const todoListSel = (state: RootState): Todos => state.todos.manage
 
 // get todo's id at the end of todos array
-const latestIdSel = (state: TodosState): number => state.todos.slice(-1)[0].id
+const latestIdSel = (state: RootState): number =>
+  state.todos.manage.length === 0 ? 0 : state.todos.manage.slice(-1)[0].id + 1
 
 // ========== UI Selector ==========
 // display filter

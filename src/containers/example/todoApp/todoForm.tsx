@@ -10,7 +10,7 @@ export const TodoFormCont: FC = () => {
 
   // onChange
   const inputHdl = useCallback((e: ChangeEvent<HTMLInputElement>): void => {
-    setInputText(e.target.value) // 要確認 : 引数で指定された event は初期状態のまま？
+    setInputText(e.target.value)
   }, [])
 
   // onClick
@@ -18,7 +18,7 @@ export const TodoFormCont: FC = () => {
     if (inputText.trim() === "") return
     dispatch(todosOperations.addTodoOpe(latestId, inputText))
     setInputText("")
-  }, [latestId]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [dispatch, inputText, latestId])
 
   return <TodoFormComp inputText={inputText} inputHdl={inputHdl} addTodoHdl={addTodoHdl} />
 }
