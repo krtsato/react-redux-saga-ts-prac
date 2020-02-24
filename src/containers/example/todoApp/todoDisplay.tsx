@@ -7,6 +7,7 @@ export const TodoDisplayCont: FC = () => {
   const todos = useSelector(todosSelectors.todoListSel)
   const dispatch = useDispatch()
 
+  // onClick : delete
   const delTodoHdl = useCallback(
     (e: MouseEvent<HTMLButtonElement>): void => {
       const id = parseInt(e.currentTarget.id, 10)
@@ -15,5 +16,14 @@ export const TodoDisplayCont: FC = () => {
     [dispatch]
   )
 
-  return <TodoDisplayComp todos={todos} delTodoHdl={delTodoHdl} />
+  // onClick : toggle
+  const tglTodoHdl = useCallback(
+    (e: MouseEvent<HTMLButtonElement>): void => {
+      const id = parseInt(e.currentTarget.id, 10)
+      dispatch(todosOperations.tglTodoOpe(id))
+    },
+    [dispatch]
+  )
+
+  return <TodoDisplayComp todos={todos} delTodoHdl={delTodoHdl} tglTodoHdl={tglTodoHdl} />
 }

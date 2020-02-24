@@ -6,12 +6,13 @@ import {TodoComp} from "@comp/example/todoApp/todo"
 type TodoDisplayProps = {
   todos: Todos
   delTodoHdl: (e: MouseEvent<HTMLButtonElement>) => void
+  tglTodoHdl: (e: MouseEvent<HTMLButtonElement>) => void
 }
 
-export const TodoDisplayComp: FC<TodoDisplayProps> = ({todos, delTodoHdl}) => (
+export const TodoDisplayComp: FC<TodoDisplayProps> = ({todos, delTodoHdl, tglTodoHdl}) => (
   <List>
     {todos.map(todo => (
-      <TodoComp key={todo.id} todo={todo} delTodoHdl={delTodoHdl} />
+      <TodoComp key={todo.id} todo={todo} delTodoHdl={delTodoHdl} tglTodoHdl={tglTodoHdl} />
     ))}
   </List>
 )
