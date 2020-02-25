@@ -1,4 +1,4 @@
-import {Todos, DispFilter, DispFilterLiteral} from "@redx/example/todoApp/types"
+import {Todos, DispFilterLiteral} from "@redx/example/todoApp/types"
 import {RootState} from "@redx/example/store"
 
 // ========== Domain Selector ==========
@@ -11,14 +11,15 @@ const latestIdSel = (state: RootState): number =>
 
 // ========== UI Selector ==========
 // display filter
-const dispFilterSel = (todos: Todos, dispFilter: DispFilter): Todos => {
+const dispFilterSel = (state: RootState): Todos => {
+  const {manage, dispFilter} = state.todos
   switch (dispFilter) {
     case DispFilterLiteral.showAll:
-      return todos
+      return manage
     case DispFilterLiteral.showCompleted:
-      return todos.filter(todo => todo.wasCompleted)
+      return manage.filter(todo => todo.wasCompleted)
     case DispFilterLiteral.showActive:
-      return todos.filter(todo => !todo.wasCompleted)
+      return manage.filter(todo => !todo.wasCompleted)
     default: {
       const _exhaustion: never = dispFilter
       throw new Error(`Unknown filter: ${dispFilter}`)
