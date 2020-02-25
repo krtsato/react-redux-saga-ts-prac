@@ -30,6 +30,7 @@
     "strict": true,
     // ECMAScript の 最新版を参照する
     "target": "esnext",
+    "typeRoots": ["node_modules/@types", "src/commons/types.d.ts"]
   },
   "include": [
     "src/**/*",
