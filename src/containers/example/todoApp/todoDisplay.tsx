@@ -5,36 +5,33 @@ import {TodoDisplayComp} from "@comp/example/todoApp/todoDisplay"
 import {FilterSwitchComp} from "@comp/example/todoApp/filterSwitch"
 
 export const TodoDisplayCont: FC = () => {
-  const {dispFilterSel} = todosSelectors
-  const {delTodoOpe, tglTodoOpe, setDispFilterOpe} = todosOperations
   const dispatch = useDispatch()
-  // const todos = useSelector(todoListSel)
-  const filteredTodos = useSelector(dispFilterSel)
+  const filteredTodos = useSelector(todosSelectors.dispFilterSel)
 
   // onClick : delete
   const delTodoHdl = useCallback(
     (e: MouseEvent<HTMLButtonElement>): void => {
-      const id = parseInt(e.currentTarget.id, 10)
-      dispatch(delTodoOpe(id))
+      const id = parseInt(e.currentTarget.dataset.id as string, 10)
+      dispatch(todosOperations.delTodoOpe(id))
     },
-    [delTodoOpe, dispatch]
+    [dispatch]
   )
 
   // onClick : toggle
   const tglTodoHdl = useCallback(
     (e: MouseEvent<HTMLButtonElement>): void => {
-      const id = parseInt(e.currentTarget.id, 10)
-      dispatch(tglTodoOpe(id))
+      const id = parseInt(e.currentTarget.dataset.id as string, 10)
+      dispatch(todosOperations.tglTodoOpe(id))
     },
-    [dispatch, tglTodoOpe]
+    [dispatch]
   )
 
   // onClick : dispFilter
   const setDispFilterHdl = useCallback(
     (e: MouseEvent<HTMLButtonElement>): void => {
-      dispatch(setDispFilterOpe(e.currentTarget.dataset.filter as DispFilter))
+      dispatch(todosOperations.setDispFilterOpe(e.currentTarget.dataset.filter as DispFilter))
     },
-    [dispatch, setDispFilterOpe]
+    [dispatch]
   )
 
   return (

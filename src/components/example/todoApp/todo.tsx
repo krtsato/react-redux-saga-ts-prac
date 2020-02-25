@@ -41,15 +41,15 @@ export const TodoComp: FC<TodoProps> = ({todo, delTodoHdl, tglTodoHdl}) => {
       />
       <ListItemSecondaryAction>
         {todo.wasCompleted ? (
-          <IconButton id={`${todo.id}`} aria-label="complete" onClick={tglTodoHdl}>
+          <IconButton data-id={`${todo.id}`} aria-label="complete" onClick={tglTodoHdl}>
             <ReplayRoundedIcon />
           </IconButton>
         ) : (
-          <IconButton id={`${todo.id}`} aria-label="incomplete" onClick={tglTodoHdl}>
+          <IconButton data-id={`${todo.id}`} aria-label="incomplete" onClick={tglTodoHdl}>
             <DoneOutlineRoundedIcon />
           </IconButton>
         )}
-        <IconButton id={`${todo.id}`} aria-label="delete" onClick={delTodoHdl}>
+        <IconButton data-id={`${todo.id}`} aria-label="delete" onClick={delTodoHdl}>
           <DeleteTwoToneIcon />
         </IconButton>
       </ListItemSecondaryAction>
