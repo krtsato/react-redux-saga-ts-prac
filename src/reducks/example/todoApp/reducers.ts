@@ -1,9 +1,9 @@
-import {combineReducers} from "redux"
+import {Reducer, combineReducers} from "redux"
 import {Todos, ManageAction, DispFilter, DispFilterAction, ActionTypes, DispFilterLiteral} from "./types"
 
 // ========== Domain Reducers ==========
 // todos
-const manageRed = (state: Todos = [], action: ManageAction): Todos => {
+const manageRed: Reducer<Todos, ManageAction> = (state = [], action): Todos => {
   switch (action.type) {
     case ActionTypes.addTodo:
       return [...state, action.payload]
@@ -22,9 +22,9 @@ const manageRed = (state: Todos = [], action: ManageAction): Todos => {
 
 // ========== UI Reducers ==========
 // display filter
-const dispFilterRed = (
-  state: DispFilter = DispFilterLiteral.showAll,
-  action: DispFilterAction
+const dispFilterRed: Reducer<DispFilter, DispFilterAction> = (
+  state = DispFilterLiteral.showAll,
+  action
 ): DispFilter => {
   switch (action.type) {
     case ActionTypes.setDispFilter:

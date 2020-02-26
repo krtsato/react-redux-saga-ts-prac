@@ -1,17 +1,3 @@
-import {Dispatch as RawDispatch} from "redux"
-
-// Dispatch
-export type TodosDispatch = RawDispatch<ManageAction | DispFilterAction>
-
-// State
-export type TodosState = {
-  todos: Todos
-  dispFilter: DispFilter
-}
-
-// Srore ... unnecessary?
-// type TodosStore = Store<Todos, TodosAction>
-
 export const ActionTypes = {
   addTodo: "ADD_TODO",
   tglTodo: "TGL_TODO",
@@ -67,3 +53,19 @@ type SetDispFilter = {
   type: typeof ActionTypes.setDispFilter
   payload: {dispFilter: DispFilter}
 }
+
+/* ========== unnecessary? ==========
+import {Dispatch as RawDispatch} from "redux"
+
+// Dispatch
+type TodosDispatch = RawDispatch<ManageAction | DispFilterAction>
+
+// State
+type TodosState = {
+  todos: Todos
+  dispFilter: DispFilter
+}
+
+// Srore
+type TodosStore = Store<Todos, TodosAction>
+*/
