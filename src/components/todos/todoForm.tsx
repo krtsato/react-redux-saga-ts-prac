@@ -1,4 +1,5 @@
 import React, {FC, ChangeEvent} from "react"
+import {Helmet} from "react-helmet"
 import {Button, Typography, TextField} from "@material-ui/core"
 import CreateRoundedIcon from "@material-ui/icons/CreateRounded"
 
@@ -10,7 +11,10 @@ type TodoFormProps = {
 
 export const TodoFormComp: FC<TodoFormProps> = ({inputText, inputHdl, addTodoHdl}) => (
   <>
-    <Typography variant="h1">TODO</Typography>
+    <Helmet>
+      <title>Todo ｜react-redux-saga-ts-prac</title>
+    </Helmet>
+    <Typography variant="h2">Todo</Typography>
     <TextField
       id="todoFormInput"
       label="Todo"
