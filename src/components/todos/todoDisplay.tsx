@@ -1,7 +1,7 @@
 import React, {FC, MouseEvent} from "react"
 import {List} from "@material-ui/core"
-import {Todos} from "@redx/example/todoApp"
-import {TodoComp} from "@comp/example/todoApp/todo"
+import {Todos} from "@redx/todos"
+import {TodoComp} from "@comp/todos/todo"
 
 type TodoDisplayProps = {
   todos: Todos

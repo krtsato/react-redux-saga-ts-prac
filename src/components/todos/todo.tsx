@@ -1,5 +1,5 @@
 import React, {FC, MouseEvent} from "react"
-import {Todo} from "@redx/example/todoApp"
+import {Todo} from "@redx/todos"
 import AssignmentTwoToneIcon from "@material-ui/icons/AssignmentTwoTone"
 import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone"
 import DoneOutlineRoundedIcon from "@material-ui/icons/DoneOutlineRounded"

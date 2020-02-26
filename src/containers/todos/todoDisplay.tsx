@@ -1,8 +1,8 @@
 import React, {FC, useCallback, MouseEvent} from "react"
 import {useDispatch, useSelector} from "react-redux"
-import {DispFilter, todosOperations, todosSelectors} from "@redx/example/todoApp"
-import {TodoDisplayComp} from "@comp/example/todoApp/todoDisplay"
-import {FilterSwitchComp} from "@comp/example/todoApp/filterSwitch"
+import {DispFilter, todosOperations, todosSelectors} from "@redx/todos"
+import {TodoDisplayComp} from "@comp/todos/todoDisplay"
+import {FilterSwitchComp} from "@comp/todos/filterSwitch"
 
 export const TodoDisplayCont: FC = () => {
   const dispatch = useDispatch()

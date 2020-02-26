@@ -1,7 +1,7 @@
 import React, {FC, ChangeEvent, useCallback, useState} from "react"
 import {useDispatch, useSelector} from "react-redux"
-import {todosOperations, todosSelectors} from "@redx/example/todoApp"
-import {TodoFormComp} from "@comp/example/todoApp/todoForm"
+import {todosOperations, todosSelectors} from "@redx/todos"
+import {TodoFormComp} from "@comp/todos/todoForm"
 
 export const TodoFormCont: FC = () => {
   const [inputText, setInputText] = useState("")

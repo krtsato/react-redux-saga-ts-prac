@@ -1,5 +1,5 @@
-import {Todos, DispFilterLiteral} from "@redx/example/todoApp/types"
-import {Root} from "@comm/types"
+import {Todos, DispFilterLiteral} from "@redx/todos/types"
+import {Root} from "@redx/types"
 
 // ========== Domain Selector ==========
 // todos

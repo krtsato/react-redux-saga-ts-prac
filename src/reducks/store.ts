@@ -1,5 +1,5 @@
 import {createStore, applyMiddleware, combineReducers, compose} from "redux"
-import {todosReducers} from "@redx/example/todoApp/index"
+import {todosReducers} from "@redx/todos/index"
 
 type WindowWithDevTools = Window & {
   __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: typeof compose

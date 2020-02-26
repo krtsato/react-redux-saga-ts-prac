@@ -2,10 +2,10 @@ import React, {FC} from "react"
 import {Provider} from "react-redux"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import {ThemeProvider} from "@material-ui/core/styles"
-import {configureStore} from "@redx/example/store"
+import {configureStore} from "@redx/store"
 import {styleTheme} from "@comm/styleTheme"
-import {TodoFormCont} from "@cont/example/todoApp/todoForm"
-import {TodoDisplayCont} from "@cont/example/todoApp/todoDisplay"
+import {TodoFormCont} from "@cont/todos/todoForm"
+import {TodoDisplayCont} from "@cont/todos/todoDisplay"
 
 export const App: FC = () => (
   <Provider store={configureStore}>
@@ -17,8 +17,7 @@ export const App: FC = () => (
   </Provider>
 )
 
-/* ==================================
-For example: peopleListApp
+/* ================ Router example ==================
 <BrowserRouter>
   <ThemeProvider theme={styleTheme}>
     <CssBaseline />
@@ -33,13 +32,4 @@ For example: peopleListApp
     </Switch>
   </ThemeProvider>
 </BrowserRouter>
-==================================== */
-
-/* ===================================
-For example: taskManageApp
-export const App: React.FC<HelloProps> = () => (
-  <Provider store={store}>
-    <InboxScreen error={null} />
-  </Provider>
-)
 ==================================== */

@@ -1,6 +1,6 @@
 import React, {FC, MouseEvent} from "react"
 import {Button, ButtonGroup} from "@material-ui/core"
-import {DispFilterLiteral} from "@redx/example/todoApp"
+import {DispFilterLiteral} from "@redx/todos"
 
 type FilterSwitchProps = {
   setDispFilterHdl: (e: MouseEvent<HTMLButtonElement>) => void
