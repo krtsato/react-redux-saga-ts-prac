@@ -12,7 +12,7 @@ type TodoFormProps = {
 export const TodoFormComp: FC<TodoFormProps> = ({inputText, inputHdl, addTodoHdl}) => (
   <>
     <Helmet>
-      <title>Todo ｜react-redux-saga-ts-prac</title>
+      <title>Todo ｜React-Redux-Saga-TS-Prac</title>
     </Helmet>
     <Typography variant="h2">Todo</Typography>
     <TextField

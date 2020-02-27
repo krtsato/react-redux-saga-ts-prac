@@ -79,6 +79,7 @@ export const styleTheme = createMuiTheme({
     toolbar: {minHeight: 42}
   },
   props: {
+    MuiAppBar: {elevation: 1},
     MuiButton: {
       disableElevation: true,
       color: "primary",

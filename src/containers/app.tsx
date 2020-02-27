@@ -1,28 +1,35 @@
 import React, {FC} from "react"
 import {Switch, Route, Redirect} from "react-router-dom"
+import {Container} from "@material-ui/core"
 import {TodoFormCont} from "@cont/todos/todoForm"
 import {TodoDisplayCont} from "@cont/todos/todoDisplay"
 import {HomeComp} from "@comp/home"
-import {MembersComp} from "@comp/members/members"
-import {CompaniesComp} from "@comp/members/companies"
+import {HeaderComp} from "@comp/header"
+import {MemberDisplayComp} from "@comp/companies/memberDisplay"
+import {CompanyDisplayComp} from "@comp/companies/companyDisplay"
 
 export const App: FC = () => (
-  <Switch>
-    <Route exact path="/">
-      <HomeComp />
-    </Route>
-    <Route path="/todo">
-      <TodoFormCont />
-      <TodoDisplayCont />
-    </Route>
-    <Route exact path="/companies">
-      <CompaniesComp />
-    </Route>
-    <Route path="/:companyName/members">
-      <MembersComp />
-    </Route>
-    <Redirect to="/" />
-  </Switch>
+  <>
+    <HeaderComp />
+    <Container>
+      <Switch>
+        <Route exact path="/">
+          <HomeComp />
+        </Route>
+        <Route path="/todos">
+          <TodoFormCont />
+          <TodoDisplayCont />
+        </Route>
+        <Route exact path="/companies">
+          <CompanyDisplayComp />
+        </Route>
+        <Route path="/:companyName/members">
+          <MemberDisplayComp />
+        </Route>
+        <Redirect to="/" />
+      </Switch>
+    </Container>
+  </>
 )
 
 /* ================ Router example ==================
