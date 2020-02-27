@@ -3,6 +3,8 @@ import {Link} from "react-router-dom"
 import {AppBar, Toolbar, Button, Typography} from "@material-ui/core"
 import ListAltRoundedIcon from "@material-ui/icons/ListAltRounded"
 import DomainRoundedIcon from "@material-ui/icons/DomainRounded"
+import HomeRoundedIcon from "@material-ui/icons/HomeRounded"
+
 import {useStyles} from "./header.styles"
 
 export const HeaderComp: FC = () => {
@@ -14,6 +16,9 @@ export const HeaderComp: FC = () => {
         <Typography variant="h1" className={classes.appTitle}>
           React-Redux-Saga-TS-Prac
         </Typography>
+        <Button variant="text" color="inherit" startIcon={<HomeRoundedIcon />} component={Link} to="/">
+          Home
+        </Button>
         <Button
           variant="text"
           color="inherit"
