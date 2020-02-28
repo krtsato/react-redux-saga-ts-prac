@@ -1,6 +1,6 @@
 import React, {FC} from "react"
 import {Helmet} from "react-helmet"
-// import {User} from ""
+import {User} from "@redx/"
 import {Avatar, Card, CardHeader, Link, Typography} from "@material-ui/core"
 
 /*

@@ -3,7 +3,7 @@ import {Todos, ManageAction, DispFilter, DispFilterAction, ActionTypes, DispFilt
 
 // ========== Domain Reducers ==========
 // todos
-const manageRed: Reducer<Todos, ManageAction> = (state = [], action): Todos => {
+const manageRed: Reducer<Todos, ManageAction> = (state = [], action) => {
   switch (action.type) {
     case ActionTypes.addTodo:
       return [...state, action.payload]
@@ -22,10 +22,7 @@ const manageRed: Reducer<Todos, ManageAction> = (state = [], action): Todos => {
 
 // ========== UI Reducers ==========
 // display filter
-const dispFilterRed: Reducer<DispFilter, DispFilterAction> = (
-  state = DispFilterLiteral.showAll,
-  action
-): DispFilter => {
+const dispFilterRed: Reducer<DispFilter, DispFilterAction> = (state = DispFilterLiteral.showAll, action) => {
   switch (action.type) {
     case ActionTypes.setDispFilter:
       return action.payload.dispFilter

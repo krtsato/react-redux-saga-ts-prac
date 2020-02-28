@@ -1,3 +1,4 @@
+// ========== Action Types ==========
 export const ActionTypes = {
   addTodo: "ADD_TODO",
   tglTodo: "TGL_TODO",
