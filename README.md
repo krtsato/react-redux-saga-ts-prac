@@ -1,4 +1,4 @@
-# react-redux-saga-ts-prac
+# react-redux-ts-prac
 
 ボイラープレートの草案．  
 作業工程を記録した自分用のメモ．  
@@ -7,8 +7,8 @@
 - Docker
 - React
 - Redux
-- Redux Saga
 - TypeScript
+- Webpack
 - Babel
 - ESLint
 - Prettier
@@ -36,7 +36,7 @@
   - webpack のセットアップ
   - サーバの起動まで行う
   - chmod +x ./npm-setup.sh
-- npm-setup.sh を書く？ (今後対応)
+- webpack-setup.sh を書く？ (今後対応)
   - コマンド１つで各 config ファイルを作成
 - 以下のディレクトリを掘る
   - redux のディレクトリ構成は re-ducks パターン
@@ -44,10 +44,12 @@
 ```zsh
 .
 ├── public/
-├── src
-│     ├── containers/
+├── src/
+│     ├── commons/
 │     ├── components/
-│     └── reducks/
+│     ├── containers/
+│     ├── reducks/
+│     └── services/
 ├── .dockerignore
 ├── .git
 ├── .gitignore

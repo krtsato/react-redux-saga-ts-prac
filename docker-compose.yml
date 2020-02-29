@@ -5,11 +5,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: rrstp-img:latest
+    image: rrtp-img:latest
     ports:
       - 8000:8000 # webpack-dev-server
       - 8001:8001 # storybook
     volumes:
       - .:/proj-cont
-    container_name: rrstp-cont
+    container_name: rrtp-cont
     tty: true

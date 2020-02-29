@@ -5,7 +5,6 @@ type WindowWithDevTools = Window & {
   __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: typeof compose
 }
 declare let window: WindowWithDevTools
-
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 export const rootReducer = combineReducers({
@@ -13,4 +12,4 @@ export const rootReducer = combineReducers({
   todos: todosReducers
 })
 
-export const configureStore = createStore(rootReducer, composeEnhancers(applyMiddleware()))
+export const configureStore = createStore(rootReducer, composeEnhancers(applyMiddleware(/* add middleware here  */)))

@@ -14,7 +14,7 @@ export const HeaderComp: FC = () => {
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h1" className={classes.appTitle}>
-          React-Redux-Saga-TS-Prac
+          React-Redux-TS-Prac
         </Typography>
         <Button variant="text" color="inherit" startIcon={<HomeRoundedIcon />} component={Link} to="/">
           Home

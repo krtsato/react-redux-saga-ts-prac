@@ -9,7 +9,7 @@ const companies = ["facebook", "airbnb", "netflix"]
 export const CompanyDisplayComp: FC = () => (
   <>
     <Helmet>
-      <title>Companies ｜ React-Redux-Saga-TS-Prac</title>
+      <title>Companies ｜ React-Redux-TS-Prac</title>
     </Helmet>
     <Typography variant="h2">Tech Companies</Typography>
     <List>

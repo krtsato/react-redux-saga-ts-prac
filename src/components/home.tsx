@@ -5,7 +5,7 @@ import {Typography} from "@material-ui/core"
 export const HomeComp: FC = () => (
   <>
     <Helmet>
-      <title>Home | React-Redux-Saga-TS-Prac</title>
+      <title>Home | React-Redux-TS-Prac</title>
     </Helmet>
     <Typography variant="h2">Home</Typography>
   </>

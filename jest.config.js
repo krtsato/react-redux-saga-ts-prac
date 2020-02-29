@@ -17,6 +17,7 @@ module.exports = {
     "^@comp/(.*)$": "<rootDir>/components/$1",
     "^@cont/(.*)$": "<rootDir>/containers/$1",
     "^@redx/(.*)$": "<rootDir>/reducks/$1",
+    "^@serv/(.*)$": "<rootDir>/services/$1",
     "react-syntax-highlighter/dist/esm/(.*)": "react-syntax-highlighter/dist/cjs/$1" // Because of Issue https://bit.ly/2tCD6Ye
   },
 

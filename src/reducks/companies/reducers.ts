@@ -1,9 +1,15 @@
 import {Reducer, combineReducers} from "redux"
-import {GitHubState, GitHubAction, ActionTypes} from "./types"
+import {GithubState, GithubAction, ActionTypes} from "./types"
 
 // ========== Domain Reducers ==========
 // github
-const githubRed: Reducer<GitHubState, GitHubAction> = (state, action) => {
+const initGithubState: GithubState = {
+  companyName: "companyName",
+  users: [],
+  isLoading: false
+}
+
+const githubRed: Reducer<GithubState, GithubAction> = (state = initGithubState, action) => {
   switch (action.type) {
     case ActionTypes.getMembersStart:
       return {

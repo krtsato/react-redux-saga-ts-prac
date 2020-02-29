@@ -47,7 +47,8 @@ module.exports = {
       "@comm": path.resolve(__dirname, "../src/commons"),
       "@comp": path.resolve(__dirname, "../src/components"),
       "@cont": path.resolve(__dirname, "../src/containers"),
-      "@redx": path.resolve(__dirname, "../src/reducks")
+      "@redx": path.resolve(__dirname, "../src/reducks"),
+      "@serv": path.resolve(__dirname, "../src/services")
     }
 
     config.resolve.extensions.push(".tsx", ".ts")

@@ -18,7 +18,7 @@ export type MemberDisplayProps = {
 export const MemberDisplayComp: FC<MemberDisplayProps> = ({companyName = "Company Name", users = []}) => (
   <>
     <Helmet>
-      <title>Members | react-redux-saga-ts-prac</title>
+      <title>Members | React-Redux-TS-Prac</title>
     </Helmet>
     <Typography variant="h2">{companyName} Members</Typography>
     {users.map(user => (

@@ -8,7 +8,7 @@ export const ActionTypes = {
 } as const
 
 // ========== Domain Types ==========
-export type GitHubState = {
+export type GithubState = {
   companyName: string
   users?: User[]
   isLoading: boolean
@@ -40,7 +40,7 @@ export type User = {
 }
 
 // github action
-export type GitHubAction = GetMembersStart | GetMembersSucceed | GetMembersFail
+export type GithubAction = GetMembersStart | GetMembersSucceed | GetMembersFail
 
 type GetMembersStart = {
   type: typeof ActionTypes.getMembersStart

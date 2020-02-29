@@ -11,14 +11,14 @@ const defaultConfig: ApiConfig = {
   timeout: 5000
 }
 
-export const getMemberCompanies = (optionConfig?: ApiConfig) => {
+export const getMemberCompanies = (optionConfig?: ApiConfig): Promise<User[]> => {
   const config = {
     ...defaultConfig,
     ...optionConfig
   }
   const instance = axios.create(config)
 
-  const getMembers = async (organizationName: string) => {
+  const getMembers = async (organizationName: string): Promise<User[]> => {
     try {
       const res = await instance.get(`/orgs/${organizationName}/members`)
       return res.data

@@ -33,7 +33,6 @@
 
 ## Test of axios, Redux and E2E system
 ### axios-mock-adapter (Mock Test from https://bit.ly/2uaZesH)
-### redux-saga-test-plan (Integration Test from https://bit.ly/37ybVMH)
 
 ## Storybook
 ### b̶a̶b̶e̶l̶-̶p̶l̶u̶g̶i̶n̶-̶m̶a̶c̶r̶o̶s̶ @storybook/addon-storyshots react-test-render r̶e̶q̶u̶i̶r̶e̶-̶c̶o̶n̶t̶e̶x̶t̶.̶m̶a̶c̶r̶o̶ @types/react-test-renderer (SnapShots from https://bit.ly/2FmyJCU)
@@ -53,7 +52,7 @@
 ## Install peer dependencies myself
 ### npm WARN eslint-config-airbnb@18.0.1 requires a peer of eslint-plugin-react-hooks@^1.7.0 but none is installed.
 ### npm WARN @egoist/vue-to-react@1.1.0 requires a peer of vue@^2.6.10 but none is installed.
-### npm WARN acorn-jsx@5.1.0 requires a peer of acorn@^7.0.0 but none is installed.
+### npm WARN acorn-jsx@5.2.0 requires a peer of acorn@^7.0.0 but none is installed.
 ### npm WARN connected-react-router@6.7.0 requires a peer of immutable@^3.8.1 || ^4.0.0-rc.1 but none is installed.
 ### npm WARN connected-react-router@6.7.0 requires a peer of seamless-immutable@^7.1.3 but none is installed.
 ###
@@ -74,7 +73,6 @@ save() {
     @material-ui/icons \
     react \
     redux \
-    redux-saga \
     react-dom \
     react-helmet@6.0.0-beta.2 \
     react-redux \
@@ -110,7 +108,6 @@ save_dev() {
     react-docgen-typescript-loader \
     react-is \
     react-test-renderer \
-    redux-saga-test-plan \
     source-map-loader \
     @storybook/addons \
     @storybook/addon-a11y \
@@ -141,8 +138,8 @@ save_dev() {
 save_peer() {
   npm i -D \
     acorn@^7.0.0 \
-    eslint-plugin-react-hooks@1.7.0 \
-    immutable@^3.8.1 \
+    eslint-plugin-react-hooks@^1.7.0 \
+    immutable@^4.0.0-rc.1 \
     seamless-immutable@^7.1.3 \
     vue@^2.6.10
 }
@@ -153,7 +150,7 @@ if [ ! -d "node_modules" ]; then
     echo "\n========== Start npm install --save-dev ==========\n" &&
     save_dev &&
     echo "\n========== Start npm install peerDependencies --save-dev ==========\n" &&
-    save_peer &&
+    save_peer
     echo "\n========== Start npm audit fix ==========\n" &&
     npm audit fix &&
     echo "\n========== Start dedupe ==========\n" &&

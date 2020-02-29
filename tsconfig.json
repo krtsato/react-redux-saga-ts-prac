@@ -8,7 +8,8 @@
       "@comm/*": ["commons/*"],
       "@comp/*": ["components/*"],
       "@cont/*": ["containers/*"],
-      "@redx/*": ["reducks/*"]
+      "@redx/*": ["reducks/*"],
+      "@serv/*": ["services/*"]
     },
     // CommonJS モジュールと ES モジュールの相互運用が可能
     "esModuleInterop": true,
@@ -30,7 +31,7 @@
     "strict": true,
     // ECMAScript の 最新版を参照
     "target": "esnext",
-    // 型定義ファイル @types/* および *.d.ts を指定d
+    // 型定義ファイル @types/* および *.d.ts を指定
     "typeRoots": ["node_modules/@types", "src/reducks/types.d.ts"]
   },
   "include": [
