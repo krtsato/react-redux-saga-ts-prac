@@ -30,7 +30,7 @@ export const MemberDisplayComp: FC<MemberDisplayProps> = ({
             title={githubUser.login}
             subheader={`GitHub ID : ${githubUser.id}`}
             avatar={
-              <Avatar component="img" alt="memberIcon" variant="rounded" src={`${githubUser.avatar_url}`}>
+              <Avatar alt="memberIcon" variant="rounded" src={`${githubUser.avatar_url}`}>
                 hoge
               </Avatar>
             }

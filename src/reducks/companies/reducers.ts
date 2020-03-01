@@ -16,7 +16,7 @@ const membersRed: Reducer<CompaniesState, MembersActions["GetMembers"]> = (
     case ActionTypes.GetMembers:
       return {
         ...state,
-        users: action.payload.githubUsers
+        githubUsers: action.payload.githubUsers
       }
     default: {
       // If you add a action, release the following union-check comment

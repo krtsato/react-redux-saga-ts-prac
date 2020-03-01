@@ -12,7 +12,7 @@ export const MemberDisplayCont: FC = () => {
 
   useEffect(() => {
     getMembersResult()
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [getMembersResult])
 
   return isLoading ? <Spinner /> : <MemberDisplayComp companyName={companyName} githubUsers={githubUsers} />
 }

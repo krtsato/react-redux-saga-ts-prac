@@ -44,7 +44,7 @@ const useGetMembersOpe = (companyName: string | undefined = ""): UseGetMembersOp
       setIsLoading(false)
       source.cancel()
     }
-  }, [dispatch]) // eslint-disable-line 
+  }, [companyName, dispatch])
 
   return [isLoading, getMembersResult]
 }
