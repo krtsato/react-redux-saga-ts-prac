@@ -6,6 +6,7 @@ export const ActionTypes = {
 } as const
 
 // ========== App Types ==========
+// State
 export type AppState = {
   errorMsg: string
 }

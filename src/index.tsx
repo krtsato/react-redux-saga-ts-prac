@@ -6,7 +6,7 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 import {ThemeProvider} from "@material-ui/core/styles"
 import {styleTheme} from "@comm/styleTheme"
 import {configureStore} from "@redx/store"
-import {App} from "@cont/app"
+import {App} from "@cont/app/app"
 
 ReactDOM.render(
   <Provider store={configureStore}>

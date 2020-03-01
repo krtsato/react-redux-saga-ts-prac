@@ -6,6 +6,7 @@ export const ActionTypes = {
 } as const
 
 // ========== Domain Types ==========
+// State
 export type CompaniesState = {
   companyName: string
   githubUsers: GithubUser[]
@@ -38,7 +39,7 @@ export type GithubUser = {
 
 // companies action
 export type MembersActions = {
-  GetMembers: GetMembers // | add other github actions
+  GetMembers: GetMembers
 }
 
 type GetMembers = {

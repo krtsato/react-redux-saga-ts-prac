@@ -8,6 +8,7 @@ const flashRed: Reducer<AppState, AppActions["CatchError"]> = (state = initAppSt
   switch (action.type) {
     case ActionTypes.CatchError:
       return {
+        ...state,
         errorMsg: action.payload.errorMsg
       }
     default: {
