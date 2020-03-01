@@ -1,14 +1,13 @@
 // ========== Action Types ==========
 export const ActionTypes = {
-  addTodo: "ADD_TODO",
-  tglTodo: "TGL_TODO",
-  delTodo: "DEL_TODO",
-  setDispFilter: "SET_DISP_FILTER"
+  AddTodo: "ADD_TODO",
+  TglTodo: "TGL_TODO",
+  DelTodo: "DEL_TODO",
+  SetDispFilter: "SET_DISP_FILTER"
 } as const
 
 // ========== Domain Types ==========
 // todos data
-export type Todos = Todo[]
 export type Todo = {
   id: number
   text: string
@@ -16,10 +15,14 @@ export type Todo = {
 }
 
 // todos action
-export type ManageAction = AddTodo | TglTodo | DelTodo
+export type ManageActions = {
+  AddTodo: AddTodo
+  TglTodo: TglTodo
+  DelTodo: DelTodo
+}
 
 type AddTodo = {
-  type: typeof ActionTypes.addTodo
+  type: typeof ActionTypes.AddTodo
   payload: {
     id: number
     text: string
@@ -28,12 +31,12 @@ type AddTodo = {
 }
 
 type TglTodo = {
-  type: typeof ActionTypes.tglTodo
+  type: typeof ActionTypes.TglTodo
   payload: {id: number}
 }
 
 type DelTodo = {
-  type: typeof ActionTypes.delTodo
+  type: typeof ActionTypes.DelTodo
   payload: {id: number}
 }
 
@@ -48,10 +51,12 @@ export const DispFilterLiteral = {
 } as const
 
 // display filer action
-export type DispFilterAction = SetDispFilter
+export type DispFilterActions = {
+  SetDispFilter: SetDispFilter
+}
 
 type SetDispFilter = {
-  type: typeof ActionTypes.setDispFilter
+  type: typeof ActionTypes.SetDispFilter
   payload: {dispFilter: DispFilter}
 }
 

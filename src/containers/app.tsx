@@ -5,8 +5,8 @@ import {TodoFormCont} from "@cont/todos/todoForm"
 import {TodoDisplayCont} from "@cont/todos/todoDisplay"
 import {HomeComp} from "@comp/home"
 import {HeaderComp} from "@comp/header"
-import {MemberDisplayComp} from "@comp/companies/memberDisplay"
 import {CompanyDisplayComp} from "@comp/companies/companyDisplay"
+import {MemberDisplayCont} from "./companies/memberDisplay"
 
 export const App: FC = () => (
   <>
@@ -24,7 +24,7 @@ export const App: FC = () => (
           <CompanyDisplayComp />
         </Route>
         <Route path="/:companyName/members">
-          <MemberDisplayComp />
+          <MemberDisplayCont />
         </Route>
         <Redirect to="/" />
       </Switch>

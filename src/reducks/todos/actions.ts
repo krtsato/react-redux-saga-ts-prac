@@ -1,26 +1,26 @@
-import {ManageAction, DispFilterAction, ActionTypes, DispFilter} from "./types"
+import {ManageActions, DispFilterActions, ActionTypes, DispFilter} from "./types"
 
 // ========== Domain Actions ==========
 // todos
-const addTodoAct = (id: number, text: string, wasCompleted: boolean): ManageAction => ({
-  type: ActionTypes.addTodo,
+const addTodoAct = (id: number, text: string, wasCompleted: boolean): ManageActions["AddTodo"] => ({
+  type: ActionTypes.AddTodo,
   payload: {id, text, wasCompleted}
 })
 
-const tglTodoAct = (id: number): ManageAction => ({
-  type: ActionTypes.tglTodo,
+const tglTodoAct = (id: number): ManageActions["TglTodo"] => ({
+  type: ActionTypes.TglTodo,
   payload: {id}
 })
 
-const delTodoAct = (id: number): ManageAction => ({
-  type: ActionTypes.delTodo,
+const delTodoAct = (id: number): ManageActions["DelTodo"] => ({
+  type: ActionTypes.DelTodo,
   payload: {id}
 })
 
 // ========== UI Actions ==========
 // display filter
-const setDispFilterAct = (dispFilter: DispFilter): DispFilterAction => ({
-  type: ActionTypes.setDispFilter,
+const setDispFilterAct = (dispFilter: DispFilter): DispFilterActions["SetDispFilter"] => ({
+  type: ActionTypes.SetDispFilter,
   payload: {dispFilter}
 })
 

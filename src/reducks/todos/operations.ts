@@ -1,21 +1,21 @@
 import {todosActions} from "./actions"
-import {DispFilter, ManageAction, DispFilterAction} from "./types"
+import {DispFilter, ManageActions, DispFilterActions} from "./types"
 
-// ========== Domain Reducers ==========
+// ========== Domain Operations ==========
 // todos
-const addTodoOpe = (id: number, text: string, wasCompleted = false): ManageAction =>
+const addTodoOpe = (id: number, text: string, wasCompleted = false): ManageActions["AddTodo"] =>
   todosActions.addTodoAct(id, text, wasCompleted)
 
-const tglTodoOpe = (id: number): ManageAction => todosActions.tglTodoAct(id)
+const tglTodoOpe = (id: number): ManageActions["TglTodo"] => todosActions.tglTodoAct(id)
 
-const delTodoOpe = (id: number): ManageAction => todosActions.delTodoAct(id)
+const delTodoOpe = (id: number): ManageActions["DelTodo"] => todosActions.delTodoAct(id)
 
-// ========== UI Reducers ==========
+// ========== UI Operations ==========
 // display filter
-const setDispFilterOpe = (dispFilter: DispFilter): DispFilterAction =>
+const setDispFilterOpe = (dispFilter: DispFilter): DispFilterActions["SetDispFilter"] =>
   todosActions.setDispFilterAct(dispFilter)
 
-// ========== Referenced from outside the todo domain ==========
+// ========== Referenced from outside the todos domain ==========
 export const todosOperations = {
   addTodoOpe,
   tglTodoOpe,

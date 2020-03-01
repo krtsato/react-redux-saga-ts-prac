@@ -1,38 +1,36 @@
 import React, {FC} from "react"
 import {Helmet} from "react-helmet"
-import {User} from "@redx/"
+import {GithubUser} from "@redx/companies"
 import {Avatar, Card, CardHeader, Link, Typography} from "@material-ui/core"
 
-/*
-  ・User のデータ, 型を入れる
-  ・user.login の名付けを再検討
-  ・isLoading によるスピナー表示を Container 側で行う
-  ・CardMedia の表示位置, サイズを調整する
-*/
+// CardMedia の表示位置, サイズを調整する
 
 export type MemberDisplayProps = {
-  companyName: string
-  users: User[]
+  companyName: string | undefined
+  githubUsers: GithubUser[]
 }
 
-export const MemberDisplayComp: FC<MemberDisplayProps> = ({companyName = "Company Name", users = []}) => (
+export const MemberDisplayComp: FC<MemberDisplayProps> = ({
+  companyName = "Company Name",
+  githubUsers = []
+}) => (
   <>
     <Helmet>
       <title>Members | React-Redux-TS-Prac</title>
     </Helmet>
     <Typography variant="h2">{companyName} Members</Typography>
-    {users.map(user => (
+    {githubUsers.map(githubUser => (
       <Link
-        key={user.id}
-        href={`https://github.com/${user.login}`}
+        key={githubUser.id}
+        href={`https://github.com/${githubUser.login}`}
         target="_blank"
         rel="noopener, noreferrer">
         <Card>
           <CardHeader
-            title={user.login}
-            subheader={`GitHub ID : ${user.id}`}
+            title={githubUser.login}
+            subheader={`GitHub ID : ${githubUser.id}`}
             avatar={
-              <Avatar component="img" alt="memberIcon" variant="rounded" src={`${user.avatar_url}`}>
+              <Avatar component="img" alt="memberIcon" variant="rounded" src={`${githubUser.avatar_url}`}>
                 hoge
               </Avatar>
             }

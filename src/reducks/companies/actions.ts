@@ -1,23 +1,11 @@
-import {AxiosError} from "axios"
-import {User, GithubAction, ActionTypes} from "./types"
+import {GithubUser, MembersActions, ActionTypes} from "./types"
 
-const getMembersAct = {
-  start: (companyName: string, isLoading: boolean): GithubAction => ({
-    type: ActionTypes.getMembersStart,
-    payload: {companyName, isLoading}
-  }),
-
-  succeed: (companyName: string, users: User[], isLoading: boolean): GithubAction => ({
-    type: ActionTypes.getMembersSucceed,
-    payload: {companyName, users, isLoading}
-  }),
-
-  fail: (companyName: string, error: AxiosError, isLoading: boolean): GithubAction => ({
-    type: ActionTypes.getMembersFail,
-    payload: {companyName, error, isLoading},
-    error: true
-  })
-}
+// ========== Domain Actions ==========
+// companies
+const getMembersAct = (companyName: string, githubUsers: GithubUser[]): MembersActions["GetMembers"] => ({
+  type: ActionTypes.GetMembers,
+  payload: {companyName, githubUsers}
+})
 
 // ========== Referenced from the operations ==========
 export const companiesActions = {getMembersAct}

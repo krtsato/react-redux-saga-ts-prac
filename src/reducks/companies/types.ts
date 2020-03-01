@@ -2,21 +2,18 @@ import {AxiosError} from "axios"
 
 // ========== Action Types ==========
 export const ActionTypes = {
-  getMembersStart: "GITHUB/GET_MEMBERS_START",
-  getMembersSucceed: "GITHUB/GET_MEMBERS_SUCCEED",
-  getMembersFail: "GITHUB/GET_MEMBERS_FAIL"
+  GetMembers: "COMPANIES/GET_MEMBERS"
 } as const
 
 // ========== Domain Types ==========
-export type GithubState = {
+export type CompaniesState = {
   companyName: string
-  users?: User[]
-  isLoading: boolean
+  githubUsers: GithubUser[]
   error?: AxiosError
 }
 
-// github data
-export type User = {
+// companies user data
+export type GithubUser = {
   /* eslint-disable camelcase */
   login: string
   id: number
@@ -39,32 +36,15 @@ export type User = {
   /* eslint-enable camelcase */
 }
 
-// github action
-export type GithubAction = GetMembersStart | GetMembersSucceed | GetMembersFail
-
-type GetMembersStart = {
-  type: typeof ActionTypes.getMembersStart
-  payload: {
-    companyName: string
-    isLoading: boolean
-  }
+// companies action
+export type MembersActions = {
+  GetMembers: GetMembers // | add other github actions
 }
 
-type GetMembersSucceed = {
-  type: typeof ActionTypes.getMembersSucceed
+type GetMembers = {
+  type: typeof ActionTypes.GetMembers
   payload: {
     companyName: string
-    users: User[]
-    isLoading: boolean
+    githubUsers: GithubUser[]
   }
-}
-
-type GetMembersFail = {
-  type: typeof ActionTypes.getMembersFail
-  payload: {
-    companyName: string
-    error: AxiosError
-    isLoading: boolean
-  }
-  error: boolean
 }

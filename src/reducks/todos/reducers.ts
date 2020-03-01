@@ -1,17 +1,17 @@
 import {Reducer, combineReducers} from "redux"
-import {Todos, ManageAction, DispFilter, DispFilterAction, ActionTypes, DispFilterLiteral} from "./types"
+import {Todo, ManageActions, DispFilter, DispFilterActions, ActionTypes, DispFilterLiteral} from "./types"
 
 // ========== Domain Reducers ==========
 // todos
-const manageRed: Reducer<Todos, ManageAction> = (state = [], action) => {
+const manageRed: Reducer<Todo[], ManageActions["AddTodo" | "TglTodo" | "DelTodo"]> = (state = [], action) => {
   switch (action.type) {
-    case ActionTypes.addTodo:
+    case ActionTypes.AddTodo:
       return [...state, action.payload]
-    case ActionTypes.tglTodo:
+    case ActionTypes.TglTodo:
       return state.map(todo =>
         todo.id === action.payload.id ? {...todo, wasCompleted: !todo.wasCompleted} : todo
       )
-    case ActionTypes.delTodo:
+    case ActionTypes.DelTodo:
       return state.filter(todo => todo.id !== action.payload.id)
     default: {
       const _exhaustion: never = action
@@ -22,9 +22,12 @@ const manageRed: Reducer<Todos, ManageAction> = (state = [], action) => {
 
 // ========== UI Reducers ==========
 // display filter
-const dispFilterRed: Reducer<DispFilter, DispFilterAction> = (state = DispFilterLiteral.showAll, action) => {
+const dispFilterRed: Reducer<DispFilter, DispFilterActions["SetDispFilter"]> = (
+  state = DispFilterLiteral.showAll,
+  action
+) => {
   switch (action.type) {
-    case ActionTypes.setDispFilter:
+    case ActionTypes.SetDispFilter:
       return action.payload.dispFilter
     default: {
       // If you add a action, release the following union-check comment

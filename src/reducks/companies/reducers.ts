@@ -1,49 +1,32 @@
 import {Reducer, combineReducers} from "redux"
-import {GithubState, GithubAction, ActionTypes} from "./types"
+import {CompaniesState, MembersActions, ActionTypes} from "./types"
 
 // ========== Domain Reducers ==========
 // github
-const initGithubState: GithubState = {
+const initCompaniesState: CompaniesState = {
   companyName: "companyName",
-  users: [],
-  isLoading: false
+  githubUsers: []
 }
 
-const githubRed: Reducer<GithubState, GithubAction> = (state = initGithubState, action) => {
+const membersRed: Reducer<CompaniesState, MembersActions["GetMembers"]> = (
+  state = initCompaniesState,
+  action
+) => {
   switch (action.type) {
-    case ActionTypes.getMembersStart:
+    case ActionTypes.GetMembers:
       return {
         ...state,
-        isLoading: action.payload.isLoading
-      }
-    /*
-      return {
-        ...state,
-        users: [], <- これ不要では？
-        isLoading: true
-      }
-    */
-    case ActionTypes.getMembersSucceed:
-      return {
-        ...state,
-        users: action.payload.users,
-        isLoading: action.payload.isLoading
-      }
-    case ActionTypes.getMembersFail:
-      return {
-        ...state,
-        isLoading: action.payload.isLoading,
-        error: action.payload.error
+        users: action.payload.githubUsers
       }
     default: {
-      const _exhaustion: never = action
+      // If you add a action, release the following union-check comment
+      // const _exhaustion: never = action
       return state
     }
   }
 }
 
-// ========== UI Reducers ==========
-
-export const githubReducers = combineReducers({
-  github: githubRed
+// ========== Referenced from the store ==========
+export const companiesReducers = combineReducers({
+  members: membersRed
 })
