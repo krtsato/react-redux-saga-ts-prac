@@ -8,7 +8,7 @@ const initCompaniesState: CompaniesState = {
   githubUsers: []
 }
 
-const membersRed: Reducer<CompaniesState, MembersActions["GetMembers"]> = (
+const membersRed: Reducer<CompaniesState, MembersActions["GetMembers"] | MembersActions["InitMembers"]> = (
   state = initCompaniesState,
   action
 ) => {
@@ -18,8 +18,12 @@ const membersRed: Reducer<CompaniesState, MembersActions["GetMembers"]> = (
         ...state,
         githubUsers: action.payload.githubUsers
       }
+    case ActionTypes.InitMembers:
+      return {
+        ...state,
+        githubUsers: action.payload.githubUsers
+      }
     default: {
-      // If you add a action, release the following union-check comment
       // const _exhaustion: never = action
       return state
     }

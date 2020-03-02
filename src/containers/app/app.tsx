@@ -6,8 +6,8 @@ import {TodoDisplayCont} from "@cont/todos/todoDisplay"
 import {HomeComp} from "@comp/app/home"
 import {HeaderComp} from "@comp/app/header"
 import {FlashDisplayCont} from "@cont/app/flashDisplay"
-import {CompanyDisplayComp} from "@comp/companies/companyDisplay"
-import {MemberDisplayCont} from "../companies/memberDisplay"
+import {CompanyDisplayCont} from "@cont/companies/companyDisplay"
+import {MemberDisplayCont} from "@cont/companies/memberDisplay"
 
 export const App: FC = () => (
   <>
@@ -23,7 +23,7 @@ export const App: FC = () => (
           <TodoDisplayCont />
         </Route>
         <Route exact path="/companies">
-          <CompanyDisplayComp />
+          <CompanyDisplayCont />
         </Route>
         <Route path="/:companyName/members">
           <MemberDisplayCont />

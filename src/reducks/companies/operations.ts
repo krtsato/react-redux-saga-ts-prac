@@ -4,19 +4,21 @@ import axios from "axios"
 import {githubConfig} from "@serv/axios/config"
 import {appOperations} from "@redx/app/operations"
 import {companiesActions} from "./actions"
+import {MembersActions} from "./types"
 
 type UseGetMembersOpe = [boolean, () => Promise<void>]
 
 // This operation which is a custom hook execute dispatch in itself
+// because of a Promise object, not a plain action object.
 // companyName may equals to undefined because of URL getting by useParams()
 const useGetMembersOpe = (companyName: string | undefined = ""): UseGetMembersOpe => {
   const [isLoading, setIsLoading] = useState(false)
   const dispatch = useDispatch()
 
-  const getMembersResult = useCallback(async (): Promise<void> => {
+  const dispatchGetMembersRes = useCallback(async (): Promise<void> => {
     setIsLoading(true)
     const instance = axios.create(githubConfig())
-    const source = axios.CancelToken.source()
+    const axiosSource = axios.CancelToken.source()
     let errorMsg: string
 
     try {
@@ -41,13 +43,15 @@ const useGetMembersOpe = (companyName: string | undefined = ""): UseGetMembersOp
       }
       dispatch(appOperations.catchErrorOpe(errorMsg))
     } finally {
+      axiosSource.cancel()
       setIsLoading(false)
-      source.cancel()
     }
   }, [companyName, dispatch])
 
-  return [isLoading, getMembersResult]
+  return [isLoading, dispatchGetMembersRes]
 }
 
+const initMembersOpe = (): MembersActions["InitMembers"] => companiesActions.initMembersAct([])
+
 // ========== Referenced from outside the companies domain ==========
-export const companiesOperations = {useGetMembersOpe}
+export const companiesOperations = {useGetMembersOpe, initMembersOpe}

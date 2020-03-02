@@ -2,7 +2,8 @@ import {AxiosError} from "axios"
 
 // ========== Action Types ==========
 export const ActionTypes = {
-  GetMembers: "COMPANIES/GET_MEMBERS"
+  GetMembers: "COMPANIES/GET_MEMBERS",
+  InitMembers: "COMPANIES/INIT_MEMBERS"
 } as const
 
 // ========== Domain Types ==========
@@ -40,12 +41,20 @@ export type GithubUser = {
 // companies action
 export type MembersActions = {
   GetMembers: GetMembers
+  InitMembers: InitMembers
 }
 
 type GetMembers = {
   type: typeof ActionTypes.GetMembers
   payload: {
     companyName: string
+    githubUsers: GithubUser[]
+  }
+}
+
+type InitMembers = {
+  type: typeof ActionTypes.InitMembers
+  payload: {
     githubUsers: GithubUser[]
   }
 }

@@ -5,12 +5,12 @@ import {Avatar, Box, Card, CardHeader, Link, Typography} from "@material-ui/core
 import {useStyles} from "./memberDisplay.styles"
 
 export type MemberDisplayProps = {
-  companyName: string | undefined
+  companyNameUpper: string | undefined
   githubUsers: GithubUser[]
 }
 
 export const MemberDisplayComp: FC<MemberDisplayProps> = ({
-  companyName = "Company Name",
+  companyNameUpper = "Company",
   githubUsers = []
 }) => {
   const classes = useStyles()
@@ -19,7 +19,7 @@ export const MemberDisplayComp: FC<MemberDisplayProps> = ({
       <Helmet>
         <title>Members | React-Redux-TS-Prac</title>
       </Helmet>
-      <Typography variant="h2">{companyName} Members</Typography>
+      <Typography variant="h2">{companyNameUpper} のメンバー</Typography>
       <Box className={classes.parentBox}>
         {githubUsers.map(githubUser => (
           <Link
