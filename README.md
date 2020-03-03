@@ -1,11 +1,8 @@
 # react-redux-ts-prac
 
-ボイラープレートらしきもの．  
-作業工程を記録した自分用のメモ．  
+ボイラープレートらしきもの．作業工程を記録した自分用のメモ．  
+設計手法については [references/react-redux-ts/redux-arch](https://github.com/krtsato/references) を参照．  
 以下の環境で Web アプリを作成する．  
-
-なおフロントエンドの設計手法については  
-[references/react-redux-ts/redux-arch](https://github.com/krtsato/react-redux-ts-prac) を参照．
 
 - Docker
 - React
@@ -15,8 +12,8 @@
 - Babel
 - ESLint
 - Prettier
-- StoryBook
 - Material UI
+- StoryBook
 - Jest
 - Cypress
 
@@ -61,6 +58,8 @@
 ├── npm-install.sh
 └── package.json
 ```
+
+<br>
 
 ### Webpack
 
