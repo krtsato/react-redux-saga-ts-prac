@@ -35,10 +35,10 @@
 ### axios-mock-adapter (Mock Test from https://bit.ly/2uaZesH)
 
 ## Storybook
-### b̶a̶b̶e̶l̶-̶p̶l̶u̶g̶i̶n̶-̶m̶a̶c̶r̶o̶s̶ @storybook/addon-storyshots react-test-render r̶e̶q̶u̶i̶r̶e̶-̶c̶o̶n̶t̶e̶x̶t̶.̶m̶a̶c̶r̶o̶ @types/react-test-renderer (SnapShots from https://bit.ly/2FmyJCU)
+### @storybook/addon-storyshots react-test-render @types/react-test-renderer (SnapShots from https://bit.ly/2FmyJCU)
 ### @storybook/react (React from https://bit.ly/36AJgGw)
 ### @storybook/addons @storybook/addon-{a11y,actions,docs,knobs,links,storyshots,viewport} @types/node (Addons from https://bit.ly/39DJwGW, https://bit.ly/37Eu1wK)
-### babel-loader react-docgen-typescript-loader @̶s̶t̶o̶r̶y̶b̶o̶o̶k̶/̶a̶d̶d̶o̶n̶-̶i̶n̶f̶o̶ -> @storybook/addon-docs react react-is (TypeScript from https://bit.ly/37BmY7P https://bit.ly/2RIJllF)
+### babel-loader react-docgen-typescript-loader @storybook/addon-docs react react-is (TypeScript from https://bit.ly/37BmY7P https://bit.ly/2RIJllF)
 
 ## Material UI
 ### eslint-plugin-material-ui (Material UI Rules from https://bit.ly/2SUakws, https://bit.ly/2tqOdDj)
@@ -55,12 +55,6 @@
 ### npm WARN acorn-jsx@5.2.0 requires a peer of acorn@^7.0.0 but none is installed.
 ### npm WARN connected-react-router@6.7.0 requires a peer of immutable@^3.8.1 || ^4.0.0-rc.1 but none is installed.
 ### npm WARN connected-react-router@6.7.0 requires a peer of seamless-immutable@^7.1.3 but none is installed.
-###
-### For recent TypeScript version (Roadmap : https://bit.ly/2vyN6lV)
-### npm WARN tsutils@3.17.1 requires a peer of typescript@>= 3.7.0-beta but none is installed.
-### 
-### For the warning :  Parsing error: '=' expected. (eslint)
-### npm install -D babel-eslint
 
 ## Skip optional dependency
 ### npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.11
@@ -159,5 +153,5 @@ if [ ! -d "node_modules" ]; then
     echo "\n========== Finish npm-setup.sh ==========\n"
 fi
 
-echo "If config files have not been created,
-you can execute 'webpack-setup.sh'." && zsh
+echo "\n========== Start webpack-dev-server ==========\n" &&
+npm run build:dev

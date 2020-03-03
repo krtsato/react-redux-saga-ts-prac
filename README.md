@@ -1,8 +1,11 @@
 # react-redux-ts-prac
 
-ボイラープレートの草案．  
+ボイラープレートらしきもの．  
 作業工程を記録した自分用のメモ．  
-以下の環境で Web アプリを作成する．
+以下の環境で Web アプリを作成する．  
+
+なおフロントエンドの設計手法については  
+[references/react-redux-ts/redux-arch](https://github.com/krtsato/react-redux-ts-prac) を参照．
 
 - Docker
 - React
@@ -29,15 +32,13 @@
   - also="dev"
   - progress=false
   - save-exact=true
-- package.json を任意で書く
+- package.json を書く
   - docker image build 時の警告を避けるため最低限は記入する
-- npm-setup.sh を書く
-  - パッケージのインストール
-  - webpack のセットアップ
-  - サーバの起動まで行う
-  - chmod +x ./npm-setup.sh
-- webpack-setup.sh を書く？ (今後対応)
-  - コマンド１つで各 config ファイルを作成
+- npm-install.sh を書く
+  - chmod +x ./npm-install.sh
+  - npm install をしてその経緯をコメントアウトしておく
+  - 他人と共有する場合は npm-install.sh でなく出力済みの package.json を使用
+  - webpack-dev-server の起動まで行う
 - 以下のディレクトリを掘る
   - redux のディレクトリ構成は re-ducks パターン
 
@@ -57,8 +58,7 @@
 ├── Dockerfile
 ├── README.md
 ├── docker-compose.yml
-├── npm-setup.sh
-├── webpack-setup.sh
+├── npm-install.sh
 └── package.json
 ```
 
@@ -96,9 +96,6 @@
 
 ### Lint/Format
 
-- 警告 `Module.createRequireFromPath() is deprecated`
-  - 現時点で Lint には影響していないため保留
-  - npm run コマンドに  exit 0 を付与
 - eslint の settings に import/resolver: webpack を追加
 - React の設定を追加
 - TypeScript の設定を追加
@@ -148,7 +145,11 @@
 ### Docker
 
 - Dockerfile
-  - CMD は分離性のため docker-compose.yml に書かない
+  - 個人開発で常に新しい npm パッケージを使いたい場合 npm-install.sh を実行する
+  - 他者とプロジェクトを共有する場合 `COPY package*.json` して CMD で webpack-dev-server を起動する
+    - このとき docker-compose.yml の当該 volume に `/proj-cont/node_modules` を追加する
+    - [node_modules/ and Docker volume mount 問題と対策](https://castaneai.hatenablog.com/entry/2019/01/29/151257)
+    - 上記の手順が面倒ならば，いっそ npm-install.sh をバージョン付きで管理するのも一手
 - docker-compose.yml
   - 起動 : `docker-compose up --build -d`  
     - 環境が固まらないうちは image を再ビルド
@@ -156,6 +157,7 @@
   - 停止 : `docker container stop コンテナ名`
   - 削除 : `docker container rm コンテナ名`
   - 一括停止 & 削除 : `docker-compose down --rmi all`
+    - それでも削除されないイメージを強制的に削除 : `docker images -aq | xargs docker rmi`
 
 ### 実行手順
 
@@ -165,18 +167,10 @@
 docker-compose up --build -d サービス名 && docker logs -f コンテナ名
 ```
 
-コンテナ内で webpack の設定ファイルを生成する
-
-```zsh
-docker-compose exec サービス名 zsh
-
-# webpack 設定ファイルを複数作成
-webpack-setup.sh
-```
-
 コードを書く
 
 ```zsh
 # webpack-dev-server を起動
-npm run build-dev
+docker-compose exec サービス名 zsh
+npm run build:dev
 ```

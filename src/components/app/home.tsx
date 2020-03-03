@@ -1,6 +1,6 @@
 import React, {FC} from "react"
 import {Helmet} from "react-helmet"
-import {Box, Typography} from "@material-ui/core"
+import {Box, Link, Typography} from "@material-ui/core"
 
 export const HomeComp: FC = () => (
   <>
@@ -12,7 +12,7 @@ export const HomeComp: FC = () => (
     </Typography>
     <Box width="50%">
       <Typography variant="h3" gutterBottom paragraph>
-        Frontend made by Re-ducks pattern
+        Frontend Re-ducks Pattern
       </Typography>
       <Typography variant="body1" gutterBottom paragraph>
         Redux の設計手法である Re-ducks
@@ -20,6 +20,18 @@ export const HomeComp: FC = () => (
         Component のディレクトリに加え，Redux の処理を受け持つ reducks
         ディレクトリなどを作成しました．ここでは各ドメインが index / types / actions / reducers / selectors /
         operations というファイルを持ち，責務を適切に分散させることで Redux の複雑性を乗りこなしています．
+      </Typography>
+      <Typography variant="body2" paragraph>
+        ソースコード：
+        <Link href="https://github.com/krtsato/react-redux-ts-prac" variant="body2" color="secondary">
+          react-redux-ts-prac
+        </Link>
+      </Typography>
+      <Typography variant="body2" paragraph>
+        設計手法メモ：
+        <Link href="https://github.com/krtsato/react-redux-ts-prac" variant="body2" color="secondary">
+          references / react-redux-ts / redux-arch
+        </Link>
       </Typography>
       <Typography variant="body2" gutterBottom paragraph>
         環境構築 : Docker，Webpack，Babel
