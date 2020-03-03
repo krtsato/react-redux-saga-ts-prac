@@ -23,7 +23,7 @@ const manageRed: Reducer<Todo[], ManageActions["AddTodo" | "TglTodo" | "DelTodo"
 // ========== UI Reducers ==========
 // display filter
 const dispFilterRed: Reducer<DispFilter, DispFilterActions["SetDispFilter"]> = (
-  state = DispFilterLiteral.showAll,
+  state = DispFilterLiteral.ShowAll,
   action
 ) => {
   switch (action.type) {

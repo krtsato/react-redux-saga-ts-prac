@@ -45,9 +45,9 @@ type DelTodo = {
 export type DispFilter = "SHOW_ALL" | "SHOW_ACTIVE" | "SHOW_COMPLETED"
 
 export const DispFilterLiteral = {
-  showAll: "SHOW_ALL",
-  showActive: "SHOW_ACTIVE",
-  showCompleted: "SHOW_COMPLETED"
+  ShowAll: "SHOW_ALL",
+  ShowActive: "SHOW_ACTIVE",
+  ShowCompleted: "SHOW_COMPLETED"
 } as const
 
 // display filer action

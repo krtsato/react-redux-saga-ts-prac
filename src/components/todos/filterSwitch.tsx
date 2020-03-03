@@ -8,13 +8,13 @@ type FilterSwitchProps = {
 
 export const FilterSwitchComp: FC<FilterSwitchProps> = ({setDispFilterHdl}) => (
   <ButtonGroup color="secondary" aria-label="filterSwitch">
-    <Button data-filter={DispFilterLiteral.showAll} onClick={setDispFilterHdl}>
+    <Button data-filter={DispFilterLiteral.ShowAll} onClick={setDispFilterHdl}>
       All
     </Button>
-    <Button data-filter={DispFilterLiteral.showActive} onClick={setDispFilterHdl}>
+    <Button data-filter={DispFilterLiteral.ShowActive} onClick={setDispFilterHdl}>
       Active
     </Button>
-    <Button data-filter={DispFilterLiteral.showCompleted} onClick={setDispFilterHdl}>
+    <Button data-filter={DispFilterLiteral.ShowCompleted} onClick={setDispFilterHdl}>
       Completed
     </Button>
   </ButtonGroup>

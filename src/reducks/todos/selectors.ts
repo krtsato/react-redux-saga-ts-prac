@@ -14,11 +14,11 @@ const latestIdSel = (state: Root.State): number =>
 const dispFilterSel = (state: Root.State): Todo[] => {
   const {manage, dispFilter} = state.todos
   switch (dispFilter) {
-    case DispFilterLiteral.showAll:
+    case DispFilterLiteral.ShowAll:
       return manage
-    case DispFilterLiteral.showCompleted:
+    case DispFilterLiteral.ShowCompleted:
       return manage.filter(todo => todo.wasCompleted)
-    case DispFilterLiteral.showActive:
+    case DispFilterLiteral.ShowActive:
       return manage.filter(todo => !todo.wasCompleted)
     default: {
       const _exhaustion: never = dispFilter
