@@ -1,8 +1,29 @@
 # react-redux-ts-prac
 
-ボイラープレートらしきもの．作業工程を記録した自分用のメモ．  
-設計手法については [references/react-redux-ts/redux-arch](https://github.com/krtsato/references) を参照．  
-以下の環境で Web アプリを作成する．  
+フロントエンドの設計を勉強するために作成．  
+本リポジトリから得られること
+
+- 2020年時点でのモダンなフロントエンド構成
+  - React / Redux Hooks
+  - Custom Hooks と async-await による汎用的な非同期処理
+  - ~~TypeScript 3.8 対応~~
+    - インストールしたが新機能は未使用
+    - 2020年3月時点では prettiier の対応待ち
+- Re-ducks パターンによる設計
+  - 詳細は [references/react-redux-ts/redux-arch](https://github.com/krtsato/references) を参照．
+  - Redux の複雑性を乗りこなす
+    - 堅く作ることで増大していく記述量
+    - 責務をどこで，どこまで，どうやって分けるか
+
+## 機能
+
+フロントエンドのみであるため，永続化されないことを前提として  
+
+- Todo の CRUD
+- テック企業の開発メンバを取得する
+  - GitHub API を GET 通信で叩く
+
+## 環境
 
 - Docker
 - React
@@ -13,13 +34,28 @@
 - ESLint
 - Prettier
 - Material UI
-- StoryBook
-- Jest
-- Cypress
+- テスト (設定のみ)
+  - StoryBook
+  - Jest
+  - Cypress
+
+以下は作業工程を記録した自分用のメモ．
 
 <br>
 
 ## 環境構築
+
+- [機能](#機能)
+- [環境](#環境)
+- [環境構築](#環境構築)
+  - [プロジェクト作成](#プロジェクト作成)
+  - [Webpack](#webpack)
+  - [Lint/Format](#lintformat)
+  - [Jest](#jest)
+  - [StroyBook](#stroybook)
+  - [Cypress](#cypress)
+  - [Docker](#docker)
+  - [実行手順](#実行手順)
 
 ### プロジェクト作成
 
@@ -108,7 +144,7 @@
 - config ファイル作成 `npm test -- --init`
 - ./src/containers/\*\*/* にテストコードを書く
 
-### StroyBook の設定
+### StroyBook
   
 - TypeScript with Babel の設定を .storybook/main.js に追加
 - addon を.storybook/main.js に追加
@@ -121,7 +157,7 @@
     - src/components/snapshots.test.js を作成
     - 親子関係は components/snapshots.test.js > components/\*\*/snapshot/snap.js
 
-### Cypress の設定
+### Cypress
 
 バックエンドが構築できたら対応  
 以下の monorepo 構成で管理できる？ (今後実験)

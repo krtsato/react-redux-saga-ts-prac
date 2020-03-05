@@ -37,7 +37,7 @@ export const HomeComp: FC = () => (
         使用言語 : React，Redux，TypeScript
       </Typography>
       <Typography variant="body2" gutterBottom paragraph>
-        デプロイ : Heroku
+        デプロイ : AWS Amplify
       </Typography>
       <Typography variant="body2" gutterBottom paragraph>
         非同期処理 : async-await，axios，React Custom Hook
