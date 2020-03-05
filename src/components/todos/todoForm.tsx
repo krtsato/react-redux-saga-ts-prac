@@ -1,7 +1,8 @@
 import React, {FC, ChangeEvent} from "react"
 import {Helmet} from "react-helmet"
-import {Button, Typography, TextField} from "@material-ui/core"
+import {Box, Button, Typography, TextField} from "@material-ui/core"
 import CreateRoundedIcon from "@material-ui/icons/CreateRounded"
+import {useStyles} from "./todoForm.styles"
 
 type TodoFormProps = {
   inputText: string
@@ -9,23 +10,34 @@ type TodoFormProps = {
   addTodoHdl: VoidFunction
 }
 
-export const TodoFormComp: FC<TodoFormProps> = ({inputText, inputHdl, addTodoHdl}) => (
-  <>
-    <Helmet>
-      <title>Todo ｜React-Redux-TS-Prac</title>
-    </Helmet>
-    <Typography variant="h2">Todo</Typography>
-    <TextField
-      id="todoFormInput"
-      label="Todo"
-      multiline
-      value={inputText}
-      onChange={inputHdl}
-      variant="filled"
-      autoFocus
-    />
-    <Button variant="contained" startIcon={<CreateRoundedIcon />} onClick={addTodoHdl}>
-      ADD
-    </Button>
-  </>
-)
+export const TodoFormComp: FC<TodoFormProps> = ({inputText, inputHdl, addTodoHdl}) => {
+  const classes = useStyles()
+
+  return (
+    <>
+      <Helmet>
+        <title>Todo ｜React-Redux-TS-Prac</title>
+      </Helmet>
+      <Typography variant="h2">Todo</Typography>
+      <Box className={classes.parentBox}>
+        <TextField
+          className={classes.textField}
+          id="todoFormInput"
+          label="Todo"
+          value={inputText}
+          onChange={inputHdl}
+          variant="filled"
+          autoFocus
+          multiline
+        />
+        <Button
+          className={classes.addButton}
+          variant="contained"
+          startIcon={<CreateRoundedIcon />}
+          onClick={addTodoHdl}>
+          ADD
+        </Button>
+      </Box>
+    </>
+  )
+}

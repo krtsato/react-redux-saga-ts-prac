@@ -2,11 +2,13 @@ import {createStyles, makeStyles, Theme} from "@material-ui/core/styles"
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    listItem: {
-      marginBottom: theme.spacing(1)
+    buttonGroup: {
+      marginTop: theme.spacing(3),
+      marginBottom: theme.spacing(3),
+      height: 24
     },
-    completedText: wasCompleted => ({
-      textDecoration: wasCompleted ? "line-through" : "none"
-    })
+    displayButton: {
+      fontSize: 15
+    }
   })
 )

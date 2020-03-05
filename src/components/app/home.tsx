@@ -7,11 +7,8 @@ export const HomeComp: FC = () => (
     <Helmet>
       <title>Home | React-Redux-TS-Prac</title>
     </Helmet>
-    <Typography variant="h2" gutterBottom>
-      Home
-    </Typography>
     <Box width="50%">
-      <Typography variant="h3" gutterBottom paragraph>
+      <Typography variant="h2" gutterBottom paragraph>
         Frontend Re-ducks Pattern
       </Typography>
       <Typography variant="body1" gutterBottom paragraph>

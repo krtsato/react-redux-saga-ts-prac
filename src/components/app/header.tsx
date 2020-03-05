@@ -10,7 +10,7 @@ export const HeaderComp: FC = () => {
   const classes = useStyles()
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" className={classes.appBar}>
       <Toolbar>
         <Typography variant="h1" className={classes.appTitle}>
           React-Redux-TS-Prac

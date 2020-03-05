@@ -25,7 +25,7 @@ export const TodoComp: FC<TodoProps> = ({todo, delTodoHdl, tglTodoHdl}) => {
   const classes = useStyles(todo.wasCompleted)
 
   return (
-    <ListItem key={todo.id}>
+    <ListItem className={classes.listItem} key={todo.id}>
       <ListItemAvatar>
         <Avatar>
           <AssignmentTwoToneIcon />
