@@ -1,7 +1,7 @@
 # react-redux-ts-prac
 
 フロントエンドの設計を勉強するために作成．  
-本リポジトリから得られること
+[成果物](https://master.dfk5u1b9h65at.amplifyapp.com/)から得られること
 
 - 2020年時点でのモダンなフロントエンド構成
   - React / Redux Hooks
