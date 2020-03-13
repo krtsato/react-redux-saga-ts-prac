@@ -10,10 +10,26 @@
     - インストールしたが新機能は未使用
     - 2020年3月時点では prettiier の対応待ち
 - Re-ducks パターンによる設計
-  - 詳細は [references/react-redux-ts/redux-arch](https://github.com/krtsato/references) を参照．
+  - 詳細は [references/react-redux-ts/redux-arch](https://github.com/krtsato/references/blob/master/react-redux-ts/redux-arch.md) を参照．
   - Redux の複雑性を乗りこなす
     - 堅く作ることで増大していく記述量
     - 責務をどこで，どこまで，どうやって分けるか
+
+<br>
+
+- [機能](#機能)
+- [環境](#環境)
+- [環境構築](#環境構築)
+  - [プロジェクト作成](#プロジェクト作成)
+  - [Webpack](#webpack)
+  - [Lint/Format](#lintformat)
+  - [Jest](#jest)
+  - [StroyBook](#stroybook)
+  - [Cypress](#cypress)
+  - [Docker](#docker)
+  - [実行手順](#実行手順)
+
+<br>
 
 ## 機能
 
@@ -22,6 +38,8 @@
 - Todo の CRUD
 - テック企業の開発メンバを取得する
   - GitHub API を GET 通信で叩く
+
+<br>
 
 ## 環境
 
@@ -44,18 +62,6 @@
 <br>
 
 ## 環境構築
-
-- [機能](#機能)
-- [環境](#環境)
-- [環境構築](#環境構築)
-  - [プロジェクト作成](#プロジェクト作成)
-  - [Webpack](#webpack)
-  - [Lint/Format](#lintformat)
-  - [Jest](#jest)
-  - [StroyBook](#stroybook)
-  - [Cypress](#cypress)
-  - [Docker](#docker)
-  - [実行手順](#実行手順)
 
 ### プロジェクト作成
 
@@ -129,6 +135,8 @@
       - path の略記のため resolve.extensions を追加
       - tsconfig.json に同様の alias を追加
 
+<br>
+
 ### Lint/Format
 
 - eslint の settings に import/resolver: webpack を追加
@@ -137,12 +145,16 @@
 - Prettier の設定を追加
 - VSCode の設定を追加
 
+<br>
+
 ### Jest
 
 - tsconfig の設定を追加 `jest.config.js`
 - ESLint の設定を追加 `import/extensions`
 - config ファイル作成 `npm test -- --init`
 - ./src/containers/\*\*/* にテストコードを書く
+
+<br>
 
 ### StroyBook
   
@@ -156,6 +168,8 @@
   - Snapshots の設定を追加
     - src/components/snapshots.test.js を作成
     - 親子関係は components/snapshots.test.js > components/\*\*/snapshot/snap.js
+
+<br>
 
 ### Cypress
 
@@ -177,6 +191,8 @@
 └── .git
 ```
 
+<br>
+
 ### Docker
 
 - Dockerfile
@@ -193,6 +209,8 @@
   - 削除 : `docker container rm コンテナ名`
   - 一括停止 & 削除 : `docker-compose down --rmi all`
     - それでも削除されないイメージを強制的に削除 : `docker images -aq | xargs docker rmi`
+
+<br>
 
 ### 実行手順
 
