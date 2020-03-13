@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+set -ex
+
 # This script runs at the Dockerfile entry point
 
 # npm install notes
@@ -60,7 +62,7 @@
 ### npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.11
 ### wanted {"os":"darwin","arch":"any"} / current: {"os":"linux","arch":"x64"}
 
-save() {
+npm_install_save() {
   npm i \
     axios \
     @material-ui/core \
@@ -76,7 +78,7 @@ save() {
     connected-react-router
 }
 
-save_dev() {
+npm_install_save_dev() {
   npm i -D \
     axios-mock-adapter \
     @babel/cli \
@@ -130,7 +132,7 @@ save_dev() {
     webpack-dev-server
 }
 
-save_peer() {
+npm_install_save_peer() {
   npm i -D \
     acorn@^7.0.0 \
     eslint-plugin-react-hooks@^1.7.0 \
@@ -140,18 +142,11 @@ save_peer() {
 }
 
 if [ ! -d "node_modules" ]; then
-  echo "\n========== Start npm install --save ==========\n" &&
-    save &&
-    echo "\n========== Start npm install --save-dev ==========\n" &&
-    save_dev &&
-    echo "\n========== Start npm install peerDependencies --save-dev ==========\n" &&
-    save_peer
-    echo "\n========== Start npm audit fix ==========\n" &&
-    npm audit fix &&
-    echo "\n========== Start dedupe ==========\n" &&
-    npm dedupe &&
-    echo "\n========== Finish npm-setup.sh ==========\n"
+  npm_install_save
+  npm_install_save_dev
+  npm_install_save_peer
+  npm audit fix
+  npm dedupe
 fi
 
-echo "\n========== Start webpack-dev-server ==========\n" &&
 npm run build:dev

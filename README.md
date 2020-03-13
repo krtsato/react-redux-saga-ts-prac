@@ -214,16 +214,14 @@
 
 ### 実行手順
 
-コンテナを立ち上げる
+- npm-install.sh が実行される
+  - node_modules が存在しない場合はインストール作業
+  - それ以外の場合は webpack-dev-server が起動する
 
 ```zsh
-docker-compose up --build -d サービス名 && docker logs -f コンテナ名
-```
+# ビルドを要する初回起動
+% docker-compose up --build -d frontend
 
-コードを書く
-
-```zsh
-# webpack-dev-server を起動
-docker-compose exec サービス名 zsh
-npm run build:dev
+# 初回以降
+% docker-compose up -d frontend
 ```
