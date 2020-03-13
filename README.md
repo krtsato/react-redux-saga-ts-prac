@@ -10,7 +10,7 @@
     - インストールしたが新機能は未使用
     - 2020年3月時点では prettiier の対応待ち
 - Re-ducks パターンによる設計
-  - 詳細は [references/react-redux-ts/redux-arch](https://github.com/krtsato/references/blob/master/react-redux-ts/redux-arch.md) を参照．
+  - 詳細は [references/react-redux-ts/redux-arch](https://github.com/krtsato/references/blob/master/react-redux-ts/redux-arch.md) を参照
   - Redux の複雑性を乗りこなす
     - 堅く作ることで増大していく記述量
     - 責務をどこで，どこまで，どうやって分けるか
