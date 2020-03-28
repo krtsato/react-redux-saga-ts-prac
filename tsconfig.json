@@ -14,7 +14,7 @@
     // CommonJS モジュールと ES モジュールの相互運用が可能
     "esModuleInterop": true,
     // import type で明記する型は値として使わない
-    "importsNotUsedAsValues": "preserve",
+    "importsNotUsedAsValues": "error",
     // re-export するため各ファイルを単一のモジュールとして評価しない
     "isolatedModules": false,
     // .tsx ファイルから JSX の形式を保ったまま .jsx ファイルを出力

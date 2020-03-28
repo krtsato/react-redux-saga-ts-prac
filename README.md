@@ -6,9 +6,7 @@
 - 2020年時点でのモダンなフロントエンド構成
   - React / Redux Hooks
   - Custom Hooks と async-await による汎用的な非同期処理
-  - ~~TypeScript 3.8 対応~~
-    - インストールしたが新機能は未使用
-    - 2020年3月時点では prettiier の対応待ち
+
 - Re-ducks パターンによる設計
   - 詳細は [references/react-redux-ts/redux-arch](https://github.com/krtsato/references/blob/master/react-redux-ts/redux-arch.md) を参照．
   - Redux の複雑性を乗りこなす
@@ -28,6 +26,7 @@
   - [Cypress](#cypress)
   - [Docker](#docker)
   - [実行手順](#実行手順)
+- [TypeScript 3.8 について](#typescript-38-について)
 
 <br>
 
@@ -225,3 +224,14 @@
 # 初回以降
 % docker-compose up -d frontend
 ```
+
+<br>
+
+### TypeScript 3.8 について
+
+2020年3月時点
+
+- 導入済みだが新機能は未使用
+- babel-loader が新記法に未対応
+  - Storybook が Babel のトランスパイルに依存しているため babel-loader に統一した
+- 今後は TypeScript のアップデートに対応するべく ts-loader 主導でパッケージを導入していく
