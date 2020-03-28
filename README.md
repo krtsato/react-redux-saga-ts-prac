@@ -8,12 +8,14 @@
   - Custom Hooks と async-await による汎用的な非同期処理
 
 - Re-ducks パターンによる設計
-  - 詳細は [references/react-redux-ts/redux-arch](https://github.com/krtsato/references/blob/master/react-redux-ts/redux-arch.md) を参照．
+  - 詳細は [references/react-redux-ts/redux-arch.md](https://github.com/krtsato/references/blob/master/react-redux-ts/redux-arch.md) を参照
   - Redux の複雑性を乗りこなす
     - 堅く作ることで増大していく記述量
     - 責務をどこで，どこまで，どうやって分けるか
 
 <br>
+
+リポジトリ概要
 
 - [機能](#機能)
 - [環境](#環境)
