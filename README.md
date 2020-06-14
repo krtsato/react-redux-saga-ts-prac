@@ -4,7 +4,7 @@
 [成果物](https://master.dfk5u1b9h65at.amplifyapp.com/)から得られること
 
 - 2020年時点でのモダンなフロントエンド構成
-  - React / Redux Hooks
+  - React / Redux Hooks / TypeScript
   - Custom Hooks と async-await による汎用的な非同期処理
 
 - Re-ducks パターンによる設計
